@@ -1,0 +1,32 @@
+.box-shadow {
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 2px -2px rgba(200,200,200,0.2);
+}
+
+
+
+
+.box-shadow--no-border {
+  box-shadow: 0 3px 2px -2px rgb(200, 200, 200);
+}
+
+.filter-shadow-smaller {
+	-webkit-filter: drop-shadow(5px 5px 5px unquote('#2222221f'));
+	filter: drop-shadow(5px 5px 5px unquote('#2222221f'));
+}
+
+.filter-shadow-small {
+  -webkit-filter: drop-shadow(5px 5px 5px unquote('#2222222b'));
+  filter: drop-shadow(5px 5px 5px unquote('#2222222b'));
+}
+
+.filter-shadow-big {
+  -webkit-filter: drop-shadow(5px 5px 5px unquote('#22222214'));
+  filter: drop-shadow(5px 5px 5px unquote('#22222214'));
+}
+
+.filter-shadow-strong {
+  -webkit-filter: drop-shadow(5px 5px 5px unquote('#2222223b'));
+  filter: drop-shadow(5px 5px 5px unquote('#2222223b'));
+}
+

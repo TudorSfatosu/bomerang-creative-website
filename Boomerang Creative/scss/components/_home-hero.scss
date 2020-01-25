@@ -1,0 +1,143 @@
+.hero-section {
+	position: relative;
+	padding-top: 2em;
+
+	@include mq(sm) {
+		padding-top: 4em;
+	}
+
+	@include mq(md) {
+		padding-top: 6em;
+	}
+
+	@include mq(lg) {
+		padding-top: 8em;
+	}
+
+	.icon {
+		width: 7em;
+		height: 7em;
+		margin: 0 -2em;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+
+	.main-text-box {
+		padding: 2em 2em 1em 2em;
+
+		@include mq(sm) {
+			padding: 3em 4em 3em 4em;
+		}
+
+		@include mq(lg) {
+			padding: 5em 4em 6em 5em;
+		}
+	}
+
+	h3 {
+		@include mq(lg) {
+			width: 67%;
+		}
+	}
+}
+
+.transparent-overlay {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+	padding: .5em;
+
+	@include mq(sm) {
+		padding: 1em;
+	}
+
+	@include mq(md) {
+		padding: 1.5em;
+	}
+}
+
+.home-banner {
+	z-index: -999;
+	-webkit-transform: translate3d(0,0,0);
+	background-size: cover;
+	width: 100%;
+	height: 49em;
+	background-position: center;
+	height: 12em;
+	position: absolute;
+	top: 0;
+	height: 45em;
+	@include mq(sm) {
+		height: 38em;
+	}
+
+	@include mq(md) {
+		height: 22em;
+	}
+
+	@include mq(lg) {
+		height: 44em;
+	}
+
+	@include mq(xl) {
+		height: 46em;
+	}
+}
+
+.simple-banner-container {
+	video {
+		-webkit-transform: translate3d(0,0,0);
+		width: 85%;
+		left: 7%;
+		object-fit: cover;
+		height: 14em !important;
+		top: 5%;
+
+		@include mq(sm) {
+			left: 7%;
+			height: 20em !important;
+			top: 5%;
+		}
+
+		@include mq(md) {
+			height: 11em !important;
+			top: -3.5em;
+			width: 50%;
+			left: 27%;
+		}
+
+		@include mq(lg) {
+			width: 80%;
+			left: 14%;
+			object-fit: cover;
+			height: 27em !important;
+			top: 8%;
+		}
+
+		@include mq(xl) {
+			width: 60%;
+			left: 24%;
+			object-fit: contain;
+		}
+
+		@include mq(xxl) {
+			width: 50%;
+			left: 28%;
+			object-fit: cover;
+		}
+
+		@include mq(xxxl) {
+			width: 38%;
+			left: 33%;
+			object-fit: contain;
+		}
+	}
+}
+
+.hand-icon {
+	width: 2em;
+	@include mq(lg) {
+		width: 3em;
+	}
+}

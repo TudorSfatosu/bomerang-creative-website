@@ -1,0 +1,72 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+	var SettingsNode = @Umbraco.Content(1473);
+	var Settings = new Settings(SettingsNode);
+	var seo = new SEO(Model);
+}
+
+<!-- Footer -->
+<footer>
+	<div class="container links text-center all-caps museo-sans-700">
+		<div class="row p-0">
+			<div class="col-12 p-0">
+				<ul class="d-sm-inline-flex my-0 py-4">
+					@foreach (var footerNavigation in @Settings.FooterNavigation)
+					{
+						if (@seo.HideInFooterNavigation == false)
+						{
+							<li class="py-2 py-md-1">
+								<a href="@footerNavigation.Url" class="grey-text grey-text-hover px-4">@footerNavigation.Name</a>
+							</li>
+						}
+					}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid lightest-grey-bg text-center museo-sans-500 py-2">
+		<div class="container">
+			<ul class="my-0 py-4 row contact-list">
+				<li class="my-2 col-12 col-lg-4 p-0 text-left">
+					<a href="mailto:@Settings.Email" class="grey-text grey-text-hover">
+						<i class="icon icon-envelope d-inline-flex"
+						   style="background-image: url(/assets/images/png/envelope-icon.png)"></i>
+						<span>@Settings.Email</span>
+					</a>
+				</li>
+				<li class="my-2 col-12 col-lg-4 p-0">
+					<a href="tel:@Settings.Phone" class="grey-text grey-text-hover">
+						<i class="icon icon-phone d-inline-flex"
+						   style="background-image: url(/assets/images/png/phone-icon.png)"></i>
+						<span>@Settings.Phone</span>
+					</a>
+				</li>
+				<li class="my-2 col-12 col-lg-4 p-0 text-right">
+					<a target="_blank"
+					   href="https://www.google.com/maps/dir//Boomerang+Creative,+Oxford+Square,+University+House,+Newbury+RG14+1JQ/&#64;51.4057917,-1.3278873,17z/data=!4m16!1m6!3m5!1s0x4876a622e8600d69:0x6dc43e17b9bb0073!2sBoomerang+Creative!8m2!3d51.4057917!4d-1.3256933!4m8!1m0!1m5!1m1!1s0x4876a622e8600d69:0x6dc43e17b9bb0073!2m2!1d-1.3256933!2d51.4057917!3e2"
+					   class="grey-text grey-text-hover">
+						<i class="icon icon-pin d-inline-flex"
+						   style="background-image: url(/assets/images/png/map-pin-icon.png)"></i>
+						<span>@Settings.OneLineAddress</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container mt-4 mb-5 mt-md-5">
+		<div class="row">
+			<div class="col-12 col-md-6 all-caps museo-sans-300 orange1-text copyright-text">
+				@foreach (var copyrightNavigation in @Settings.CopyrightBarNavigation)
+				{
+					<a href="@copyrightNavigation.Url" class="">@copyrightNavigation.Name</a>
+				}
+			</div>
+			<div class="col-12 col-md-6 all-caps museo-sans-300 orange1-text copyright-text p-0">
+				&copy; @Settings.CompanyName
+				<script>new Date().getFullYear() > 2017 && document.write(new Date().getFullYear());</script>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- / Footer -->

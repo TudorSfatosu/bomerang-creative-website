@@ -1,0 +1,135 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.NewStart>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+	Layout = "Master.cshtml";
+}
+
+@section Scripts {
+
+	@if (ViewBag.Section == "form")
+	{
+		<script>
+			$(document).ready(function () {
+				var anchor = document.getElementById('form');
+				anchor.scrollIntoView(true);
+			});
+		</script>
+	}
+
+	<script>
+		$(document).ready(function () {
+			// Slider value update
+			var slider = document.getElementById("Budget");
+			var output = document.getElementById("quote-value");
+			output.innerHTML = slider.value;
+
+			slider.oninput = function () {
+				output.innerHTML = this.value.split("").reverse().join("").replace(/(.{3}\B)/g, "$1 ").split("").reverse().join("");;
+			}
+
+			// Slider colours
+			$('input[type="range"]').on("change mousemove ", function () {
+				var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+
+				$(this).css('background',
+					'linear-gradient(to right, #e63f11, #ea530b, #ed6405, #ef7503, #f18405, #f38c07, #f4950a, #f69d0f, #f8a10e, #fba60e, #fdaa0d, #ffaf0d '+ val* 100 +'%, #fff '+ val * 100 +'%, #fff 100%)'
+				);
+			});
+
+			// Tooltip activation
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip()
+			})
+		});
+	</script>
+
+	<script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+	<script src="~/scripts/jquery.validate.min.js"></script>
+	<script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+}
+
+<style>
+	.simple-banner {
+			background-image: url(@Model.MobileBannerImage.Url), linear-gradient(to bottom, #ffaf0d 0%, #ffaf0d 30%, #fba60e, #f8a10e, #f69d0f, #f4950a, #f38c07, #f18405, #ef7503, #ed6405, #ea530b, #e63f11);
+			background-size: 60%, 100% !important;
+			background-repeat: no-repeat;
+			background-position-y: 11% !important;
+			padding: 0 1em 4em;
+	}
+
+	@@media (min-width: 577px) {
+		.simple-banner {
+		    background-image: url(@Model.BannerImage.Url), linear-gradient(to bottom, #ffaf0d 0%, #ffaf0d 30%, #fba60e, #f8a10e, #f69d0f, #f4950a, #f38c07, #f18405, #ef7503, #ed6405, #ea530b, #e63f11);
+			background-size: 20%, 100%!important;
+			background-repeat: no-repeat;
+			background-position-y: 11% !important;
+			padding: 10em 1em 4em !important;
+		}
+	}
+
+	@@supports (-ms-ime-align:auto) {
+		.simple-banner {
+			background-image: linear-gradient(to right, rgba(255, 174, 34, 0.75) 0%, rgba(255, 174, 34, 0.75) 100%), url(@Model.MobileBannerImage.Url), linear-gradient(to right, rgba(255, 174, 34, 1) 0%, rgba(255, 174, 34, 1) 100%);
+			background-size: 100%, 75%, auto !important;
+			background-position-y: 11%;
+			background-position: center;
+		}
+	}
+	@@media (min-width: 577px) {
+		@@supports (-ms-ime-align:auto) {
+			.simple-banner {
+				background-image: linear-gradient(to right, rgba(255, 174, 34, 0.75) 0%, rgba(255, 174, 34, 0.75) 100%), url(@Model.BannerImage.Url), linear-gradient(to right, rgba(255, 174, 34, 1) 0%, rgba(255, 174, 34, 1) 100%);
+				background-size: 100%, 20%, auto !important;
+				background-position-y: 11%;
+				background-position: center;
+			}
+		}
+	}
+
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Contact Banner -->
+<section class="simple-banner-container">
+	<div class="container-fluid simple-banner text-center action-form" style="">
+		<div class="container">
+			<div class="row text-center justify-content-center pt-3 pt-md-0">
+				<div class="museo-sans-500">
+					<span class="white-border-bottom white-text tag-line first-line filter-shadow-big">@Model.IntroBannerText</span>
+				</div>
+			</div>
+		</div>
+		<h1 class="verveine white-text fade-in-mouse-move">@Model.LargeText</h1>
+
+		<div class="container">
+			<div class="row">
+				<div class="museo-sans-500 tag-container pt-4 pt-md-0">
+					<span class="white-text tag-line first-line filter-shadow-big">@Model.IntroductoryFormText</span>
+				</div>
+			</div>
+		</div>
+		<div id="form" class="container py-5 contact-form quote-form quote-form--white">
+			<div class="row">
+				<div class="col-md-10 mx-auto p-0">
+					@Html.Action("NewStartForm", "Forms")
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- / Contact Banner -->
+
+@if (@Model.ExtraWordCount != null && !String.IsNullOrEmpty(@Model.ExtraWordCount.ToString()))
+{
+	<section>
+		<div class="row p-5">
+			<div class="col-8 text-center museo-sans-300 m-auto">
+				@Model.ExtraWordCount
+			</div>
+		</div>
+	</section>
+}

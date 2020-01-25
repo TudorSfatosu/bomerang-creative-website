@@ -1,0 +1,22 @@
+.decorative-container {
+  display: flex;
+  font-size: 7em;
+  margin-bottom: -0.3em;
+  @include mq(sm) {
+    font-size: 10em;
+  }
+  @include mq(md) {
+    font-size: 12em;
+  }
+  @include mq(lg) {
+    font-size: 14em;
+  }
+  @include mq(xl) {
+    font-size: 17em;
+  }
+  justify-content: center;
+  .decorative-text {
+
+  }
+}
+

@@ -1,0 +1,95 @@
+.columns {
+  padding: 2.5vw;
+  display: flex;
+}
+
+.animation-container {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  // item mask
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 0;
+  }
+
+  &-item {
+    z-index: 1;
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    margin: auto;
+    background: url('../assets/images/svg/boomerang-emblem-full.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 5em;
+    width: 5em;
+  }
+
+  &:hover {
+    -webkit-animation: box 1.75s;
+    -moz-animation: box 1.75s;
+    -o-animation: box 1.75s;
+    animation: box 1.75s;
+
+    .animation-container-item {
+      -webkit-animation: boomarang 1.75s;
+      -moz-animation: boomarang 1.75s;
+      -o-animation: boomarang 1.75s;
+      animation: boomarang 1.75s;
+    }
+  }
+}
+
+@-webkit-keyframes box {
+  80% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(10deg);
+  }
+}
+
+@-webkit-keyframes boomarang {
+  10% {
+    z-index: 1;
+    transform: rotate(-20deg);
+  }
+  35% {
+    z-index: 1;
+    transform: translate(220%, -55%) scale(0.5) rotate(-200deg);
+  }
+  74% {
+    z-index: -1;
+  }
+  75% {
+    transform: translate(-200%, 55%) scale(0.9) rotate(-860deg);
+  }
+  80% {
+    z-index: 1;
+  }
+  90% {
+    z-index: 1;
+    transform: translate(0%, 0%) rotate(10deg);
+
+  }
+}
+
+@-webkit-keyframes swing {
+  0%, 100% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+}

@@ -1,0 +1,1049 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\UmbracoCms.8.0.2\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.8.0.2\build\UmbracoCms.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9D4D5785-B32B-4F72-8CC6-0C2F2BCA4908}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Boomerang_Creative</RootNamespace>
+    <AssemblyName>Boomerang Creative</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ClientDependency.Core, Version=1.9.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency.1.9.7\lib\net45\ClientDependency.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ClientDependency.Core.Mvc, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency-Mvc5.1.8.0.0\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="CSharpTest.Net.Collections, Version=14.906.1403.1082, Culture=neutral, PublicKeyToken=06aee00cce822474, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSharpTest.Net.Collections.14.906.1403.1082\lib\net40\CSharpTest.Net.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Examine, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Examine.1.0.0\lib\net452\Examine.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.8.14.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.8.14\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageProcessor, Version=2.7.0.100, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.2.7.0.100\lib\net452\ImageProcessor.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageProcessor.Web, Version=4.10.0.100, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.Web.4.10.0.100\lib\net452\ImageProcessor.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="LightInject, Version=5.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.5.4.0\lib\net46\LightInject.dll</HintPath>
+    </Reference>
+    <Reference Include="LightInject.Annotation, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.Annotation.1.1.0\lib\net46\LightInject.Annotation.dll</HintPath>
+    </Reference>
+    <Reference Include="LightInject.Mvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.Mvc.2.0.0\lib\net46\LightInject.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="LightInject.Web, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.Web.2.0.0\lib\net46\LightInject.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="LightInject.WebApi, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.WebApi.2.0.0\lib\net46\LightInject.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net, Version=3.0.3.0, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="MailChimp.Net, Version=4.1.0.0, Culture=neutral, PublicKeyToken=37d26d538413c581, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailChimp.Net.V3.4.1.0\lib\net45\MailChimp.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Markdown, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1b320cc08ad5aa89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Markdown.2.2.1\lib\net451\Markdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.2.10.0\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.2.10.0\lib\netstandard1.3\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.2.2\lib\net45\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.4.0.138\lib\net461\MiniProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="MiniProfiler.Shared, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\MiniProfiler.Shared.4.0.138\lib\net461\MiniProfiler.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPoco, Version=3.9.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPoco.3.9.4\lib\net45\NPoco.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Recaptcha.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=171a6ec5fa4b1644, processorArchitecture=MSIL">
+      <HintPath>..\packages\RecaptchaNet.2.1.0\lib\net451\Recaptcha.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Semver, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Semver.2.0.4\lib\net452\Semver.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.8.0\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Enrichers.Process, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Enrichers.Process.2.0.1\lib\net45\Serilog.Enrichers.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Enrichers.Thread, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Enrichers.Thread.3.0.0\lib\net45\Serilog.Enrichers.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Filters.Expressions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Filters.Expressions.2.0.0\lib\net45\Serilog.Filters.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Formatting.Compact, Version=1.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Formatting.Compact.1.0.0\lib\net45\Serilog.Formatting.Compact.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Formatting.Compact.Reader, Version=1.0.3.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Formatting.Compact.Reader.1.0.3\lib\net45\Serilog.Formatting.Compact.Reader.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Settings.AppSettings, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Settings.AppSettings.2.2.2\lib\net45\Serilog.Settings.AppSettings.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.4.0.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Superpower, Version=1.0.0.0, Culture=neutral, PublicKeyToken=aec39280ded1b3a7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Superpower.2.0.0\lib\net45\Superpower.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Umbraco.SqlServerCE.4.0.0.1\lib\net472\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Umbraco.SqlServerCE.4.0.0.1\lib\net472\System.Data.SqlServerCe.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.FileVersionInfo.4.3.0\lib\net46\System.Diagnostics.FileVersionInfo.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.StackTrace.4.3.0\lib\net46\System.Diagnostics.StackTrace.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=1.4.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.1.6.0\lib\netstandard2.0\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.4.3.0\lib\net46\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.6.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Dataflow.4.9.0\lib\netstandard2.0\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Thread.4.3.0\lib\net46\System.Threading.Thread.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.XPath, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XPath.4.3.0\lib\net46\System.Xml.XPath.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XPath.XDocument.4.3.0\lib\net46\System.Xml.XPath.XDocument.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Core, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.8.0.2\lib\net472\Umbraco.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Examine, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Web.8.0.2\lib\net472\Umbraco.Examine.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.ModelsBuilder, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Umbraco.ModelsBuilder.8.0.4\lib\net472\Umbraco.ModelsBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Web, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Web.8.0.2\lib\net472\Umbraco.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Web.PublishedModels, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bin\Umbraco.Web.PublishedModels.dll</HintPath>
+    </Reference>
+    <Reference Include="Umbraco.Web.UI, Version=8.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Web.8.0.2\lib\net472\Umbraco.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
+    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.html" />
+    <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
+    <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="assets\images\jpg\about-banner\cards-banner-boomearng-creative-clean-orange-blurred-small-v2.jpg" />
+    <Content Include="assets\images\jpg\about-banner\cards-banner-boomearng-creative-clean-white-blurred-small-v2.jpg" />
+    <Content Include="assets\images\jpg\about-banner\sprite-2.png" />
+    <Content Include="assets\images\jpg\about-banner\sprite.png" />
+    <Content Include="assets\images\jpg\banner\banner-background-with-camera.jpg" />
+    <Content Include="assets\images\jpg\banner\circus-cannon-isolated-on-white-background-3d-illustration-mobile.jpg" />
+    <Content Include="assets\images\jpg\banner\circus-cannon-isolated-on-white-background-3d-illustration-mobile.png" />
+    <Content Include="assets\images\jpg\banner\circus-cannon-isolated-on-white-background-3d-illustration-original.png" />
+    <Content Include="assets\images\jpg\banner\circus-cannon-isolated-on-white-background-3d-illustration.jpg" />
+    <Content Include="assets\images\jpg\banner\color-swatch-selecting-couple-digital-device-design-concept.jpg" />
+    <Content Include="assets\images\jpg\banner\holly-mills-tablet-mockup-banner.jpg" />
+    <Content Include="assets\images\jpg\banner\modern-orange-chair-in-white-room-interior-parquet-wood-floor.jpg" />
+    <Content Include="assets\images\jpg\banner\old-toy-vintage-style-no-colour.jpg" />
+    <Content Include="assets\images\jpg\banner\old-toy-vintage-style-original.jpg" />
+    <Content Include="assets\images\jpg\banner\old-toy-vintage-style.jpg" />
+    <Content Include="assets\images\jpg\blog\brand-idea-concept-with-businessman-holding-light-bulb-retro-toned-image-selective-focus.jpg" />
+    <Content Include="assets\images\jpg\blog\confident-bold-excitement-energy-enthusiams-playful-advernturous-youthful-fun-happy-optimistic-creative-fresh-cheerful.jpg" />
+    <Content Include="assets\images\jpg\blog\digital-online-brand-marketing-concept.jpg" />
+    <Content Include="assets\images\jpg\blog\group-of-young-people-employee-workers-with-computer-in-urban-alternative-studio-business-concept-of-human-resource-and-fun-on-working-time.jpg" />
+    <Content Include="assets\images\jpg\blog\hootsuite-logo-on-an-black-and-wihet-illustration-of-a-mac-computer-on-orange-background.jpg" />
+    <Content Include="assets\images\jpg\blog\illustration-of-hand-holding-a-mobile-phone-on-a-red-orange-background.jpg" />
+    <Content Include="assets\images\jpg\blog\office-desk-with-tools-and-notes-about-digital-marketing.jpg" />
+    <Content Include="assets\images\jpg\blog\office-workers-avatars-on-a-white-background-concept-of-cv-resume-employment-recruitment-and-communication-social-media-in-business-vector.jpg" />
+    <Content Include="assets\images\jpg\blog\people-working-in-a-conference-and-photo-illustration.jpg" />
+    <Content Include="assets\images\jpg\blog\young-woman-keyboarding-on-laptop-computer-sitting-in-cafe.jpg" />
+    <Content Include="assets\images\jpg\contact\compass-close-up-and-white-background-in-colour.jpg" />
+    <Content Include="assets\images\jpg\home-banner\elements\column.png" />
+    <Content Include="assets\images\jpg\home-banner\elements\decoration.png" />
+    <Content Include="assets\images\jpg\home-banner\elements\floor.png" />
+    <Content Include="assets\images\jpg\home-banner\elements\frame.png" />
+    <Content Include="assets\images\jpg\home-banner\elements\front-layer.png" />
+    <Content Include="assets\images\jpg\home-banner\elements\icon-hand.png" />
+    <Content Include="assets\images\jpg\home-banner\elements\icon-plaque.jpg" />
+    <Content Include="assets\images\jpg\home-banner\elements\orange-background-2.jpg" />
+    <Content Include="assets\images\jpg\home-banner\elements\orange-background-with-canon.jpg" />
+    <Content Include="assets\images\jpg\home-banner\elements\orange-background.jpg" />
+    <Content Include="assets\images\jpg\home-banner\elements\people-floor.png" />
+    <Content Include="assets\images\jpg\home-banner\elements\people.png" />
+    <Content Include="assets\images\jpg\home-banner\masks\master-screen-2-mobile.png" />
+    <Content Include="assets\images\jpg\home-banner\masks\master-screen-2.jpg" />
+    <Content Include="assets\images\jpg\home-banner\masks\master-screen-2.png" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-arigato-dining-project-full.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-arigato-dining-project.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-body-tlc-essentials-project-full.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-body-tlc-essentials-project.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-lakeside-superbowl-project-full.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-lakeside-superbowl-project.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-parents-empowered-project-full.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-parents-empowered-project.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-px-partnership-project-full.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-px-partnership-project.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-wau-project-full.jpg" />
+    <Content Include="assets\images\jpg\home\boomerang-home-gallery-wau-project.jpg" />
+    <Content Include="assets\images\jpg\home\logos\arigato-logo-white.png" />
+    <Content Include="assets\images\jpg\home\logos\body-tlc-logo.png" />
+    <Content Include="assets\images\jpg\home\logos\dyslexia-decoded.png" />
+    <Content Include="assets\images\jpg\home\logos\lakeside-logo-white.png" />
+    <Content Include="assets\images\jpg\home\logos\wau-logo-white.png" />
+    <Content Include="assets\images\jpg\project\all\arigato-dining-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\body-tlc-essentials-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\clearview-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\embers-camping-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\holly-mills-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\lakeside-superbowl-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\parents-empowered-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\phoenix-sporting-goods-creative-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\px-partnership-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\wau-malaysian-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\westhorpe-house-creative-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\all\whitebeam-project-thumbnail.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-card-designed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-izakaya-banner.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-izakaya-poster.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-magasine-on-dark-grey-background.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-menu-on-a-dark-grey-background.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-offer-poster.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-offer-sushi-masterclasses-poster.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-sushi-psoter.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-website-on-a-laptop-on-a-wood-table.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\arigato-dining-website-on-tablet-and-iphone-on-a-dark-background.jpg" />
+    <Content Include="assets\images\jpg\project\arigato-dining\banner-for-arigato-dining-project-with-sushi-and-chopsticks-in-mid-air-on-a-black-background.jpg" />
+    <Content Include="assets\images\jpg\project\body-tlc-essentials\banner-for-body-tlc-essentials-project-with-a-woman-enjoying-the-skincare-products.jpg" />
+    <Content Include="assets\images\jpg\project\body-tlc-essentials\body-tlc-essentials-transparent-logo.png" />
+    <Content Include="assets\images\jpg\project\body-tlc-essentials\body-tlc-rose-haricare-banner.jpg" />
+    <Content Include="assets\images\jpg\project\body-tlc-essentials\body-tlc-rose-mac-screen-banner-and-website-mockup.jpg" />
+    <Content Include="assets\images\jpg\project\body-tlc-essentials\body-tlc-rose-products.jpg" />
+    <Content Include="assets\images\jpg\project\body-tlc-essentials\body-tlc-rose-the-white-rose-collection.jpg" />
+    <Content Include="assets\images\jpg\project\body-tlc-essentials\body-tlc-rose-website-mockup.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\a-woman-holding-an-iphone-with-the-mobile-version-of-the-clearview-relocations-website.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\a-yellow-taxi-displaying-an-ad-for-the-clearview-relocation-company-mobile.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\a-yellow-taxi-displaying-an-ad-for-the-clearview-relocation-company.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\business-card-usb-memory-drive-for-clearview-relocation-clients.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\clearview-relocation-advert-for-the-app.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\clearview-relocation-general-advert.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\screenshot-of-the-fresh-aproach-to-relocation-webpage-of-the-clearview-relocation-website-.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\screenshot-of-the-uk-home-search-services-webpage-of-the-clearview-relocation-website.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\screenshot-of-the-uk-relocation-support-services-webpage-of-the-clearview-relocation-website.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\screenshot-of-the-who-we-are-webpage-of-the-clearview-relocation-website-.jpg" />
+    <Content Include="assets\images\jpg\project\clearview\young-tourist-woman-in-the-airport-looking-through-the-window-at-plane.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\a-child-with-protective-helmet-flying-with-a-rocket-in-a-cardbox.png" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\business-cards-for-dyslexia-decoded-designed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\illustration-of-a-boy-reading-a-book-encountering-the-homework-monster.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\illustration-of-a-child-with-protective-helmet-flying-with-a-rocket-in-a-cardbox-through-the-dark-sky-for-mobile.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\illustration-of-a-child-with-protective-helmet-flying-with-a-rocket-in-a-cardbox-through-the-dark-sky.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\illustration-of-a-dark-sky-of-the-night-full-of-stars.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\Illustration-of-a-girl-flying-on-a-blue-sky-with-white-clouds-banner-for-dyslexia-decoded-for-the-private-tutoring-webpage.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\illustration-of-a-girl-with-backpack-carying-books-and-climbing-stairs-made-of-books.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\illustration-of-robot-trying-a-diagnostic.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\iphone-showing-the-mobile-design-of-the-dyslexia-decode-website-designed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\iphone-showing-the-mobile-design-of-the-dyslexia-decode-website-the-workshops-webpage.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\logo-for-dyslexia-decode-designed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\mac-comptuter-displaying-the-dyslexia-decoded-website-home-page.jpg" />
+    <Content Include="assets\images\jpg\project\dyslexia-decoded\opened-magazine-with-a-dyslexia-decode-advert-on-a-blue-background.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\a-flat-screenshot-of-the-bentley-campsite-webpage-of-the-desktop-version-of-the-embers-camping-webiste.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\a-flat-screenshot-of-the-polesden-lacey-campsite-webpage-of-the-desktop-version-of-the-embers-camping-webiste.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\a-laptop-displaying-the-embers-camping-website-on-a-modern-table.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\a-laptop-displaying-the-embers-camping-website-on-an-abstract-grey-background.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\a-modern-mobile-phone-displaying-the-embers-camping-website.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\a-tablet-showing-a-webpage-from-the-embers-camping-website.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\an-phone-displaying-the-embers-camping-website-on-an-abstract-grey-background.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\an-phone-displaying-the-embers-camping-website.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\banner-with-a-woman-holding-a-metal-cup-while-camping-outdoors-with-red-transparent-gradient-overlay.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\embers-camping-website-on-a-mac-computer-displaying-the-des.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\embers-camping-website-on-a-mac-computer-displaying-the-desktop-version.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\opened-magazine-with-an-embers-camping-advert-on-a-blue-background.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\stack-of-business-cards-in-white-and-blue-for-embers-camping.jpg" />
+    <Content Include="assets\images\jpg\project\embers-camping\stack-of-business-cards-in-white-and-orange-for-embers-camping.jpg" />
+    <Content Include="assets\images\jpg\project\front-end-developer-developing-websites-at-boomerang-creative-in-newbury.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\a-womna-in-a-yellow-sweater-holding-a-holly-mills-business-card.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\cropped-screenshot-of-the-gallery-of-the-holly-mills-website.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\cropped-screenshot-of-the-parallax-banner-of-the-holly-mills-athelete-website.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\cropped-screenshot-of-the-restuls-odometer-as-seen-on-the-holly-mills-athlete-website.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\dark-blue-sweater-with-the-holly-mills-logo-printed-on-it.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\holly-mills-athlete-jumping-with-a-blue-sky-with-nice-clouds-in-the-background.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\holly-mills-holding-the-flag-of-england-in-bahamas.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\holly-mills-logo-on-a-white-background-designed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\monitor-dislaying-the-parllax-banner-of-the-holly-mills-website.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\tablet-with-the-facebook-page-of-the-holly-mills-athelete.jpg" />
+    <Content Include="assets\images\jpg\project\holly-mills\the-hands-of-a-woman-holding-a-phone-that-displays-the-blog-page-ofthe-holly-mills-athelete-website-.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\banner-for-lakeside-superbowl-project-with-neon-light-logo-on-a-wall.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\giant-bowling-pin-art-wall-decoration-on-a-wallpaper-with-coloured-bowling-pins-for-lakeside-superbowl.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeisde-webiste-mockup-on-two-mobile-phones-on-a-pink-background.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-art.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-girl-in-yellow-with-jeans-before-bowling-with-pink-overlay.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-girl-in-yellow-with-jeans-before-bowling.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-logo.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-offer.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-pins-with-blue-overlay.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-pins.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-poster.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-the-grand-opening.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-the-jungle.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\lakeside-superbowl-website-on-laptop.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\layers\bowl.png" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\layers\lakeside.png" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\layers\pin.png" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\layers\super.png" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\layers\superbowl.png" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\layers\vintage-neon-wall-with-light-shades-background.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\party-time-wallpaper-on-a-blue-painted-wall-and-colourful-festive-decoration-for-lakeside-superbowl.jpg" />
+    <Content Include="assets\images\jpg\project\lakeisde-superbowl\the-lounge-blue-neon-sign-for-lakeside-superbowl-on-a-brick-wall-with-dim-light.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\3-in-1-agility-hurdle-5-piece-pack-a-gorilla-training-brand-of-pheonix-sporting-goods-product.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\back-and-lateral-view-of-a-black-van-with-the-pheonix-spoting-goods-emblem.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\frontal-view-of-a-mobile-phone-showing-the-pheonix-sporting-goods-website.jpg.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\isometric-view-of-a-mobile-phone-showing-the-pheonxi-sporting-goods-website.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\laptop-displaying-the-phoenix-sporting-goods-webiste.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\legs-of-a-soccer-or-football-player-on-ball-on-stadium.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\metal-popup-goal-a-gorilla-training-brand-product-of-phoenix-sporting-goods.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\phoenix-sporting-goods-product-catalogue-cover-and-a-page-with-speed-vision.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\sportsman-holding-a-ball-against-digital-image-of-handball-goal-image.jpg" />
+    <Content Include="assets\images\jpg\project\phoenix\young-girl-table-tennis-player-at-sports-hall.jpg" />
+    <Content Include="assets\images\jpg\project\px-partnership\banner-for-px-partnership-project-with-a-mobile-phone-mockup.jpg" />
+    <Content Include="assets\images\jpg\project\px-partnership\magazine-mockup-for-px-partnership.jpg" />
+    <Content Include="assets\images\jpg\project\px-partnership\px-partnership-magasine-mockup.jpg" />
+    <Content Include="assets\images\jpg\project\px-partnership\px-partnership-steps.jpg" />
+    <Content Include="assets\images\jpg\project\px-partnership\px-partnership-website-flags.jpg" />
+    <Content Include="assets\images\jpg\project\px-partnership\px-partnership-website-mockup-on-a-mac-screen.jpg" />
+    <Content Include="assets\images\jpg\project\px-partnership\px-partnership-website-mockup-on-an-iphone-screen.png" />
+    <Content Include="assets\images\jpg\project\px-partnership\px-partnership-website-outdoor-green-flag-on-a-sunny-day.jpg" />
+    <Content Include="assets\images\jpg\project\px-partnership\the-px-partnership-x-branding-element.png" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\banner-for-the-wau-malaysian-project-with-people-and-cars-moving-on-a-crowded-street.png" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\takeaway-packaging-for-wau-malaysian-street-food.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-malaysian-street-food-sign-on-cheap-street-in-newubry-designed-by-booemrang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-malaysian-street-food-website-on-tablets-on-a-purple-background-with-the-wau-logo-on-the-top.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-malaysian-website-iMac-mobile-version-mockup-with-a-person-holding-a-phone.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-website-iMac-desktop-version-mockup.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-website-page-desktop-version-screenshot.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-website-page-mobile-version-screenshot.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-website-webpage-on-a-tablet-in-landscape-mode-with-a-grey-background.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-website-webpage-on-a-tablet-in-portrait-mode-with-a-grey-background.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-website-webpage-on-an-iphone-6in-portrait-mode-with-a-grey-background.jpg.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\wau-website-wepage-on-a-iMac-displaying-the-desktop-version.jpg" />
+    <Content Include="assets\images\jpg\project\wau-malaysian\woman-holding-the-wau-menu-in-her-hands.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\close-up-of-table-with-wine-and-dishware-in-modern-kitchen-interior-from-westhorpe-house-3d-rendering.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\comfortable-workplace-with-computer-on-desk-in-home-office-showing-the-westhorpe-house-website.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\two-westhorpe-hosue-brochures-on-a-white-background.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\westhorpe-house-brochure-on-a-white-background-2.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\westhorpe-house-brochure-on-a-white-background.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\westhorpe-house-entrance-in-marlow-united-kingdom.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\westhorpe-house-flag-and-sign.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\westhorpe-house-grey-bachround-with-white-emblems.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\westhorpe-house-old-photograph.png" />
+    <Content Include="assets\images\jpg\project\westhrope-house\westhorpe-house-old-postcard-photo.png" />
+    <Content Include="assets\images\jpg\project\westhrope-house\westhorpe-house-presentation-image-with-logo.jpg" />
+    <Content Include="assets\images\jpg\project\westhrope-house\westhorpe-house-web-ads.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\banner-with-a-green-gray-background-and-a-white-wire-illusatrion-of-varous-houses.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\banner-with-the-whitebeam-logo-on-green-gray-background-and-a-white-wire-illusatrion-of-varous-houses.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\bussiness-cards-for-whitebeam-and-dan-holloway-designed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\mac-showing-the-whitebam-website-develop-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\quality\banner-with-a-green-gray-background-and-a-white-wire-illusatrion-of-varous-houses.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\quality\banner-with-the-whitebeam-logo-on-green-gray-background-and-a-white-wire-illusatrion-of-varous-houses.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\quality\bussiness-cards-for-whitebeam-and-dan-holloway-designed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\quality\mac-showing-the-whitebam-website-develop-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\quality\side-view-of-a-mac-monitor-with-the-desktop-version-of-the-whitebeam-website-homepage-developed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\quality\side-view-of-an-ipad-showing-the-tablet-version-of-the-whitebeam-website-developed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\quality\side-view-of-an-iphone-showing-the-tablet-version-of-the-whitebeam-website-developed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\quality\spacious-grey-living-room-with-sofa-chairs-standing-lamp-small-coffee-table-decorations-in-yellow-black-and-white.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\side-view-of-a-mac-monitor-with-the-desktop-version-of-the-whitebeam-website-homepage-developed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\side-view-of-an-ipad-showing-the-tablet-version-of-the-whitebeam-website-developed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\side-view-of-an-iphone-showing-the-tablet-version-of-the-whitebeam-website-developed-by-boomerang-creative.jpg" />
+    <Content Include="assets\images\jpg\project\whitebeam\spacious-grey-living-room-with-sofa-chairs-standing-lamp-small-coffee-table-decorations-in-yellow-black-and-white.jpg" />
+    <Content Include="assets\images\jpg\staff\boomerang-creative-staff-illustration-adrian.jpg" />
+    <Content Include="assets\images\jpg\staff\boomerang-creative-staff-illustration-aron.jpg" />
+    <Content Include="assets\images\jpg\staff\boomerang-creative-staff-illustration-elliot.jpg" />
+    <Content Include="assets\images\jpg\staff\boomerang-creative-staff-illustration-gareth.jpg" />
+    <Content Include="assets\images\jpg\staff\boomerang-creative-staff-illustration-james.jpg" />
+    <Content Include="assets\images\jpg\staff\boomerang-creative-staff-illustration-kerry.jpg" />
+    <Content Include="assets\images\jpg\staff\boomerang-creative-staff-illustration-tudor.jpg" />
+    <Content Include="assets\images\logos\arigato-logo.png" />
+    <Content Include="assets\images\logos\body-tlc-essentials-transparent-logo.png" />
+    <Content Include="assets\images\logos\clearview-relocation-loog.jpg" />
+    <Content Include="assets\images\logos\dyslexia-decoded-logo-white.png" />
+    <Content Include="assets\images\logos\embers-camping-logo-white.png" />
+    <Content Include="assets\images\logos\holly-mills-logo.png" />
+    <Content Include="assets\images\logos\lakeside-superbowl-logo-white.png" />
+    <Content Include="assets\images\logos\phoenix-sporting-goods-logo.png" />
+    <Content Include="assets\images\logos\px-partnership-logo-grey.png" />
+    <Content Include="assets\images\logos\wau-malaysian-logo-white.png" />
+    <Content Include="assets\images\logos\whitebeam-logo-white.png" />
+    <Content Include="assets\images\png\blank-white-badge.png" />
+    <Content Include="assets\images\png\blog-megaphone.png" />
+    <Content Include="assets\images\png\boomeang-emblem-orange-wire.png" />
+    <Content Include="assets\images\png\boomeang-emblem-red-wire-large.png" />
+    <Content Include="assets\images\png\boomeang-emblem-red-wire.png" />
+    <Content Include="assets\images\png\boomeang-emblem-white-wire.png" />
+    <Content Include="assets\images\png\boomerang-creative-logo-white.png" />
+    <Content Include="assets\images\png\boomerang-emblem-black-wire.png" />
+    <Content Include="assets\images\png\boomerang-emblem-full.png" />
+    <Content Include="assets\images\png\boomerang-emblem-hd.png" />
+    <Content Include="assets\images\png\chess-icon-chess-emblem-with-the-boomerang-creative-logo.png" />
+    <Content Include="assets\images\png\chevron-down.png" />
+    <Content Include="assets\images\png\cross.png" />
+    <Content Include="assets\images\png\electrocardiogram-icon-badge-with-the-boomerang-emlbem-in-the-background.png" />
+    <Content Include="assets\images\png\envelope-icon.png" />
+    <Content Include="assets\images\png\facebook-icon-white.png" />
+    <Content Include="assets\images\png\facebook-icon.png" />
+    <Content Include="assets\images\png\fountain-pen-icon-emblem-for-the-boomerang-creative-website.png" />
+    <Content Include="assets\images\png\hello-badge.png" />
+    <Content Include="assets\images\png\instagram-icon-white.png" />
+    <Content Include="assets\images\png\instagram-icon.png" />
+    <Content Include="assets\images\png\linkedin-icon-white.png" />
+    <Content Include="assets\images\png\map-marker.png" />
+    <Content Include="assets\images\png\map-pin-icon.png" />
+    <Content Include="assets\images\png\megaphone-dark-orange.png" />
+    <Content Include="assets\images\png\megaphone-grey.png" />
+    <Content Include="assets\images\png\megaphone-orange.png" />
+    <Content Include="assets\images\png\monitor-icon-emblem-for-the-boomerang-creative-website.png" />
+    <Content Include="assets\images\png\phone-icon.png" />
+    <Content Include="assets\images\png\stationery-holder-icon-emblem-for-the-boomerang-creative-website.png" />
+    <Content Include="assets\images\png\target-icon-emblem-for-the-boomerang-creative-website.png" />
+    <Content Include="assets\images\png\twitter-icon-white.png" />
+    <Content Include="assets\images\png\twitter-icon.png" />
+    <Content Include="assets\images\png\white-badge.png" />
+    <Content Include="assets\images\svg\boomeang-emblem-orange-wire.svg" />
+    <Content Include="assets\images\svg\boomeang-emblem-white-wire.svg" />
+    <Content Include="assets\images\svg\boomerang-emblem-full.svg" />
+    <Content Include="assets\images\svg\envelope-icon.svg" />
+    <Content Include="assets\images\svg\facebook-icon.svg" />
+    <Content Include="assets\images\svg\instagram-icon.svg" />
+    <Content Include="assets\images\svg\loading.svg" />
+    <Content Include="assets\images\svg\map-pin-icon.svg" />
+    <Content Include="assets\images\svg\megaphone-grey.svg" />
+    <Content Include="assets\images\svg\megaphone-orange.svg" />
+    <Content Include="assets\images\svg\phone-icon.svg" />
+    <Content Include="assets\images\svg\twitter-icon.svg" />
+    <Content Include="assets\images\tech-logos\crazy-egg-logo.png" />
+    <Content Include="assets\images\tech-logos\experian-logo.png" />
+    <Content Include="assets\images\tech-logos\facebook-logo.png" />
+    <Content Include="assets\images\tech-logos\google-ads-logo.png" />
+    <Content Include="assets\images\tech-logos\google-analyitcs-logo.png" />
+    <Content Include="assets\images\tech-logos\Google_Ads_logo.svg" />
+    <Content Include="assets\images\tech-logos\hootsuite-logo.png" />
+    <Content Include="assets\images\tech-logos\iContact-logo.png" />
+    <Content Include="assets\images\tech-logos\instagram-logo.png" />
+    <Content Include="assets\images\tech-logos\linkedin-logo.png" />
+    <Content Include="assets\images\tech-logos\mailchimp-logo-horizontal-black.png" />
+    <Content Include="assets\images\tech-logos\semrush-logo.png" />
+    <Content Include="assets\images\tech-logos\tech-gallery.png" />
+    <Content Include="assets\images\tech-logos\twitter-logo-blue.png" />
+    <Content Include="bin\Boomerang Creative.dll" />
+    <Content Include="bin\Boomerang Creative.pdb" />
+    <Content Include="config\grid.editors.config.js" />
+    <Content Include="config\Lang\cs-CZ.user.xml" />
+    <Content Include="config\Lang\da-DK.user.xml" />
+    <Content Include="config\Lang\de-DE.user.xml" />
+    <Content Include="config\Lang\en-GB.user.xml" />
+    <Content Include="config\Lang\en-US.user.xml" />
+    <Content Include="config\Lang\es-ES.user.xml" />
+    <Content Include="config\Lang\fr-FR.user.xml" />
+    <Content Include="config\Lang\he-IL.user.xml" />
+    <Content Include="config\Lang\it-IT.user.xml" />
+    <Content Include="config\Lang\ja-JP.user.xml" />
+    <Content Include="config\Lang\ko-KR.user.xml" />
+    <Content Include="config\Lang\nb-NO.user.xml" />
+    <Content Include="config\Lang\nl-NL.user.xml" />
+    <Content Include="config\Lang\pl-PL.user.xml" />
+    <Content Include="config\Lang\pt-BR.user.xml" />
+    <Content Include="config\Lang\ru-RU.user.xml" />
+    <Content Include="config\Lang\sv-SE.user.xml" />
+    <Content Include="config\Lang\zh-CN.user.xml" />
+    <Content Include="config\logviewer.searches.config.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="favicon\android-icon-144x144.png" />
+    <Content Include="favicon\android-icon-192x192.png" />
+    <Content Include="favicon\android-icon-36x36.png" />
+    <Content Include="favicon\android-icon-48x48.png" />
+    <Content Include="favicon\android-icon-72x72.png" />
+    <Content Include="favicon\android-icon-96x96.png" />
+    <Content Include="favicon\apple-icon-114x114.png" />
+    <Content Include="favicon\apple-icon-120x120.png" />
+    <Content Include="favicon\apple-icon-144x144.png" />
+    <Content Include="favicon\apple-icon-152x152.png" />
+    <Content Include="favicon\apple-icon-180x180.png" />
+    <Content Include="favicon\apple-icon-57x57.png" />
+    <Content Include="favicon\apple-icon-60x60.png" />
+    <Content Include="favicon\apple-icon-72x72.png" />
+    <Content Include="favicon\apple-icon-76x76.png" />
+    <Content Include="favicon\apple-icon-precomposed.png" />
+    <Content Include="favicon\apple-icon.png" />
+    <Content Include="favicon\code.txt" />
+    <Content Include="favicon\favicon-16x16.png" />
+    <Content Include="favicon\favicon-32x32.png" />
+    <Content Include="favicon\favicon-96x96.png" />
+    <Content Include="favicon\favicon.ico" />
+    <Content Include="favicon\ms-icon-144x144.png" />
+    <Content Include="favicon\ms-icon-150x150.png" />
+    <Content Include="favicon\ms-icon-310x310.png" />
+    <Content Include="favicon\ms-icon-70x70.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="js\components\proximity\charming.min.js" />
+    <Content Include="js\components\proximity\demo.es5.js">
+      <DependentUpon>demo.js</DependentUpon>
+    </Content>
+    <Content Include="js\components\proximity\demo.es5.min.js">
+      <DependentUpon>demo.es5.js</DependentUpon>
+    </Content>
+    <Content Include="js\components\proximity\demo.js" />
+    <Content Include="js\components\proximity\demo1.js" />
+    <Content Include="js\components\proximity\demo1.min.js">
+      <DependentUpon>demo1.js</DependentUpon>
+    </Content>
+    <Content Include="js\components\proximity\nearby.js" />
+    <Content Include="js\components\proximity\nearby.min.js">
+      <DependentUpon>nearby.js</DependentUpon>
+    </Content>
+    <Content Include="js\main.es5.js">
+      <DependentUpon>main.js</DependentUpon>
+    </Content>
+    <Content Include="js\main.es5.min.js">
+      <DependentUpon>main.es5.js</DependentUpon>
+    </Content>
+    <Content Include="js\main.js" />
+    <Content Include="js\main.min.js">
+      <DependentUpon>main.js</DependentUpon>
+    </Content>
+    <Content Include="js\vendor\aos.js" />
+    <Content Include="js\vendor\aos.min.js">
+      <DependentUpon>aos.js</DependentUpon>
+    </Content>
+    <Content Include="js\vendor\bootstrap.bundle.js" />
+    <Content Include="js\vendor\bootstrap.bundle.min.js" />
+    <Content Include="js\vendor\bootstrap.js" />
+    <Content Include="js\vendor\bootstrap.min.js" />
+    <Content Include="js\vendor\cc-1.0.js" />
+    <Content Include="js\vendor\cc-1.0.min.js">
+      <DependentUpon>cc-1.0.js</DependentUpon>
+    </Content>
+    <Content Include="js\vendor\ccapture.js" />
+    <Content Include="js\vendor\classie.es5.js">
+      <DependentUpon>classie.js</DependentUpon>
+    </Content>
+    <Content Include="js\vendor\classie.es5.min.js">
+      <DependentUpon>classie.es5.js</DependentUpon>
+    </Content>
+    <Content Include="js\vendor\classie.js" />
+    <Content Include="js\vendor\classie.min.js">
+      <DependentUpon>classie.js</DependentUpon>
+    </Content>
+    <Content Include="js\vendor\imagesloaded.pkgd.min.js" />
+    <Content Include="js\vendor\jquery-3.3.1.js" />
+    <Content Include="js\vendor\jquery-3.3.1.min.js">
+      <DependentUpon>jquery-3.3.1.js</DependentUpon>
+    </Content>
+    <Content Include="js\vendor\jquery-3.3.1.slim.min.js" />
+    <Content Include="js\vendor\jquery.js" />
+    <Content Include="js\vendor\jquery.matchHeight-min.js" />
+    <Content Include="js\vendor\jquery.matchHeight.js" />
+    <Content Include="js\vendor\jquery.min.js" />
+    <Content Include="js\vendor\jquery.paroller.js" />
+    <Content Include="js\vendor\jquery.paroller.min.js" />
+    <Content Include="js\vendor\modernizr.custom.js" />
+    <Content Include="js\vendor\odometer.js" />
+    <Content Include="js\vendor\odometer.min.js" />
+    <Content Include="js\vendor\popper.js" />
+    <Content Include="js\vendor\popper.min.js" />
+    <Content Include="js\vendor\three.min.js" />
+    <Content Include="js\vendor\TweenMax.min.js" />
+    <Content Include="js\vendor\zepto.min.js" />
+    <Content Include="RecaptchaNet.Readme.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="bundleconfig.json" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="Properties\PublishProfiles\LIVE.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="scss\style.css">
+      <DependentUpon>style.scss</DependentUpon>
+    </Content>
+    <Content Include="scss\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
+    <Content Include="scss\vendor\aos.css" />
+    <Content Include="scss\vendor\bootstrap.css" />
+    <Content Include="scss\vendor\bootstrap.min.css" />
+    <Content Include="scss\vendor\component.css" />
+    <Content Include="scss\vendor\hamburgers.css" />
+    <Content Include="scss\vendor\hamburgers.min.css">
+      <DependentUpon>hamburgers.css</DependentUpon>
+    </Content>
+    <Content Include="scss\vendor\odometer-theme-default.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\BlogListController.cs" />
+    <Compile Include="Controllers\FormsController.cs" />
+    <Compile Include="Controllers\WebApi\BlogController.cs" />
+    <Compile Include="Controllers\WebApi\WorkController.cs" />
+    <Compile Include="Controllers\WorkListController.cs" />
+    <Compile Include="Models\FormViewModels.cs" />
+    <Compile Include="Models\ViewModels.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config\imageprocessor\security.config" />
+    <Content Include="config\imageprocessor\processing.config" />
+    <Content Include="config\imageprocessor\cache.config" />
+    <Content Include="config\umbracoSettings.config" />
+    <Content Include="config\tinyMceConfig.config" />
+    <Content Include="config\serilog.user.config" />
+    <Content Include="config\serilog.config" />
+    <Content Include="config\HealthChecks.config" />
+    <Content Include="config\ClientDependency.config" />
+    <Content Include="config\BackOfficeTours\getting-started.json" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap3-Fluid.cshtml" />
+    <Content Include="Views\master.cshtml" />
+    <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\Partials\CookiePop.cshtml" />
+    <Content Include="Views\Partials\Footer.cshtml" />
+    <Content Include="Views\Partials\Navbar.cshtml" />
+    <Content Include="Views\About.cshtml" />
+    <Content Include="Views\Blog.cshtml" />
+    <Content Include="Views\Contact.cshtml" />
+    <Content Include="Views\Cookies.cshtml" />
+    <Content Include="Views\Services.cshtml" />
+    <Content Include="Views\Work.cshtml" />
+    <Content Include="Views\BlogPost.cshtml" />
+    <Content Include="Views\ProjectPost.cshtml" />
+    <Content Include="Views\projectMaster.cshtml" />
+    <Content Include="Views\BlogPostMaster.cshtml" />
+    <Content Include="Views\CookieMaster.cshtml" />
+    <Content Include="Views\ActionBox.cshtml" />
+    <Content Include="Views\ProjectKeywordsNested.cshtml" />
+    <Content Include="Views\ProjectsGalleryNested.cshtml" />
+    <Content Include="Views\ServicePage.cshtml" />
+    <Content Include="Views\ServicesBoxNested.cshtml" />
+    <Content Include="Views\ServicesSections.cshtml" />
+    <Content Include="Views\NewStart.cshtml" />
+    <Content Include="Views\privacyPolicy.cshtml" />
+    <Content Include="Views\SEO.cshtml" />
+    <Content Include="Views\3ImagesNested.cshtml" />
+    <Content Include="Views\Sitemap.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Partials\BlogList.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="scss\style.scss" />
+    <Content Include="Views\Partials\Faded Banner.cshtml" />
+    <Content Include="Views\Partials\ContactForm.cshtml" />
+    <Content Include="Views\Partials\NewStartForm.cshtml" />
+    <Content Include="Views\Partials\WorkList.cshtml" />
+    <Content Include="scss\abstracts\_animations.scss" />
+    <Content Include="scss\abstracts\_mixin.scss" />
+    <Content Include="scss\abstracts\_variables.scss" />
+    <Content Include="scss\base\_colours.scss" />
+    <Content Include="scss\base\_general.scss" />
+    <Content Include="scss\base\_typography.scss" />
+    <Content Include="scss\components\_action-box.scss" />
+    <Content Include="scss\components\_blog.scss" />
+    <Content Include="scss\components\_boomerang-logo-banner.scss" />
+    <Content Include="scss\components\_buttons.scss" />
+    <Content Include="scss\components\_contact-boxes.scss" />
+    <Content Include="scss\components\_cookie-control.scss" />
+    <Content Include="scss\components\_decorative.scss" />
+    <Content Include="scss\components\_forms.scss" />
+    <Content Include="scss\components\_grid-gallery.scss" />
+    <Content Include="scss\components\_home-hero.scss" />
+    <Content Include="scss\components\_home-text-section.scss" />
+    <Content Include="scss\components\_odometer.scss" />
+    <Content Include="scss\components\_project-page-banner.scss" />
+    <Content Include="scss\components\_project-page-images.scss" />
+    <Content Include="scss\components\_project-page-testimonial.scss" />
+    <Content Include="scss\components\_project-page-text-intro.scss" />
+    <Content Include="scss\components\_projects-gallery.scss" />
+    <Content Include="scss\components\_propeller.scss" />
+    <Content Include="scss\components\_services-box.scss" />
+    <Content Include="scss\components\_services-section.scss" />
+    <Content Include="scss\components\_simple-banner.scss" />
+    <Content Include="scss\components\_staff-gallery.scss" />
+    <Content Include="scss\components\_work.scss" />
+    <Content Include="scss\layout\_footer.scss" />
+    <Content Include="scss\layout\_navbar.scss" />
+    <Content Include="scss\micro-components\_bg-animation.scss" />
+    <Content Include="scss\micro-components\_boomerang.scss" />
+    <Content Include="scss\micro-components\_form-focus.scss" />
+    <Content Include="scss\micro-components\_hr.scss" />
+    <Content Include="scss\micro-components\_icons.scss" />
+    <Content Include="scss\micro-components\_proximity.scss" />
+    <Content Include="scss\micro-components\_scroll-down.scss" />
+    <Content Include="scss\micro-components\_shadows.scss" />
+    <Content Include="scss\micro-components\_text-animation.scss" />
+    <Content Include="scss\micro-components\_typewriter-effect.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\BlogList\" />
+    <Folder Include="Views\Blog\" />
+    <Folder Include="Views\Forms\" />
+    <Folder Include="Views\PostData\" />
+    <Folder Include="Views\WorkList\" />
+    <Folder Include="Views\Work\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50502</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50503/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.10.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.8.0.2\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.0.2\build\UmbracoCms.props'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.8.0.2\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.8.0.2\build\UmbracoCms.targets'))" />
+  </Target>
+  <Import Project="..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets" Condition="Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" />
+  <Import Project="..\packages\UmbracoCms.8.0.2\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.8.0.2\build\UmbracoCms.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

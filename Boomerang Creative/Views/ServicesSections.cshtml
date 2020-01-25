@@ -1,0 +1,102 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+	var ServiceSectionNode = @Umbraco.Content(1412);
+	var servicesSection = new ServicesSections(ServiceSectionNode);
+	var count = 0;
+	var serviceList = @servicesSection.ListOfServices.ToList();
+}
+
+@if (Model.Url != "/services/")
+{
+	serviceList.RemoveAll(r => r.ServiceButtonLink.Url == Model.Url);
+}
+
+@foreach (var service in serviceList)
+{
+	count++;
+
+	if (Model.Url == "/services/")
+	{
+		if (count % 2 == 1)
+		{
+			<!-- Services Section Left -->
+			<section class="services-section services-section--left container-fluid">
+				<div class="container py-4 py-md-3 py-lg-5">
+					<div class="row">
+						<div class="col-12 col-md-8 order-2 order-md-1">
+							<h2 class="museo-sans-500 py-3">@service.ServiceBoxTitle</h2>
+							<p class="museo-sans-500 mb-5">@service.ServiceBoxText</p>
+							<a rel="canonical" href="@service.ServiceButtonLink.Url" class="btn btn-2 btn-2b museo-sans-500 mt-3 py-2 px-3 py-md-3 px-md-4 no-underline">@service.ServiceButton</a>
+						</div>
+						<div class="col-12 col-md-4 order-1 order-md-2">
+							<div class="badge" style="background-image: url(@service.ServiceBoxIcon.Url)"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- / Services Section Left - Graphic Design  -->
+		}
+		else if (count % 2 == 0)
+		{
+			<!-- Services Section Right -->
+			<section class="services-section services-section--right container-fluid washed-cherry-bg">
+				<div class="container py-4 py-md-3 py-lg-5 white-text">
+					<div class="row">
+						<div class="col-12 col-md-4 order-1 order-md-1">
+							<div class="badge" style="background-image: url(@service.ServiceBoxIcon.Url)"></div>
+						</div>
+						<div class="col-12 col-md-8 order-2 order-md-2">
+							<h2 class="museo-sans-500 py-3">@service.ServiceBoxTitle</h2>
+							<p class="museo-sans-500 mb-5">@service.ServiceBoxText</p>
+							<a rel="canonical" href="@service.ServiceButtonLink.Url" class="btn btn-3 museo-sans-500 mt-3 py-2 px-3 py-md-3 px-md-4 no-underline">@service.ServiceButton</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- / Services Section Right - Digital  -->
+		}
+	}
+	else
+	{
+		if (count % 2 == 1)
+		{
+			<!-- Services Section Right -->
+			<section class="services-section services-section--right container-fluid washed-cherry-bg">
+				<div class="container py-4 py-md-3 py-lg-5 white-text">
+					<div class="row">
+						<div class="col-12 col-md-4 order-1 order-md-1">
+							<div class="badge" style="background-image: url(@service.ServiceBoxIcon.Url)"></div>
+						</div>
+						<div class="col-12 col-md-8 order-2 order-md-2">
+							<h2 class="museo-sans-500 py-3">@service.ServiceBoxTitle</h2>
+							<p class="museo-sans-500 mb-5">@service.ServiceBoxText</p>
+							<a rel="canonical" href="@service.ServiceButtonLink.Url" class="btn btn-3 museo-sans-500 mt-3 py-2 px-3 py-md-3 px-md-4 no-underline">@service.ServiceButton</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- / Services Section Right - Digital  -->
+		}
+		else if (count % 2 == 0)
+		{
+			<!-- Services Section Left -->
+			<section class="services-section services-section--left container-fluid">
+				<div class="container py-4 py-md-3 py-lg-5">
+					<div class="row">
+						<div class="col-12 col-md-8 order-2 order-md-1">
+							<h2 class="museo-sans-500 py-3">@service.ServiceBoxTitle</h2>
+							<p class="museo-sans-500 mb-5">@service.ServiceBoxText</p>
+							<a rel="canonical" href="@service.ServiceButtonLink.Url" class="btn btn-2 btn-2b museo-sans-500 mt-3 py-2 px-3 py-md-3 px-md-4 no-underline">@service.ServiceButton</a>
+						</div>
+						<div class="col-12 col-md-4 order-1 order-md-2">
+							<div class="badge" style="background-image: url(@service.ServiceBoxIcon.Url)"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- / Services Section Left - Graphic Design  -->
+		}
+	}
+}
+

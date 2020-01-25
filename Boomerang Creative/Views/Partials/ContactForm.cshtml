@@ -1,0 +1,104 @@
+﻿@model Models.ContactFormViewModel
+@using Recaptcha.Web.Mvc
+
+<div class="form-wrap">
+    @if (TempData["success"] != null)
+    {
+        <div class="row">
+            <div class="col-12">
+                @if ((bool)TempData["success"] == true)
+                {
+                    <div class="form-msg">
+                        <p class="success">@Model.successMessage</p>
+                        @if (TempData["Message"] != null)
+                        {
+                            var MailchimpMessage = (MvcHtmlString)TempData["Message"];
+                            <div class="mail-list">
+                                @MailchimpMessage
+                            </div>
+                        }
+                    </div>
+                }
+                else if ((bool)TempData["success"] == false)
+                {
+                    <div class="form-msg-error">
+                        @Html.ValidationMessage("reCAPTCHA", new { @class = "text-danger" })
+                    </div>
+                }
+            </div>
+        </div>
+    }
+
+    @using (Html.BeginUmbracoForm("ContactFormSubmit", "Forms"))
+    {
+
+        <div class="form-group row">
+            <!-- Your name -->
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control white-text transparent-bg museo-sans-700 white-border", placeholder = "Your name" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+
+            <!-- Company  -->
+            <div class="col-sm-6">
+                @Html.TextBoxFor(m => m.Company, new { @class = "form-control white-text transparent-bg museo-sans-700 white-border", placeholder = "Company Name" })
+                @Html.ValidationMessageFor(m => m.Company, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <!-- Your Email -->
+            <div class="col-sm-12">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control white-text transparent-bg museo-sans-700 white-border", placeholder = "Your Email" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <!-- Contact Number -->
+            <div class="col-sm-12">
+                @Html.TextBoxFor(m => m.Tel, new { @class = "form-control white-text transparent-bg museo-sans-700 white-border", placeholder = "Contact Number" })
+                @Html.ValidationMessageFor(m => m.Tel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <!-- Message -->
+            <div class="col-sm-12" id="form-message">
+                @Html.TextAreaFor(m => m.Message, new { @class = "form-control transparent-bg white-text white-border museo-sans-700", @rows = "5", placeholder = "Message" })
+                @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group py-4 py-md-0">
+            <!-- GDPR -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-10 d-flex align-items-center">
+                    @Html.LabelFor(m => m.Maillist, htmlAttributes: new { @class = "control-label checkbox" })
+                </div>
+                <div class="col-2 text-right">
+                    <label>
+                        @Html.CheckBoxFor(m => m.Maillist, new { @class = "form-checkbox" })
+                        <span class="check-toggle"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center py-3 py-md-0">
+                <div class="col-12 d-flex align-items-center">
+                    <small class="form-text">
+						<label for="Maillist">@Model.gDPREmailMessage</label>
+					</small>
+                    @Html.ValidationMessageFor(m => m.Maillist, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <!-- Recaptcha -->
+            <div class="col-sm-12">
+                @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean)
+            </div>
+        </div>
+        <div class="form-group row pt-4 pt-md-0">
+            <!-- Sumbit -->
+            <div class="col-12">
+                <button class="btn btn-5  museo-sans-500 py-3 px-4 no-underline float-right form__button" type="submit" name="Submit">Send Details</button>
+            </div>
+        </div>
+    }
+</div>

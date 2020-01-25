@@ -1,0 +1,138 @@
+// Breakpoints mixin
+/// <reference path="_mixin.scss"/>
+
+$white: #fff;
+$black: #000;
+$light-orange: #FAD49A;
+$yellow: #FBCA05;
+$orange1: #F39D3A;
+$orange2: #F39710;
+$orange3: #F4A23E;
+$orange4: #FB9C05;
+$orange5: #F6B045;
+$orange6: #FFAD09;
+$dark-orange: #F36928;
+$washed-orange: #E9613C;
+$dark-orange2: #C26124;
+$orange-red: #E63F11;
+$red: #FF0000;
+$washed-cherry: #E77556;
+$pink: #F8C5B7;
+$lightest-grey: #F3F2F0;
+$light-grey: #E1DEDE;
+$lighter-grey: #C0C0C0;
+$pure-grey: #D7DADD;
+$grey: #726F6F;
+$dark-grey: #4F4F4F;
+$dark-blue-grey: #53606B;
+$blue: #009EE3;
+$blue2: #4B43DF;
+$dd-blue: #648890;
+$dark-blue: #1E2A4F;
+$dark-blue2: #162F60;
+$dark-blue3: #4A636D;
+$light-pink: #F2E7E8;
+$pink-grey: #ECEAE6;
+$green: #D6DA41;
+$green2: #79B83D;
+$green3: #56d494;
+$purple: #7A2381;
+$copper: #e0a77d;
+
+$colors: (
+	white: $white,
+	white-hover: darken($white, 15%),
+	black: $black, 
+	black-hover: lighten($black, 40%),
+	light-orange: $light-orange, 
+	light-orange-hover: darken($light-orange, 10%),
+	orange1: $orange1,
+	orange1-hover: lighten($orange1, 10%),
+	orange2: $orange2,
+	orange2-hover: lighten($orange2, 10%),
+	orange3: $orange3,
+	orange3-hover: lighten($orange3, 10%),
+	dark-orange: $dark-orange,
+	dark-orange-hover: lighten($dark-orange, 10%),
+	washed-cherry: $washed-cherry,
+	washed-cherry-hover: darken($washed-cherry, 10%),
+	red: $red,
+	red-hover: lighten($red, 10%),
+	lightest-grey: $lightest-grey,
+	lightest-grey-hover: darken($lightest-grey, 10%),
+	light-grey: $light-grey,
+	light-grey-hover: darken($light-grey, 10%),
+	grey: $grey, grey-hover: lighten($grey, 10%),
+	dark-blue-grey: $dark-blue-grey,
+	dark-blue-grey-hover: lighten($dark-blue-grey, 10%),
+	blue: $blue, blue-hover: lighten($blue, 10%),
+	light-pink: $light-pink,
+	light-pink-hover: lighten($light-pink, 10%),
+	pink-grey: $pink-grey,
+	pink-grey-hover: lighten($pink-grey, 10%),
+	green: $green, green-hover: lighten($green, 10%),
+	dark-blue: $dark-blue,
+	dark-blue-hover: lighten($dark-blue, 10%),
+	orange4: $orange4,
+	orange4-hover: darken($orange4, 10%),
+	dark-orange2: $dark-orange2,
+	dark-orange2-hover: lighten($dark-orange2, 10%),
+	green2: $green2,
+	green2-hover: darken($green2, 10%),
+	green3: $green3,
+	green3-hover: darken($green3, 10%),
+	purple: $purple,
+	purple-hover: darken($purple, 10%),
+	blue2: $blue2,
+	blue2-hover: darken($blue2, 10%),
+	orange-red: $orange-red,
+	orange-red-hover: darken($orange-red, 10%),
+	pink: $pink,
+	pink-hover: darken($pink, 10%),
+	dark-grey: $dark-grey,
+	dark-grey-hover: lighten($dark-grey, 10%),
+	dark-blue2: $dark-blue2,
+	dark-blue2-hover: lighten($dark-blue2, 10%),
+	dark-blue3: $dark-blue3,
+	dark-blue3-hover: lighten($dark-blue3, 10%),
+	orange5: $orange5, 
+	orange5-hover: lighten($orange5, 10%), yellow: $yellow,
+	yellow-hover: lighten($yellow, 10%),
+	pure-grey: $pure-grey,
+	pure-grey-hover: lighten($pure-grey, 10%),
+	lighter-grey: $lighter-grey,
+	lighter-grey-hover: lighten($lighter-grey, 10%),
+	orange6: $orange6,
+	orange6-hover: lighten($orange6, 10%),
+	washed-orange: $washed-orange,
+	washed-orange-hover: lighten($washed-orange, 10%),
+	dd-blue: $dd-blue,
+	dd-blue-hover: darken($dd-blue, 10%),
+    copper: $copper,
+	copper-hover: lighten($copper, 10%),
+);
+
+//layout breakpoints
+$xs: 576px;
+$sm: 577px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+$xxxl: 1900px;
+
+$breakpoints: ( xs: 576px, sm: 577px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px, xxxl: 1900px );
+
+// neon colors
+// $neon-pink is brand pink
+$neon-pink: #E5007E;
+$neon-orange: #ff3300;
+$neon-yellow: #ffff00;
+$neon-green: #ffff00;
+$neon-avocado: #00ff66;
+$neon-mint: #33ff99;
+// $neon-blue is brand blue
+$neon-blue: #3A9ED6;
+$neon-purple: #6600ff;
+
+$neon-collection: ( pink: $neon-pink, orange: $neon-orange, yellow: $neon-yellow, green: $neon-green, avocado: $neon-avocado, mint: $neon-mint, blue: $neon-blue, purple: $neon-purple, white: $white, black: $black);

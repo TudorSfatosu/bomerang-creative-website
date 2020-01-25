@@ -1,0 +1,80 @@
+.action-box {
+	&.mb-4, &.my-4 {
+		margin-bottom: .5rem !important;
+	}
+
+	&.mt-4, &.my-4 {
+		margin-top: .5rem !important;
+	}
+
+	@include mq(md) {
+		&.mb-4, &.my-4 {
+			margin-bottom: 1.5rem !important;
+		}
+
+		&.mt-4, &.my-4 {
+			margin-top: 1.5rem !important;
+		}
+	}
+
+	.container {
+		position: relative;
+
+		.h2 {
+			font-size: 6em;
+
+			@include mq(md) {
+				line-height: 1.2em;
+			}
+
+			@include mq(lg) {
+				font-size: 8em;
+				line-height: 1em;
+			}
+
+			@include mq(xl) {
+				font-size: 12em;
+			}
+		}
+
+		.social-icons-container {
+			display: flex;
+			position: absolute;
+			flex-direction: column;
+			right: 0;
+			top: 34%;
+		}
+
+		.social-icon {
+			width: 30px;
+			height: 30px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position-x: center;
+			margin-bottom: 1em;
+		}
+	}
+
+	&.next-project-box {
+		padding: 1em 0 3em 0;
+
+		.h4 {
+			font-size: 1.2em;
+		}
+
+		.h3 {
+			cursor: pointer;
+			font-size: 2em;
+			border-bottom: 2px solid $white;
+			padding-bottom: 3px;
+
+			&:hover {
+				border-bottom: 2px solid darken($white, 20%);
+			}
+		}
+
+		a {
+			line-height: 1.5em;
+		}
+	}
+}

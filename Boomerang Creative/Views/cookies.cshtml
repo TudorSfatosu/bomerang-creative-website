@@ -1,0 +1,217 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.CookieControl>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+	Layout = "CookieMaster.cshtml";
+}
+
+<div class="section-cookie mb-4">
+	<div id="cookie_control">
+		<h1 class="pt-4 light-blue-grey-text all-caps">@Model.Name</h1>
+		<div class="cookie-saved">
+			<p>Your settings have been saved.</p>
+		</div>
+
+		@Html.Raw(Model.Text != null ? Model.Text : null)
+
+		<a hreflang="en-gb" rel="canonical" href="#" class="btn btn-med btn-green cookie-accept cc-accept-all save-settings">Accept All Cookies</a>
+
+		<div id="c_necessary" class="cookie-section">
+			<div class="section-head">
+				<div class="section-title">
+					<h2>Performance Cookies</h2>
+				</div>
+				<div class="section-status">
+					<label class="switch">
+						<input id="_cnecessary" type="checkbox" checked>
+						<span class="slider round"></span>
+					</label>
+					<span class="status active">Always Active</span>
+				</div>
+			</div>
+			<div class="section-intro text">
+				<p>These cookies are necessary for the website to function and cannot be turned off.</p>
+			</div>
+			<div class="table">
+				<div class="header">
+					<div class="cookie-name cell">
+						<p>Name</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Description</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>Expiry</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>_cperformance</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Remembers your preference for the website performance cookies.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>1 Year</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>ASP.NET_SessionId</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Used for when booking a table on our contact form.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>Session</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>TemporaryCookie</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Used for when booking a table on our contact form.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>Session</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div id="c_performance" class="cookie-section">
+			<div class="section-head">
+				<div class="section-title">
+					<h2>Performance Cookies</h2>
+				</div>
+				<div class="section-status">
+					<label class="switch">
+						<input id="_cperformance" class="cCheckbox" type="checkbox">
+						<span class="slider round"></span>
+					</label>
+					<span class="status"></span>
+				</div>
+			</div>
+			<div class="section-intro">
+				<p>These cookies allow us to gather statistics regarding the number of visitors, page views and how visitors move around the website. All information these cookies collect is anonymous. If you do not allow these cookies, we will not know when you have visited our site.</p>
+			</div>
+			<div class="table">
+				<div class="header">
+					<div class="cookie-name cell">
+						<p>Name</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Description</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>Expiry</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>_ga</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Used to distinguish users.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>2 years</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>_gid</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Used to distinguish users.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>24 hours</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>_gat</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Used to throttle request rate. If Google Analytics is deployed via Google Tag Manager, this cookie will be named _dc_gtm_<property-id>.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>1 minute</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>__utma</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Used to distinguish users and sessions. The cookie is created when the javascript library executes and no existing __utma cookies exists. The cookie is updated every time data is sent to Google Analytics.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>2 years from set/update	</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>__utmb</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Used to determine new sessions/visits. The cookie is created when the javascript library executes and no existing __utmb cookies exists. The cookie is updated every time data is sent to Google Analytics.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>30 mins from set/update</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>__utmc</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Not used in ga.js. Set for interoperability with urchin.js. Historically, this cookie operated in conjunction with the __utmb cookie to determine whether the user was in a new session/visit.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>Session</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>__utmat</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Used to throttle request rate.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>10 minutes</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>__utmv</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Used to store visitor-level custom variable data. This cookie is created when a developer uses the _setCustomVar method with a visitor level custom variable. This cookie was also used for the deprecated _setVar method. The cookie is updated every time data is sent to Google Analytics.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>2 years from set/update</p>
+					</div>
+				</div>
+				<div class="section-row">
+					<div class="cookie-name cell">
+						<p>__utmz</p>
+					</div>
+					<div class="cookie-details cell">
+						<p>Stores the traffic source or campaign that explains how the user reached your site. The cookie is created when the javascript library executes and is updated every time data is sent to Google Analytics.</p>
+					</div>
+					<div class="cookie-expiry cell">
+						<p>6 months from set/update	</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<a id="cc-save" class="cookie-save cc-save save-settings" hreflang="en-gb" rel="canonical" href="#">Save Settings</a>
+	</div>
+</div>

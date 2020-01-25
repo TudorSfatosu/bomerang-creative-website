@@ -1,0 +1,361 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.About>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@using System.Text.RegularExpressions;
+
+@{
+	Layout = "Master.cshtml";
+	string ImagePath = @Model.BannerImage.Src + @Model.BannerImage.GetCropUrl("MobileSmall") + "&quality=80";
+	string ImageWidth = "";
+}
+
+
+<link rel="stylesheet" type="text/css" href="~/scss/vendor/component.css" />
+
+<style>
+	.simple-banner {
+		background-image: linear-gradient(to right, rgba(220,220,220,0.8) 0%, rgba(220,220,220,0.8) 100%), url(@ImagePath);
+	}
+</style>
+
+@foreach (var image in @Model.BannerImage.Crops.OrderBy(x => x.Width))
+{
+	ImagePath = @Model.BannerImage.Src + @Model.BannerImage.GetCropUrl(image.Alias) + "&quality=80";
+	ImageWidth = image.Width.ToString() + "px";
+
+	<style>
+		@@media (min-width:  @ImageWidth) {
+			.simple-banner {
+				background-image: linear-gradient(to right, rgba(220,220,220,0.8) 0%, rgba(220,220,220,0.8) 100%), url(@ImagePath);
+			}
+		}
+	</style>
+}
+
+<section class="demo-1">
+	<main>
+		<div class="page-view">
+			<div class="project">
+			</div>
+			<div class="project">
+			</div>
+		</div>
+	</main>
+</section>
+
+
+<!-- Sub-banner for the About Us Page -->
+<section class="pb-5 sub-banner-text">
+	<div class="container text-center">
+		<div class="row museo-sans-300">
+			<div class="col-12 mt-5">
+				<h1>
+					@Model.PreH1
+				</h1>
+			</div>
+			<div class="offset-md-1 col-md-10 offset-xl-2 col-xl-8">
+				<div class="my-4">
+					@Model.BannerText
+				</div>
+				<div class="mb-5">
+					@Model.BannerSubtext
+				</div>
+				<a rel="canonical" href="@Model.BannerButtonLink.Url()" class="btn btn-1 py-3 px-4 no-underline museo-sans-500">
+					@Model.BannerButton
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- / Simple Banner for the About Us Page -->
+<!-- Services Box -->
+<section class="services-box light-grey-bg py-1 py-md-5">
+	<div class="container mt-5">
+		<div class="row first-row p-2">
+			<div class="col-12 col-md-3 col-xl-2">
+
+			</div>
+			<div class="col-12 col-md-5 col-xl-6 mb-4">
+				<h3>
+					@Model.ServicesBoxTitle
+				</h3>
+			</div>
+		</div>
+		<div class="row second-row p-2">
+			<!--Left Section-->
+			<ul class="d-inline-flex d-md-block nav nav-tabs col-12 col-md-3 col-xl-2" id="myTab" role="tablist">
+				@if (Model.ServicesBox.Any())
+				{
+					var count = 0;
+					foreach (var services in @Model.ServicesBox)
+					{
+						count++;
+						var service = new ServicesBoxNested(services);
+						var sluggedService = @Regex.Replace(@Regex.Replace(@Regex.Replace(@service.TabTitle, @"\s+", "_"), @"\W", ""), "_+", "-");
+
+						<li class="nav-item">
+							<a class="nav-link @(@count == 1 ? "active" : "" ) orange1-text  museo-sans-700" data-toggle="tab" rel="canonical" href="#@sluggedService" role="tab"
+							   aria-controls="@sluggedService">
+								@service.TabTitle
+							</a>
+						</li>
+					}
+				}
+			</ul>
+			<!--Right Section-->
+			<div class="tab-content mb-5 col-12 col-md-5 col-xl-6 ">
+				@if (Model.ServicesBox.Any())
+				{
+					var count = 0;
+					foreach (var services in @Model.ServicesBox)
+					{
+						count++;
+						var service = new ServicesBoxNested(services);
+						var sluggedService = @Regex.Replace(@Regex.Replace(@Regex.Replace(@service.TabTitle, @"\s+", "_"), @"\W", ""), "_+", "-");
+
+
+						<div class="tab-pane fade show @(@count == 1 ? "show active" : "fade" )" id="@sluggedService" role="tabpanel">
+							<div class="match-height">
+								@service.TabText
+							</div>
+							<a rel="canonical" href="@service.TabButtonLink.Url"
+							   class="btn btn-1 py-2 px-3 no-underline museo-sans-500">@service.TabButton</a>
+						</div>
+
+					}
+				}
+
+			</div>
+			<div class="d-none d-md-block col-md-4 col-xl-4">
+				<div class="badge" style="background-image: url(@Model.ServicesBoxIcon.Url())"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- / Services Box -->
+
+
+<!-- Staff Gallery -->
+<section class="h-staff-gallery py-4">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="museo-sans-500 gallery-title mt-3 mb-5">
+					@Model.StaffGalleryTitle
+				</h2>
+			</div>
+		</div>
+
+		<div class="card-deck">
+			@if (Model.StaffGallery.Any())
+			{
+				var count = 0;
+				foreach (var people in @Model.StaffGallery)
+				{
+					count++;
+					var person = new StaffGallery(people);
+					<div class="card my-3">
+						<div class="image-container">
+							<img alt="Adrian Burton" class="card-img-top" src="@person.StaffImage.Url">
+							<div class="position-overlay">
+								@person.StaffTitle
+							</div>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title"><span class="first-name">@person.StaffFirstName</span> <span class="second-name">@person.StaffLastName</span></h5>
+							<div class="card-text">
+								<ul class="details-list">
+									<li><small><span class="bold">Advice:</span> @person.Advice</small></li>
+									<li><small><span class="bold">Weirdest thing ever:</span> @person.WeirdestThingEver</small></li>
+									<li><small><span class="bold">1 desert island thing:</span> @person.OneDesertIslandThing</small></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					if (@count % 2 == 0)
+					{
+						<div class="w-100 d-none d-sm-block d-lg-none"><!-- wrap every 2 on sm and md--></div>
+					}
+					if (@count % 4  == 0)
+					{
+						<div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
+						<div class="w-100 d-none d-xl-block"><!-- wrap every 4 on xl--></div>
+					}
+				}
+			}
+		</div>
+	</div><!-- /.container -->
+</section>
+<!--/ Staff Gallery -->
+
+
+<!-- Odometer -->
+<section id="records" class="container-fluid odometer-container">
+	<div class="container">
+		<div id="counter" class="row text-center pt-5 pb-3 records--row">
+			<div class="col-12">
+				<div class="h2 museo-sans-500">
+					@Model.FiguresTitle
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			@if (Model.Figures.Any())
+			{
+				var count = 0;
+				foreach (var figures in @Model.Figures)
+				{
+					count++;
+					var figure = new FiguresNested(figures);
+
+					<div class="col-12 col-md-4 odometer-column">
+						<h3 id="@("odometer" + @count)" class="orange1-text museo-sans-500 text-center odometer">00</h3>
+						<h4 class="black-text museo-sans-500 text-center pb-0 pb-sm-5">@figure.FigureCaptionTitle</h4>
+
+						<div class="museo-sans-300 text-center pb-5 pb-sm-0">
+							@figure.FigureCaptionText
+						</div>
+
+					</div>
+				}
+			}
+		</div>
+	</div>
+</section>
+<!--/ Odometer -->
+
+@Html.Partial("ActionBox")
+
+@section Scripts {
+	<script src="~/js/vendor/zepto.min.js"></script>
+	<script src="~/js/vendor/imagesloaded.pkgd.min.js"></script>
+	<script>
+
+		$(document).ready(function () {
+			$(".card").hover(
+				function () {
+					$(this).addClass('shadow-lg').css('cursor', 'pointer');
+				}, function () {
+					$(this).removeClass('shadow-lg');
+				}
+			);
+		});
+
+		"use strict";
+		var Core;
+		(function (Core) {
+			var Slider = (function () {
+				function Slider() {
+					// Durations
+					this.durations = {
+						auto: 5000,
+						slide: 1400
+					};
+					// DOM
+					this.dom = {
+						wrapper: null,
+						container: null,
+						project: null,
+						current: null,
+						next: null,
+						arrow: null
+					};
+					// Misc stuff
+					this.length = 0;
+					this.current = 0;
+					this.next = 0;
+					this.isAuto = true;
+					this.working = false;
+					this.dom.wrapper = $('.page-view');
+					this.dom.project = this.dom.wrapper.find('.project');
+					this.dom.arrow = this.dom.wrapper.find('.arrow');
+					this.length = this.dom.project.length;
+					this.init();
+					this.events();
+					this.auto = setInterval(this.updateNext.bind(this), this.durations.auto);
+				}
+				/**
+				 * Set initial z-indexes & get current project
+				 */
+				Slider.prototype.init = function () {
+					this.dom.project.css('z-index', 10);
+					this.dom.current = $(this.dom.project[this.current]);
+					this.dom.next = $(this.dom.project[this.current + 1]);
+					this.dom.current.css('z-index', 30);
+					this.dom.next.css('z-index', 20);
+				};
+				Slider.prototype.clear = function () {
+					this.dom.arrow.off('click');
+					if (this.isAuto)
+						clearInterval(this.auto);
+				};
+				/**
+				 * Initialize events
+				 */
+				Slider.prototype.events = function () {
+					var self = this;
+					this.dom.arrow.on('click', function () {
+						if (self.working)
+							return;
+						self.processBtn($(this));
+					});
+				};
+				Slider.prototype.processBtn = function (btn) {
+					if (this.isAuto) {
+						this.isAuto = false;
+						clearInterval(this.auto);
+					}
+					if (btn.hasClass('next'))
+						this.updateNext();
+					if (btn.hasClass('previous'))
+						this.updatePrevious();
+				};
+				/**
+				 * Update next global index
+				 */
+				Slider.prototype.updateNext = function () {
+					this.next = (this.current + 1) % this.length;
+					this.process();
+				};
+				/**
+				 * Update next global index
+				 */
+				Slider.prototype.updatePrevious = function () {
+					this.next--;
+					if (this.next < 0)
+						this.next = this.length - 1;
+					this.process();
+				};
+				/**
+				 * Process, calculate and switch beetween slides
+				 */
+				Slider.prototype.process = function () {
+					var self = this;
+					this.working = true;
+					this.dom.next = $(this.dom.project[this.next]);
+					this.dom.current.css('z-index', 30);
+					self.dom.next.css('z-index', 20);
+					// Hide current
+					this.dom.current.addClass('hide');
+					setTimeout(function () {
+						self.dom.current.css('z-index', 10);
+						self.dom.next.css('z-index', 30);
+						self.dom.current.removeClass('hide');
+						self.dom.current = self.dom.next;
+						self.current = self.next;
+						self.working = false;
+					}, this.durations.slide);
+				};
+				return Slider;
+			}());
+			Core.Slider = Slider;
+		})(Core || (Core = {}));
+		document.addEventListener('DOMContentLoaded', function () {
+			var imgLoad0 = imagesLoaded('.page-view', { background: true }, function () {
+			});
+			imgLoad0.on('done', function (instance) {
+				new Core.Slider();
+			});
+		});
+	</script>
+}

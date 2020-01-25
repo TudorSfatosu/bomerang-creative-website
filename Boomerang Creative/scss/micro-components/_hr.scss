@@ -1,0 +1,31 @@
+hr.mid-broken {
+  text-align: center;
+  border: none;
+  &:before,
+  &:after {
+    background-color: $white;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 30%;
+    margin-top: -2em;
+  }
+  &:before {
+    right: 0;
+    margin-left: -30%;
+    @include mq(sm) {
+      right: 10%;
+      margin-left: -40%;
+    }
+  }
+  &:after {
+    left: 0;
+    margin-right: -30%;
+    @include mq(sm) {
+      left: 10%;
+      margin-right: -40%;
+    }
+  }
+}

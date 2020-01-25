@@ -1,0 +1,69 @@
+.contact-box {
+  z-index: 0;
+  overflow: hidden;
+  padding: 2em;
+  font-size: 1.25em;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 14em;
+  @include mq(md) {
+    padding: 2em 2em 0 2em;
+    font-size: 1.25em;
+  }
+  @include mq(lg) {
+    font-size: 1.5em;
+  }
+  @include mq(xl) {
+    padding: 3em 3em 0 3em;
+    height: 21em;
+  }
+  line-height: 2em;
+  ul {
+    z-index: 3;
+    position: relative;
+    a {
+      text-shadow: 2px 2px unquote('#37353512');
+    }
+  }
+  .badge {
+    background-size: auto;
+    width: 100%;
+    height: 119%;
+    display: block;
+    margin-bottom: 0;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+  }
+}
+
+#map-wrap {
+  height: 18em;
+  @include mq(md) {
+    height: 100%;
+  }
+  iframe {
+    //    background: rgba(233, 119, 88, 0.82);
+    //    overflow: hidden;
+    //    height: 100% !important;
+    //    z-index: 2 !important;
+  }
+}
+
+.contact-details {
+  .col-12 {
+    z-index: -9;
+  }
+}
+
+.banner-contact-list {
+  text-align: left;
+  font-size: 1.25em;
+  align-self: flex-end;
+  line-height: 2em;
+}
+
+.gdpr {
+  font-size: 0.9em;
+}

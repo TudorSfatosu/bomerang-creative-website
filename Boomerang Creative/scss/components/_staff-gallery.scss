@@ -1,0 +1,274 @@
+.staff-gallery {
+	.container {
+		@include mq(sm) {
+			max-width: 639px;
+		}
+
+		@include mq(md) {
+			max-width: 680px;
+		}
+
+		@include mq(lg) {
+			max-width: 869px;
+		}
+
+		@include mq(xl) {
+			max-width: 940px;
+		}
+	}
+
+	.gallery-title {
+		p span {
+			display: inline-grid;
+			line-height: .75em;
+
+			@include mq(md) {
+				display: initial;
+				line-height: initial;
+			}
+		}
+	}
+
+	.left-row {
+		.name {
+			margin-left: 0;
+
+			@include mq(sm) {
+				margin-left: -.25em;
+			}
+		}
+	}
+
+	.right-row {
+		.name {
+			margin-right: -.55em;
+
+			@include mq(sm) {
+				margin-right: -.25em;
+			}
+
+			text-align: right;
+		}
+
+		.nickname,
+		.title {
+			text-align: right;
+		}
+	}
+
+	.profile-image {
+		background-size: cover;
+		background-repeat: no-repeat;
+		height: 0;
+		width: 50%;
+		padding-bottom: 50%;
+
+		@include mq(md) {
+			height: 0;
+			width: 25%;
+			padding-bottom: 35%;
+		}
+	}
+
+	.name {
+		font-size: 4em;
+		z-index: 1;
+
+		@include mq(sm) {
+			font-size: 6em;
+		}
+
+		@include mq(md) {
+			font-size: 7em;
+		}
+
+		@include mq(lg) {
+			font-size: 8em;
+		}
+
+		@include mq(xl) {
+			font-size: 9em;
+		}
+	}
+
+	.nickname {
+		font-size: 1.5rem;
+
+		@include mq(lg) {
+			font-size: 1.75rem;
+		}
+	}
+
+	.title {
+		font-size: 1.25rem;
+
+		@include mq(lg) {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+
+.h-staff-gallery {
+	background: #eee;
+
+	.first-name, .second-name {
+		display: block;
+		text-transform: uppercase;
+	}
+
+	.first-name {
+		color: #948D8D;
+		font-weight: 200;
+	}
+
+	.second-name {
+		font-size: 1.25em;
+		color: #F36927;
+	}
+
+	.details-list {
+		list-style-type: none;
+		padding: 0;
+		font-weight: bold;
+		color: #948D8D;
+	}
+
+	.card {
+		border: none;
+	}
+
+	.card img {
+		height: 22em;
+		border: .5em solid #fff;
+		-webkit-transition: all .2s ease-in-out;
+		transition: all .2s ease-in-out;
+		object-fit: cover;
+	}
+
+	.details-list, .position-overlay {
+		-webkit-transition: all .4s ease-in-out;
+		transition: all .4s ease-in-out;
+	}
+
+	.card-body {
+		padding: 0.75rem 1.25rem 1.25rem 1.25rem;
+		display: table;
+		-webkit-transition: all .5s ease-in-out;
+		transition: all .5s ease-in-out;
+		background: rgba(250, 250, 250, 0);
+	}
+
+	.image-container {
+		position: relative;
+	}
+
+	.position-overlay {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		-webkit-transform: translate(-50%, 0%);
+		-ms-transform: translate(-50%, 0%);
+		transform: translate(-50%, 0%);
+		text-align: center;
+		color: #fff;
+		font-weight: bold;
+		bottom: 0;
+		width: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		padding: 4px 0;
+		bottom: 7px;
+	}
+
+	.gallery-title {
+		p span {
+			display: inline-grid;
+			line-height: .75em;
+
+			@include mq(md) {
+				display: initial;
+				line-height: initial;
+			}
+		}
+	}
+
+	@media (min-width: 576px) {
+		.card img {
+			height: 13em;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.card img {
+			height: 18em;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.card-deck {
+			height: 60em;
+		}
+
+		.card img {
+			height: 16em;
+			-webkit-filter: grayscale(100%);
+			filter: grayscale(100%);
+			opacity: 0.6;
+			object-fit: cover;
+		}
+
+		.card, .img {
+			height: 0;
+			-webkit-transition: all .4s ease-in-out;
+			/* Safari prior 6.1 */
+			transition: all .4s ease-in-out;
+		}
+
+		.card .bold {
+			color: unqote('#000000ad');
+			font-weight: 900;
+		}
+
+		.card:hover img {
+			border: 0 solid #fff;
+			-webkit-transition: all .3s ease-in-out;
+			/* Safari prior 6.1 */
+			transition: all .3s ease-in-out;
+			-webkit-filter: grayscale(0%);
+			/* Safari 6.0 - 9.0 */
+			filter: grayscale(0%);
+			opacity: 1;
+		}
+
+		.card:hover .details-list, .card:hover .position-overlay {
+			opacity: 1;
+			-webkit-transition: all .5s ease-in-out;
+			/* Safari prior 6.1 */
+			transition: all .5s ease-in-out;
+			bottom: 0;
+		}
+
+		.card:hover .details-list {
+			margin-top: 0;
+		}
+
+		.card:hover .card-body {
+			background: rgba(250, 250, 250, 1);
+			height: 1em;
+			-webkit-transition: all .5s ease-in-out;
+			transition: all .5s ease-in-out;
+		}
+
+		.details-list {
+			margin-top: -2em;
+		}
+
+		.details-list, .position-overlay {
+			opacity: 0;
+		}
+
+		.position-overlay {
+			bottom: -.25em;
+		}
+	}
+}

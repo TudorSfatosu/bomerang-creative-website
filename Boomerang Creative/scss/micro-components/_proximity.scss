@@ -1,0 +1,12 @@
+// Proximity Feedback Ideas from https://tympanus.net/codrops/2018/05/02/ideas-for-proximity-feedback-with-progressive-hover-effects/
+.form__error {
+	width: calc(100% - 2em + 2px);
+	height: calc(100% - 1em);
+	border: 2px solid #ff5900;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 1em;
+	pointer-events: none;
+	opacity: 0;
+	left: 15px;
+}

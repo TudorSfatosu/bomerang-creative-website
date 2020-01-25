@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Boomerang_Creative.Models.BlogPostViewModel>
+@*@inherits Umbraco.Web.Mvc.UmbracoViewPage<BlogViewModel>
+ @using Boomerang_Creative.Models*@
+
+@if (Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <div class="card mb-5">
+            <img class="card-img-top"
+                 src="@item.BlogImage"
+                 alt="Card image cap">
+
+            <div class="card-body">
+                @*<p class="card-text">
+                    @item.BlogCategory
+                </p>*@
+                <h1 class="card-title h2">@item.BlogTitle</h1>
+                @*<p class="card-text">
+                    @Html.Raw(item.BlogText)
+                </p>*@
+                <a rel="canonical" href="@item.BlogUrl" class="read-btn">Continue Reading</a>
+                <div class="text-muted">
+                    Posted on @item.BlogDate.ToString("dddd, d MMMM yyyy")
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <p>No results returned, please try a different search.</p>
+}

@@ -1,0 +1,98 @@
+.services-box {
+	h3, p {
+		text-align: center;
+
+		@include mq(md) {
+			text-align: left;
+		}
+	}
+
+	.nav {
+		&.nav-tabs {
+			float: left;
+			justify-content: space-between;
+
+			@include mq(md) {
+				justify-content: left;
+			}
+
+			display: block;
+			border-bottom: 0;
+			border-right: 1px solid transparent;
+
+			.nav-item {
+				@include mq(md) {
+					padding-left: 2em;
+				}
+			}
+
+			.nav-link {
+				margin-bottom: 2em;
+				border: 1px solid transparent;
+				border-top-left-radius: 0 !important;
+				border-top-right-radius: 0 !important;
+				padding: 0;
+				&.active {
+					color: $red;
+					background: transparent;
+					border-color: transparent !important;
+
+					@include mq(md) {
+						&:before {
+							content: '';
+							background-size: contain;
+							width: 1.8em;
+							height: 1.8em;
+							background-repeat: no-repeat;
+							background-image: url("../assets/images/png/boomeang-emblem-red-wire.png");
+							position: absolute;
+							margin-left: -2.5em;
+						}
+					}
+				}
+
+				&:hover {
+					border-color: transparent;
+				}
+			}
+		}
+	}
+
+	.btn {
+		display: flex;
+		text-align: center;
+		justify-content: center;
+		margin: 3em 4em 0 4em;
+
+		@include mq(md) {
+			display: inline-block;
+			margin: 1em 0 0 0;
+		}
+	}
+
+	.tab-content {
+		line-height: 2em;
+	}
+
+	.tab-content > .active {
+		display: block;
+		min-height: 165px;
+	}
+
+	.badge {
+		display: block;
+		width: 14em;
+		height: 14em;
+		background-size: cover;
+		background-position: center;
+		margin-left: 3em;
+	}
+}
+
+
+.full-services-list-box {
+	li {
+	}
+
+	text-transform: capitalize;
+}

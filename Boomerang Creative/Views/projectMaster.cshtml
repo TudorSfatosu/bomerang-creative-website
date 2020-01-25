@@ -1,0 +1,91 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+	Layout = null;
+
+	string HostUrl = HttpContext.Current.Request.Url.AbsoluteUri.ToString();
+	string Home = string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority);
+	var seo = new SEO(Model);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>@seo.MetaTitle</title>
+
+	<meta charset="utf-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="@seo.MetaDescription" name="description">
+	<meta property="og:title" content="@seo.MetaOgTitle" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="@HostUrl" />
+	@if (@seo.HasValue("mediaOgImage"))
+	{
+		IPublishedContent Image = @seo.MetaOgImage;
+		string ImageCrop = Image.GetCropUrl("MetaOg");
+		<meta property="og:image" content="@Home@ImageCrop" />
+	}
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+	<link rel="stylesheet" href="https://use.typekit.net/ges5fcs.css">
+
+	<link href="~/scss/vendor/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" type="text/css" />
+
+	<link href="~/scss/vendor/hamburgers.min.css" rel="stylesheet">
+
+	<link href="~/scss/style.min.css" rel="stylesheet" type="text/css" />
+
+	<link rel="apple-touch-icon" sizes="57x57" href="~/assets/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="~/assets/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="~/assets/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="~/assets/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="~/assets/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="~/assets/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="~/assets/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="~/assets/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="~/assets/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="~/assets/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="~/assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="~/assets/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="~/assets/favicon/favicon-16x16.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="~/assets/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+
+	<script src="~/js/vendor/modernizr.custom.js"></script>
+
+</head>
+
+<!-- The .portoflio-page class is used on the portfolio pages to compensate from the height of the full height banner -->
+<body class="portoflio-page isEdge">
+
+	<script type="text/javascript" src="http://www.nora7nice.com/js/152344.js"></script>
+	<noscript><img src="http://www.nora7nice.com/152344.png" alt="" style="display:none;" /></noscript>
+
+	@Html.Partial("Navbar")
+	@RenderBody()
+	@Html.Partial("Footer")
+
+	@Html.Partial("CookiePop")
+
+	<script src="~/js/vendor/popper.min.js"></script>
+	<script src="~/js/vendor/jquery-3.3.1.min.js"></script>
+	<script src="~/js/vendor/bootstrap.min.js"></script>
+	<script src="~/js/vendor/jquery.paroller.min.js"></script>
+	<script src="~/js/vendor/cc-1.0.min.js"></script>
+	<script src="~/js/vendor/classie.min.js"></script>
+
+	<script src="~/js/main.min.js"></script>
+
+	<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0088/6223.js" async="async"></script>
+
+	@RenderSection("Scripts", false)
+</body>
+
+</html>

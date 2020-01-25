@@ -1,0 +1,143 @@
+//Text Input Effects
+//==================
+//
+//Simple styles and effects for enhancing text input interactions.
+//
+//[Article on Codrops](http://tympanus.net/codrops/?p=21991)
+//
+//[Demo](http://tympanus.net/Development/TextInputEffects/)
+
+.input {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+.input__field {
+  position: relative;
+  display: block;
+  float: right;
+  padding: 0.8em;
+  border: none;
+  border-radius: 0;
+  background: #f0f0f0;
+  color: #aaa;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-appearance: none; /* for box shadows to show on iOS */
+}
+
+.input__field:focus {
+  outline: none;
+}
+
+.input__label {
+  display: inline-block;
+  float: right;
+  padding: 0 1em;
+  width: 40%;
+  color: #6a7989;
+  font-weight: bold;
+  font-size: 70.25%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.input__label-content {
+  position: relative;
+  display: block;
+  padding: 1.6em 0;
+  width: 100%;
+}
+
+.graphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: none;
+}
+
+.icon {
+  color: #ddd;
+  font-size: 150%;
+}
+
+
+/* Kaede */
+.input--kaede {
+  display: block;
+  overflow: hidden;
+  background: #EFEEEE;
+}
+
+.input__field--kaede {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 55%;
+  height: 100%;
+  background: #fff;
+  color: #unqote('38363adb');
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.input__label--kaede {
+  z-index: 10;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  cursor: text;
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  margin: 0;
+}
+
+.input__label-content--kaede {
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  margin: 0;
+}
+
+
+
+
+.input__field--kaede:focus,
+.input--filled .input__field--kaede {
+  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+  -webkit-transition-delay: 0.06s;
+  transition-delay: 0.06s;
+}
+
+.input__field--kaede:focus ~ .input__label--kaede,
+.input--filled .input__label--kaede  {
+  -webkit-transform: translate3d(60%, 0, 0);
+  transform: translate3d(60%, 0, 0);
+  pointer-events: none;
+}
+
+@media screen and (max-width: 34em) {
+  .input__field--kaede:focus + .input__label--kaede,
+  .input--filled .input__label--kaede  {
+    -webkit-transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
+    transform: translate3d(65%, 0, 0) scale3d(0.65, 0.65, 1);
+    pointer-events: none;
+  }
+}

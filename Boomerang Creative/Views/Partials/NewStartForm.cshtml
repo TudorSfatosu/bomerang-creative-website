@@ -1,0 +1,217 @@
+﻿@model Models.NewStartFormViewModel
+@using Recaptcha.Web.Mvc
+
+@{
+	var count = 0;
+	var count2 = 0;
+}
+
+<div class="form-wrap">
+	@if (TempData["success"] != null)
+	{
+		<div class="row">
+			<div class="col-12">
+				@if ((bool)TempData["success"] == true)
+				{
+					<div class="form-msg">
+						<p class="success">@Model.successMessage</p>
+						@if (TempData["Message"] != null)
+						{
+							var MailchimpMessage = (MvcHtmlString)TempData["Message"];
+							<div class="mail-list">
+								@MailchimpMessage
+							</div>
+						}
+					</div>
+				}
+				else if ((bool)TempData["success"] == false)
+				{
+					<div class="form-msg-error">
+						@Html.ValidationMessage("reCAPTCHA", new { @class = "text-danger" })
+					</div>
+				}
+			</div>
+		</div>
+	}
+
+	@using (Html.BeginUmbracoForm("NewStartFormSubmit", "Forms"))
+	{
+
+		<div class="form-group">
+			<div class="row text-center">
+				<div class="col-sm-12 pb-3">
+					<h5 class="d-inline text-sentencecase">@Model.FormTitle</h5>
+					@if (@Model.TitleTooltip != "")
+					{
+						<i class="fa fa-info-circle tooltip-icon d-inline px-2" data-toggle="tooltip" data-html="true" data-placement="right" title="@Model.TitleTooltip"></i>
+					}
+				</div>
+			</div>
+			<div class="row">
+				<!-- Your name -->
+				<div class="col-sm-6">
+					@Html.TextBoxFor(m => m.Name, new { @class = "form-control white-text transparent-bg museo-sans-700", placeholder = "Your Name" })
+					@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+				</div>
+
+				<!-- Your email  -->
+				<div class="col-sm-6">
+					@Html.TextBoxFor(m => m.Email, new { @class = "form-control white-text transparent-bg museo-sans-700", placeholder = "Your Email" })
+					@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+				</div>
+			</div>
+			<div class="form-group row">
+				<!-- Contact Number -->
+				<div class="col-sm-12 mt-2">
+					@Html.TextBoxFor(m => m.Tel, new { @class = "form-control white-text transparent-bg museo-sans-700", placeholder = "Contact Number" })
+					@Html.ValidationMessageFor(m => m.Tel, "", new { @class = "text-danger" })
+				</div>
+			</div>
+			<div class="form-group row">
+				<!-- Message -->
+				<div class="col-sm-12" id="form-message">
+					@Html.TextAreaFor(m => m.Message, new { @class = "form-control transparent-bg white-text museo-sans-700 mt-2", @rows = "5", placeholder = "Hi Boomerang Creative, my project is..." })
+					@Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group pb-5 pb-md-0">
+			<div class="row">
+				<div class="col-sm-12 pt-5 pt-md-3 text-white text-center pb-3">
+					<h5 class="d-inline">
+						<span class="d-inline">Budget</span>
+					</h5>
+					<i class="fa fa-info-circle tooltip-icon d-inline" data-toggle="tooltip" data-html="true" data-placement="right" title="@Model.BudgetTooltip"></i>
+					<span class="d-block black-text">
+						<small class=" text-lowercase">(optional)</small>
+					</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="slidecontainer col-sm-12">
+					<p id="quote-container" class="text-center font-weight-bold">£ <span id="quote-value"></span></p>
+					@Html.TextBoxFor(m => m.Budget, new { @class = "slider", type = "range", min = "0", max = "20000" })
+				</div>
+			</div>
+		</div>
+
+
+		<div class="form-group white-text  py-3">
+			<div class="row text-center">
+				<div class="col-sm-12 pt-3 text-white text-center pb-3">
+					<h5 class="d-inline">
+						<span class="d-inline">Project Details</span>
+					</h5>
+					@if (@Model.ProjectDetailsTooltip != "")
+					{
+						<i class="fa fa-info-circle tooltip-icon d-inline px-2" data-toggle="tooltip" data-html="true" data-placement="right" title="@Model.ProjectDetailsTooltip"></i>
+					}
+					<span class="d-block black-text">
+						<small class=" text-lowercase">(optional)</small>
+					</span>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-sm-4">
+					<p class="pt-4 mb-0 mb-md-4">Design</p>
+
+					@for (int i = 0; i < Model.DesignList.Count; i++)
+					{
+						<div class="form-check custom-control custom-checkbox my-2">
+							@Html.CheckBoxFor(x => x.DesignList[i].Checked, new { @class = "form-check-input custom-control-input" })
+							@Html.LabelFor(x => x.DesignList[i].Checked, Model.DesignList[i].Name, htmlAttributes: new { @class = "form-check-label custom-control-label text-lowercase" })
+							@Html.HiddenFor(x => x.DesignList[i].Name)
+						</div>
+					}
+				</div>
+				<div class="col-sm-4">
+					<p class="pt-4 mb-0 mb-md-4">Development</p>
+
+					@for (int i = 0; i < Model.DevelopmentList.Count; i++)
+					{
+						<div class="form-check custom-control custom-checkbox my-2">
+							@Html.CheckBoxFor(x => x.DevelopmentList[i].Checked, new { @class = "form-check-input custom-control-input" })
+							@Html.LabelFor(x => x.DevelopmentList[i].Checked, Model.DevelopmentList[i].Name, htmlAttributes: new { @class = "form-check-label custom-control-label text-lowercase" })
+							@Html.HiddenFor(x => x.DevelopmentList[i].Name)
+						</div>
+					}
+				</div>
+				<div class="col-sm-4">
+					<p class="pt-4 mb-0 mb-md-4">Marketing & Content</p>
+
+					@for (int i = 0; i < Model.MarketingContentList.Count; i++)
+					{
+						<div class="form-check custom-control custom-checkbox my-2">
+							@Html.CheckBoxFor(x => x.MarketingContentList[i].Checked, new { @class = "form-check-input custom-control-input" })
+							@Html.LabelFor(x => x.MarketingContentList[i].Checked, Model.MarketingContentList[i].Name, htmlAttributes: new { @class = "form-check-label custom-control-label text-lowercase" })
+							@Html.HiddenFor(x => x.MarketingContentList[i].Name)
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group white-text pb-3">
+			<div class="row">
+				<div class="col-sm-4">
+					<p class="d-inline text-sentencecase mr-2">Please, contact me by:</p>
+					@if (@Model.ContactMeTooltip != "")
+					{
+						<i class="fa fa-info-circle tooltip-icon d-inline" data-toggle="tooltip" data-html="true" data-placement="right" title="@Model.ContactMeTooltip</b>.
+If you didn't pick any option we we will be contacting you by email."></i>
+					}
+
+				</div>
+				<div class="col-sm-8">
+					<div class="d-md-inline form-check custom-control custom-checkbox mr-3 my-2">
+						@Html.CheckBoxFor(m => m.PhoneCheck, new { @class = "form-check-input custom-control-input", type = "checkbox" })
+						<label class="form-check-label custom-control-label" for="PhoneCheck">
+							phone
+						</label>
+					</div>
+					<div class="d-md-inline form-check custom-control custom-checkbox my-2">
+						@Html.CheckBoxFor(m => m.EmailCheck, new { @class = "form-check-input custom-control-input", type = "checkbox" })
+						<label class="form-check-label custom-control-label" for="EmailCheck">
+							email
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group py-4 py-md-0">
+			<!-- GDPR -->
+			<div class="row d-flex justify-content-center">
+				<div class="col-10 d-flex align-items-center">
+					@Html.LabelFor(m => m.Maillist, htmlAttributes: new { @class = "control-label checkbox" })
+				</div>
+				<div class="col-2 text-right">
+					<label>
+						@Html.CheckBoxFor(m => m.Maillist, new { @class = "form-checkbox" })
+						<span class="check-toggle"></span>
+					</label>
+				</div>
+			</div>
+			<div class="row d-flex justify-content-center">
+				<div class="col-12 d-flex align-items-center">
+					<small class="form-text"><label for="Maillist">@Model.gDPREmailMessage</label></small>
+					@Html.ValidationMessageFor(m => m.Maillist, "", new { @class = "text-danger" })
+				</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<!-- Recaptcha -->
+			<div class="col-sm-12">
+				@Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean)
+			</div>
+		</div>
+		<div class="form-group row pt-4 pt-md-0">
+			<!-- Sumbit -->
+			<div class="col-12">
+				<button class="btn btn-7 museo-sans-500 py-3 px-4 no-underline float-right form__button" type="submit" name="Submit">Send Details</button>
+			</div>
+		</div>
+	}
+</div>

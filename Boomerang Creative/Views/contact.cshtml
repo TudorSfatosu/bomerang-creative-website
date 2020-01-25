@@ -1,0 +1,246 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Contact>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+    Layout = "Master.cshtml";
+    var SettingsNode = @Umbraco.Content(1473);
+    var Settings = new Settings(SettingsNode);
+}
+
+@section Scripts {
+
+    @if (ViewBag.Section == "form")
+    {
+        <script>
+            $(document).ready(function () {
+                var anchor = document.getElementById('form');
+                anchor.scrollIntoView(true);
+            });
+        </script>
+    }
+
+    <script src="~/scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/scripts/jquery.validate.min.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<style>
+	.contact-box {
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(87, 61, 24, 0.8) 100%), url(@Model.ContactImage.Url());
+	}
+
+	@@media (min-width: 992px) {
+		.contact-box {
+			background-image: url(@Model.ContactImage.Url());
+		}
+	}
+</style>
+
+<!-- Original Contact Banner -->
+<section class="simple-banner-container orange-red-bg">
+    <div class="container simple-banner text-center contact-banner pb-0">
+        <div class="museo-sans-500 first-line ">
+            <span class="white-border-bottom white-text">@Model.IntroText</span>
+        </div>
+        <!-- HEllo and contacts row -->
+        <div class="row">
+            <div class="col-12 col-xl-6">
+                <h1 class="verveine washed-orange-text">@Model.BigText</h1>
+            </div>
+            <div class="col-12 col-xl-6 d-none d-xl-block banner-contact-list">
+                <ul class="no-bullet-points museo-sans-500">
+                    <li>
+                        <a class="white-text white-text-hover" rel="canonical" href="tel:@Settings.Phone">@Settings.Phone</a>
+                    </li>
+                    <li>
+                        <a class="white-text white-text-hover" rel="canonical" href="mailto:@Settings.Email">@Settings.Email</a>
+                    </li>
+                    <li>
+                        <a class="white-text white-text-hover" target="_blank"
+                           rel="canonical" href="https://www.google.com/maps/dir//Boomerang+Creative,+Oxford+Square,+University+House,+Newbury+RG14+1JQ,+United+Kingdom/&#64;51.4057917,-1.327882,17z/data=!4m16!1m6!3m5!1s0x4876a622e8600d69:0x6dc43e17b9bb0073!2sBoomerang+Creative!8m2!3d51.4057917!4d-1.3256933!4m8!1m0!1m5!1m1!1s0x4876a622e8600d69:0x6dc43e17b9bb0073!2m2!1d-1.3256933!2d51.4057917!3e2">
+                            @Settings.FirstLineOfAddress<br>
+                            @Settings.SecondLineOfAddress<br>
+                            @Settings.ThirdLineOfAddress
+                        </a>
+                    </li>
+                </ul>
+                <div class="badge d-none d-md-block"
+                     style="background-image: url(/assets/images/png/hello-badge.png)"></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="form" class="container simple-banner-container px-0 contact-form">
+        <div class="row">
+            <div class="col-12">
+                <!-- Contact Banner -->
+                <div class="action-form simple-banner p-0">
+                    <div class="container pb-5 px-0">
+                        <div class="row">
+                            <div class="col-md-10 mx-auto px-0">
+                                @*<form class="form">*@
+                                <div class="form-group row">
+                                    <div class="col-12 px-0">
+                                        <div class="white-text text-center pb-5 mx-auto w-75 museo-sans-500 text-sentencecase">
+                                            <ul class="no-bullet-points museo-sans-500 d-none d-md-block d-lg-none pb-3">
+                                                <li>
+                                                    <a class="white-text white-text-hover" rel="canonical" href="tel:@Settings.Phone">@Settings.Phone</a>
+                                                </li>
+                                                <li>
+                                                    <a class="white-text white-text-hover" rel="canonical" href="mailto:@Settings.Email">@Settings.Email</a>
+                                                </li>
+                                                <li>
+                                                    <a class="white-text white-text-hover" target="_blank"
+                                                       rel="canonical" href="https://www.google.com/maps/dir//Boomerang+Creative,+Oxford+Square,+University+House,+Newbury+RG14+1JQ,+United+Kingdom/&#64;51.4057917,-1.327882,17z/data=!4m16!1m6!3m5!1s0x4876a622e8600d69:0x6dc43e17b9bb0073!2sBoomerang+Creative!8m2!3d51.4057917!4d-1.3256933!4m8!1m0!1m5!1m1!1s0x4876a622e8600d69:0x6dc43e17b9bb0073!2m2!1d-1.3256933!2d51.4057917!3e2">
+                                                        @Settings.FirstLineOfAddress<br>
+                                                        @Settings.SecondLineOfAddress<br>
+                                                        @Settings.ThirdLineOfAddress
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            @Model.SmallText
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.Action("ContactForm", "Forms")
+                                @*<div class="form-group row">
+                                        <!-- Your name -->
+                                        <div class="col-sm-6">
+                                            <input required type="text"
+                                                   class="form-control white-text transparent-bg museo-sans-700 white-border"
+                                                   id="inputFirstname" placeholder="Your name">
+
+                                            <div class="form__error"></div>
+                                        </div>
+
+                                        <!-- Your Email -->
+                                        <div class="col-sm-6">
+                                            <input required="" type="text"
+                                                   class="form-control white-text transparent-bg museo-sans-700 white-border"
+                                                   id="inputEmailAddress" placeholder="Your Email">
+
+                                            <div class="form__error"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <!-- Contact Number -->
+                                        <div class="col-sm-12">
+                                            <input type="tel"
+                                                   class="form-control white-text white-text transparent-bg museo-sans-700 white-border"
+                                                   id="inputNumber" placeholder="Contact Number">
+                                            <div class="form__error"></div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <!-- Message -->
+                                        <div class="col-sm-12" id="form-message">
+                                            <textarea required placeholder="Message"
+                                                      class="form-control transparent-bg white-text white-border museo-sans-700"></textarea>
+                                            <div class="form__error"></div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <!-- GDPR -->
+                                        <div class="col-12 col-lg-8 order-2 order-lg-1">
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                       id="defaultCheck1">
+                                                <label class="form-check-label museo-sans-300 white-text text-sentencecase gdpr" for="defaultCheck1">
+                                                    @Model.TheGdprconsent
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- Sumbit -->
+                                        <div class="col-12 col-lg-4 order-1 order-lg-2">
+                                            <button type="button"
+                                                    class="btn btn-5  museo-sans-500 py-3 px-4 no-underline float-right form__button ">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>*@
+                                @*</form>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / Contact Banner -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Original Contact Banner -->
+<!-- Contact Details section -->
+<section id="contact-details">
+    <div class="container-fluid p-0 no-gutters">
+        <div class="row">
+            <div class="col-12 col-md-6 p-0 order-2 order-md-1 box-shadow--no-border">
+                <div id="map-wrap">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 contact-box order-1 order-md-2 box-shadow--no-border">
+                <ul class="no-bullet-points  museo-sans-500 d-md-none">
+                    <li>
+                        <a class="white-text white-text-hover" rel="canonical" href="tel:01635 517517">@Settings.Phone</a>
+                    </li>
+                    <li>
+                        <a class="white-text white-text-hover" rel="canonical" href="mailto:hello@boomerangcreative.agency">hello@boomerangcreative.agency</a>
+                    </li>
+                    <li>
+                        <a class="white-text white-text-hover" target="_blank"
+                           rel="canonical" href="https://www.google.com/maps/dir//Boomerang+Creative,+Oxford+Square,+University+House,+Newbury+RG14+1JQ,+United+Kingdom/&#64;51.4057917,-1.327882,17z/data=!4m16!1m6!3m5!1s0x4876a622e8600d69:0x6dc43e17b9bb0073!2sBoomerang+Creative!8m2!3d51.4057917!4d-1.3256933!4m8!1m0!1m5!1m1!1s0x4876a622e8600d69:0x6dc43e17b9bb0073!2m2!1d-1.3256933!2d51.4057917!3e2">
+                            @Settings.FirstLineOfAddress<br>
+                            @Settings.SecondLineOfAddress<br>
+                            @Settings.ThirdLineOfAddress
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / Contact Details section -->
+
+
+@if (@Model.ExtraWordCount != null && !String.IsNullOrEmpty(@Model.ExtraWordCount.ToString()))
+{
+    <section>
+        <div class="row p-5">
+            <div class="col-8 text-center museo-sans-300 m-auto">
+                @Model.ExtraWordCount
+            </div>
+        </div>
+    </section>
+}
+
+
+<script>
+	var map;
+	function initMap() {
+		var lat = @Settings.Latitude;
+		var lng = @Settings.Longitude;
+		var myLatLng = { lat: lat, lng: lng };
+		map = new google.maps.Map(document.getElementById('map-wrap'), {
+			mapOptions: false, center: myLatLng, zoom: 16
+		});
+
+		var icon = {
+			url: "../assets/images/png/map-marker.png", // url
+			scaledSize: new google.maps.Size(48, 69), // scaled size
+			origin: new google.maps.Point(0, 0), // origin
+			anchor: new google.maps.Point(0, 0) // anchor
+		};
+
+		var marker = new google.maps.Marker({
+			position: myLatLng,
+			map: map,
+			icon: icon
+		});
+	}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhMKJZRggycoxC12y9Sm-WZEtvQI7ZEr8&callback=initMap" async
+        defer></script>

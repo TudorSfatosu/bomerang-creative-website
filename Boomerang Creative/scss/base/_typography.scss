@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'DIN-Light';
+  src: url('../assets/fonts/DIN-Light.eot'); /* IE9 Compat Modes */
+  src: url('../assets/fonts/DIN-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../assets/fonts/DINLight.woff2') format('woff2'), /* Super Modern Browsers */ url('../assets/fonts/DIN-Light.woff') format('woff'), /* Pretty Modern Browsers */ url('../assets/fonts/DIN-Light.ttf') format('truetype'), /* Safari, Android, iOS */ url('../assets/fonts/DIN-Light.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+.verveine {
+  font-family: verveine, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.museo-sans-300 {
+  font-family: museo-sans, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.museo-sans-500 {
+  font-family: museo-sans, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.museo-sans-700 {
+  font-family: museo-sans, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.co-headline {
+  font-family: co-headline, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.din-light {
+  font-family: DIN-Light, sans-serif;
+  font-style: normal;
+}
+
+p.heading {
+  font-size: 1.25em;
+  @include mq(sm) {
+    font-size: 1.75em;
+  }
+}

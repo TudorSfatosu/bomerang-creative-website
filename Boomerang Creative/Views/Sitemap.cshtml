@@ -1,0 +1,31 @@
+﻿@inherits UmbracoViewPage
+@{Layout = null; Response.ContentType = "text/xml"; var rootNode = @Model.Root();}<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    <url>
+        <loc>@rootNode.UrlAbsolute()</loc>
+        <lastmod>@rootNode.UpdateDate.ToString("s")+00:00</lastmod>
+    </url>
+    @ListChildNodes(@rootNode)
+</urlset>
+@helper ListChildNodes(IPublishedContent startNode)
+{
+    Response.ContentType = "text/xml";
+    const int maxLevelForSiteMap = 100;
+    foreach (var node in startNode.Children
+        .Where(n =>
+        n.IsVisible() &&
+        n.TemplateId > 0 &&
+        Umbraco.MemberHasAccess(n.Path)))
+    {
+        <url>
+            <loc>@(((IPublishedContent)node).UrlAbsolute())</loc>
+            <lastmod>@node.UpdateDate.ToString("s")+00:00</lastmod>
+        </url>
+        if (node.Level <= maxLevelForSiteMap)
+        {
+            @ListChildNodes(node)
+        }
+    }
+}

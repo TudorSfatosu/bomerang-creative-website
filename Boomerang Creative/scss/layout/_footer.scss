@@ -1,0 +1,164 @@
+/// <reference path="../abstracts/_mixin.scss"/>
+
+footer {
+	.container-fluid {
+		padding-right: 0;
+		padding-left: 0;
+
+		@include mq(sm) {
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+	}
+
+	.lightest-grey-bg {
+		box-shadow: 0 3px 2px -2px rgba(200, 200, 200, 0.43);
+		border: 1px solid unquote('#dddddd0f');
+	}
+
+	.icon {
+		width: 1em;
+		height: 1em;
+		background-repeat: no-repeat;
+		background-size: contain;
+		vertical-align: middle;
+		background-position-y: center;
+		margin-right: .5em;
+		@include mq(md) {
+			margin-right: 0.5em;
+			width: 1.25em;
+			height: 1.25em;
+		}
+
+		@include mq(lg) {
+			margin-right: 0em;
+			width: 1.35em;
+			height: 1.35em;
+		}
+
+		@include mq(xl) {
+			margin-right: 0.5em;
+		}
+	}
+
+	.copyright-text {
+		font-size: 0.9em;
+		text-align: center;
+		padding: .5em 0;
+
+		@include mq(md) {
+			padding: 1.5em 0;
+		}
+
+		&:first-child {
+			display: flex;
+			flex-direction: column;
+			line-height: 3em;
+			padding-bottom: 1em;
+			@include mq(md) {
+				padding-bottom: 0;
+			}
+		}
+
+		a {
+			text-decoration: underline;
+			color: $grey;
+		}
+
+		@include mq(md) {
+			padding: 0;
+			font-size: 0.75em;
+
+			&:first-child {
+				text-align: left;
+				line-height: 2em;
+			}
+
+			&:nth-child(2) {
+				text-align: right;
+			}
+		}
+	}
+
+	.links {
+		ul {
+			li {
+				a.active {
+					color: black;
+				}
+			}
+		}
+
+		@include mq(lg) {
+			padding: 2em 0;
+		}
+	}
+
+	.ml-4, .mx-4 {
+		margin-left: 0 !important;
+	}
+
+	.mr-4, .mx-4 {
+		margin-right: 0 !important;
+	}
+
+	.pl-4, .px-4 {
+		padding-left: 0 !important;
+	}
+
+	.pr-4, .px-4 {
+		padding-right: 0 !important;
+	}
+
+	.ml-5, .mx-5 {
+		margin-left: 0 !important;
+	}
+
+	.mr-5, .mx-5 {
+		margin-right: 0 !important;
+	}
+
+	@include mq(md) {
+		.ml-4, .mx-4 {
+			margin-left: 1.5rem !important;
+		}
+
+		.mr-4, .mx-4 {
+			margin-right: 1.5rem !important;
+		}
+
+		.pl-4, .px-4 {
+			padding-left: 1.5rem !important;
+		}
+
+		.pr-4, .px-4 {
+			padding-right: 1.5rem !important;
+		}
+
+		.ml-5, .mx-5 {
+			margin-left: 3rem !important;
+		}
+
+		.mr-5, .mx-5 {
+			margin-right: 3rem !important;
+		}
+	}
+
+	.contact-list {
+		.text-left {
+			text-align: center !important;
+
+			@include mq(lg) {
+				text-align: left !important;
+			}
+		}
+
+		.text-right {
+			text-align: center !important;
+
+			@include mq(lg) {
+				text-align: right !important;
+			}
+		}
+	}
+}

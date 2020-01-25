@@ -1,0 +1,14 @@
+/Boomerang Creative/App_Data/
+/Boomerang Creative/obj
+/Boomerang Creative/Media
+.idea
+.vs
+/Boomerang Creative/.idea
+/Boomerang Creative/.vs
+
+Properties
+/Boomerang Creative/assets/images/jpg/banner/old-toy-vintage-style.psd
+Properties
+/Boomerang Creative/Web.config
+/Boomerang Creative/Web.Debug.config
+/Boomerang Creative/Web.Release.config

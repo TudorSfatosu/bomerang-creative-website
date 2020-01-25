@@ -1,0 +1,220 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Blog>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using Umbraco.Core.PropertyEditors;
+@using Umbraco.Core.Services;
+
+@*@inherits Umbraco.Web.Mvc.UmbracoViewPage<BlogViewModel>
+	@using Boomerang_Creative.Models*@
+
+@{
+	Layout = "Master.cshtml";
+}
+
+@{
+	// get blog categories
+	IDataTypeService dataTypeService = Services.DataTypeService;
+	IDataType dataType = dataTypeService.GetDataType(1494);
+	ValueListConfiguration dataTypeConfig = (ValueListConfiguration)dataType.Configuration;
+}
+
+@section Scripts {
+	<script type="text/javascript">
+        $(document).ready(function () {
+            var iLoad = 5;
+            $('#hCategory').val("all");
+
+			$(".category-btn").click(function (event) {
+				event.preventDefault();
+
+				var dataCategory = $(this).attr('data-category');
+				$(this).toggleClass('category-active');
+				$('.category-active').not(this).removeClass('category-active');
+				$('#hCategory').val(dataCategory);
+				var iLoaded = $(".blog-list-container .card").length;
+
+				BlogFilter(dataCategory, iLoaded, iLoad);
+			});
+
+			$("#load-more").click(function (event) {
+				event.preventDefault();
+
+				var dataCategory = $('#hCategory').val();
+				var iLoaded = $(".blog-list-container .card").length;
+
+				LoadBlogs(dataCategory, iLoaded, iLoad);
+
+				if (iLoaded != iLoad) {
+					$(this).hide();
+				}
+			});
+
+
+			function BlogFilter(category, iLoaded, iLoad) {
+
+				$.ajax({
+					type: "POST",
+					async: true,
+					url: "/Umbraco/Api/Blog/FilterBlogs",
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					data: JSON.stringify({ BlogCategory: category, iLoaded: iLoaded, iLoad: iLoad }),
+					beforeSend: function () {
+						$("#Loader").show();
+					},
+					complete: function () {
+						$("#Loader").hide();
+					},
+					success: function (html) {
+						//console.log(html);
+						$('.blog-list-container').hide();
+						$(".blog-list-container").html(html);
+						$('.blog-list-container').fadeIn();
+					},
+					error: function (__x, __h, __m) {
+						console.log('ajax returned error', __m, __x, __h);
+					}
+				})
+			}
+
+			function LoadBlogs(category, iLoaded, iLoad) {
+
+				$.ajax({
+					type: "POST",
+					async: true,
+					url: "/Umbraco/Api/Blog/LoadBlogs",
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					data: JSON.stringify({ BlogCategory: category, iLoaded: iLoaded, iLoad: iLoad }),
+					beforeSend: function () {
+						$("#Loader").show();
+					},
+					complete: function () {
+						$("#Loader").hide();
+					},
+					success: function (html) {
+						//console.log(html);
+						//html.hide();
+						$(".blog-list-container").append(html);
+						//html.fadeIn();
+					},
+					error: function (__x, __h, __m) {
+						console.log('ajax returned error', __m, __x, __h);
+					}
+				})
+			}
+
+
+		});
+	</script>
+}
+
+@if (@Model.BannerImage.Url() != null)
+{
+	<style>
+		.blog-banner {
+			background-image: radial-gradient(circle, #ffaf0d, #fdaa0d, #fba60e, #f8a10e, #f69d0f, #f4950a, #f38c07, #f18405, #ef7503, #ed6405, #ea530b, #e63f11), url(@Model.BannerImage.Url());
+			background-size: contain !important;
+			background-blend-mode: hue;
+		}
+
+		@@media (min-width: 768px) {
+		.blog-banner {
+				background-size: auto !important;
+			}
+		}
+
+		@@supports (-ms-ime-align:auto) {
+			.blog-banner {
+				background-image: url(@Model.BannerImage.Url()), radial-gradient(circle, #ffaf0d, #fdaa0d, #fba60e, #f8a10e, #f69d0f, #f4950a, #f38c07, #f18405, #ef7503, #ed6405, #ea530b, #e63f11);
+			}
+		}
+
+	</style>
+}
+
+<!-- Simple Banner for the Services Page -->
+<section class="simple-banner-container">
+	<div class="container-fluid simple-banner blog-banner simple-banner--full-width simple-banner--mid-height simple-banner--center text-center">
+		<h1 class="verveine white-text filter-shadow-big">@Model.LargeText</h1>
+		<div class="museo-sans-300 second-line m-auto w-50 white-text">
+			@Model.Subtext
+		</div>
+	</div>
+</section>
+<!-- / Simple Banner for the Services Page -->
+<!-- Page Content -->
+<div class="container pt-4">
+
+	<div class="row mt-4">
+
+		<!-- Blog Entries Column -->
+        <div class="col-md-8 blog-list-wrap">
+            <div id="Loader" class="loader">
+                <div class="loader-wrap d-flex justify-content-center align-items-start">
+                    <div class="loading-content">
+                        <img src="~/assets/images/svg/loading.svg" class="loader-img" alt="loading svg" />
+                        <span>Please Wait...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-list-container">
+                @Html.Action("Index", "BlogList")
+            </div>
+            <div class="text-center load-more-section py-5">
+                <div class="row">
+                    <div class="col-12">
+                        <a id="load-more" rel="canonical" href="#load-more" class="grey-text grey-text-hover museo-sans-500">
+                            <div class="icon d-block"
+                                 style="background-image: url(/assets/images/png/megaphone-dark-orange.png)"></div>
+                            <div class="load-more">Load More</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<!-- Sidebar Widgets Column -->
+		<div class="col-md-4 d-none d-md-block">
+
+			<!-- Categories Widget -->
+			<div class="card blog-category">
+				<h5 class="card-header">Categories</h5>
+
+				<div class="card-body">
+					@Html.Hidden("hCategory")
+					<ul class="list-unstyled mb-0 row">
+						@if (dataTypeConfig.Items != null)
+						{
+							<li class="col-lg-6 p-0">
+								<a rel="canonical" href="#" class="category-btn category-active" data-category="all">All Categories</a>
+							</li>
+
+							foreach (var blogCat in dataTypeConfig.Items)
+							{
+								<li class="col-lg-6 p-0">
+									<a rel="canonical" href="#" class="category-btn" data-category="@blogCat.Value">@blogCat.Value</a>
+								</li>
+							}
+						}
+					</ul>
+				</div>
+			</div>
+
+			<!-- Side Widget -->
+			<div class="card my-4">
+				<div class="card-body">
+					<a class="twitter-timeline" data-tweet-limit="2" data-dnt="true" data-link-color="#E95F28"
+					   rel="canonical" href="https://twitter.com/Boomerang_Web?ref_src=twsrc%5Etfw">Tweets by Boomerang_Web</a>
+					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</div>
+			</div>
+
+		</div>
+		<!-- /.row -->
+
+	</div>
+</div>
+<!-- /.container -->
+
+@Html.Partial("ActionBox")
+

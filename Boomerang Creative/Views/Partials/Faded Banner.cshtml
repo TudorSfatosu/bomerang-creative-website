@@ -1,0 +1,21 @@
+﻿@using Boomerang_Creative.Models
+
+@if (Model.Content.HeroImage != null)
+{
+
+	string ImagePath = "";
+	string ImageWidth = "";
+	IEnumerable<ImageCropData> imagecrop = Model.Content.HeroImage.Crops;
+
+	<section class="bg-image-full d-flex justify-content-center align-items-center">
+		<picture>
+			@foreach (var image in imagecrop.OrderBy(x => x.Width))
+			{
+				ImagePath = Model.Content.HeroImage.Src + Model.Content.HeroImage.GetCropUrl(image.Alias) + "&quality=80";
+				ImageWidth = image.Width.ToString() + "px";
+				<source media="(max-width: @ImageWidth)" srcset="@ImagePath">
+			}
+			<img src="@Model.Content.HeroImage.Src@Model.Content.HeroImage.GetCropUrl("LgDesktop")&quality=70" alt="@Model.Content.Name image" class="hero-img">
+		</picture>
+	</section>
+}

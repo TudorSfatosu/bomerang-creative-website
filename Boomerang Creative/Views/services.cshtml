@@ -1,0 +1,116 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Services>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+				/**/
+
+				Layout = "Master.cshtml";
+				var ServiceSectionNode = @Umbraco.Content(1412);
+				var servicesSection = new ServicesSections(ServiceSectionNode);
+				string ImagePath = @Model.BannerImage.Src + @Model.BannerImage.GetCropUrl("HeightXSmall") + "&quality=80";
+				string ImageWidth = "";
+}
+
+<style>
+	.simple-banner {
+		background-image: url(@ImagePath);
+	}
+</style>
+
+@foreach (var image in @Model.BannerImage.Crops.OrderBy(x => x.Width))
+{
+	ImagePath = @Model.BannerImage.Src + @Model.BannerImage.GetCropUrl(image.Alias) + "&quality=80";
+	ImageWidth = image.Width.ToString() + "px";
+
+	<style>
+		@@media (min-width:  @ImageWidth) {
+			.simple-banner {
+				background-image: url(@ImagePath);
+			}
+		}
+	</style>
+}
+
+<!-- Simple Banner for the Services Page -->
+<section class="simple-banner-container">
+	<div class="container-fluid simple-banner simple-banner--full-width simple-banner--full-height simple-banner--center text-center spotlight-container">
+		<h1 class="verveine white-text">@Model.BannerTitle</h1>
+		<div class="museo-sans-300 second-line m-auto w-50 white-text">
+			@Model.BannerText
+		</div>
+		<div id="propellor" class="propellor"></div>
+	</div>
+
+</section>
+
+@Html.Partial("ServicesSections")
+
+<!-- Tech Gallery -->
+<div class="container-fluid mb-5 logo-gallery">
+	<section class="container">
+		<div class="row py-5">
+			<div class="col-12 text-center">
+				<h2 class="pb-4">Market Leading Technology Software</h2>
+				<!-- Row 1 -->
+				<div class="grid-container grid-container--fit pt-5">
+					<a href="https://mailchimp.com/" target="_blank" class="grid-element h-compressed img-hover-zoom--point-zoom">
+						<img src="~/assets/images/tech-logos/mailchimp-logo-horizontal-black.png" alt="Mail Chimp Logo" />
+					</a>
+					<a href="https://hootsuite.com/en-gb/" target="_blank" class="grid-element h-compressed img-hover-zoom--point-zoom">
+						<img src="~/assets/images/tech-logos/hootsuite-logo.png" alt="Hootsuite Logo" />
+					</a>
+					<a href="https://www.linkedin.com/" target="_blank" class="grid-element h-compressed img-hover-zoom--point-zoom">
+						<img src="~/assets/images/tech-logos/linkedin-logo.png" alt="LinkedIn Logo" />
+					</a>
+				</div>
+				<!-- / Row 1 -->
+				<!-- Row 2 -->
+				<div class="grid-container grid-container--fit">
+					<a href="https://www.semrush.com/" target="_blank" class="grid-element img-hover-zoom--point-zoom">
+						<img src="~/assets/images/tech-logos/semrush-logo.png" alt="SEMRush Logo" />
+					</a>
+					<a href="https://www.experian.co.uk/" target="_blank" class="grid-element img-hover-zoom--point-zoom">
+						<img src="~/assets/images/tech-logos/experian-logo.png" alt="Experian Logo" />
+					</a>
+					<a href="https://analytics.google.com/analytics/web/" target="_blank" class="grid-element img-hover-zoom--point-zoom">
+						<img src="~/assets/images/tech-logos/google-analyitcs-logo.png" alt="Google Analyitcs Logo" />
+					</a>
+					<a href="https://www.icontact.com/" target="_blank" class="grid-element img-hover-zoom--point-zoom">
+						<img src="~/assets/images/tech-logos/iContact-logo.png" alt="iContact Logo" />
+					</a>
+				</div>
+				<!-- Row 2 -->
+				<!-- Row 3 -->
+				<div class="grid-container grid-container--fit">
+					<a href="https://twitter.com/?lang=en-gb" class="grid-element v-compressed img-hover-zoom--point-zoom" target="_blank">
+						<img src="~/assets/images/tech-logos/twitter-logo-blue.png" alt="Twitter Logo" />
+					</a>
+					<a href="https://en-gb.facebook.com/" class="grid-element v-compressed img-hover-zoom--point-zoom" target="_blank">
+						<img src="~/assets/images/tech-logos/facebook-logo.png" alt="Facebook Logo" />
+					</a>
+					<a href="https://www.instagram.com/" class="grid-element  v-compressed img-hover-zoom--point-zoom" target="_blank">
+						<img src="~/assets/images/tech-logos/instagram-logo.png" alt="Instagram Logo" />
+					</a>
+					<a href="https://www.crazyegg.com/" class="grid-element img-hover-zoom--point-zoom" target="_blank">
+						<img src="~/assets/images/tech-logos/crazy-egg-logo.png" alt="Crazy Egg Logo" />
+					</a>
+				</div>
+				<!-- / Row 3 -->
+			</div>
+		</div>
+	</section>
+</div>
+<!-- / Tech Gallery -->
+
+@Html.Partial("ActionBox")
+
+@if (@Model.ExtraWordCount != null && !String.IsNullOrEmpty(@Model.ExtraWordCount.ToString()))
+{
+	<section>
+		<div class="row p-5">
+			<div class="col-8 text-center museo-sans-300 m-auto">
+				@Model.ExtraWordCount
+			</div>
+		</div>
+	</section>
+}

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Boomerang_Creative.Models.ProjectViewModel>
+@*@inherits Umbraco.Web.Mvc.UmbracoViewPage<BlogViewModel>
+    @using Boomerang_Creative.Models*@
+
+@if (Model.Any())
+{
+    foreach (var item in Model)
+    {
+        <a rel="canonical" href="@item.ProjectUrl" class="col-12 col-md-6 img-col @item.TextColor-text @item.TextColor-text-hover">
+            <img src="@item.ProjectImage" alt="@Path.GetFileNameWithoutExtension(@item.ProjectImage).Replace("-", " ")">
+            <div class="overlay-effect @item.OverlayColor"></div>
+            <div class="caption-container">
+                <h3 class="museo-sans-300">@item.ProjectTitle</h3>
+                @*@foreach (var workCat in item.ProjectCategory)
+                {
+                    <p>@workCat</p>
+                }*@
+            </div>
+        </a>
+    }
+}
+else
+{
+    <p>No results returned, please try a different search.</p>
+}

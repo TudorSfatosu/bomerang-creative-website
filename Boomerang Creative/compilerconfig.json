@@ -1,0 +1,22 @@
+﻿[
+  {
+    "outputFile": "scss/style.css",
+    "inputFile": "scss/style.scss"
+  },
+  {
+    "outputFile": "js/components/proximity/demo.es5.js",
+    "inputFile": "js/components/proximity/demo.js"
+  },
+  {
+    "outputFile": "js/vendor/classie.es5.js",
+    "inputFile": "js/vendor/classie.js"
+  },
+  {
+    "outputFile": "js/main.es5.js",
+    "inputFile": "js/main.js"
+  },
+  {
+    "outputFile": "js/vendor/cc-1.0.es5.js",
+    "inputFile": "js/vendor/cc-1.0.js"
+  }
+]

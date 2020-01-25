@@ -1,0 +1,90 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+	var SettingsNode = @Umbraco.Content(1473);
+	var Settings = new Settings(SettingsNode);
+	var seo = new SEO(Model);
+	var navbarSettings = new NavbarSettings(Model);
+}
+
+<!-- Navbar -->
+<!-- Switching between white text with navbar-light dark and black text with navbar-light -->
+<nav class="navbar navbar-expand-lg navbar-light @(@navbarSettings.WhiteBurger ? "white-burger" : "") @(@navbarSettings.NavbarType == "dark" ? "dark" : "") @(@navbarSettings.StaticTop ? "" : "static-top")" >
+	<div class="container-fluid">
+		<a class="navbar-brand" rel="canonical" href="/">
+			<div class="emblem emblem-@navbarSettings.EmblemType emblem-hover"></div>
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<div id="trigger-overlay" class="hamburger hamburger--spin">
+				<div class="hamburger-box">
+					<div class="hamburger-inner"></div>
+				</div>
+			</div>
+		</button>
+		<!-- Mobile Overlay -->
+		<div class="overlay overlay-door d-lg-none">
+			<button type="button" class="overlay-close d-none">Close</button>
+			<nav>
+				<ul>
+					@foreach (var mainNavigation in @Settings.MainNavigation)
+					{
+						var pageNode = @Umbraco.Content(mainNavigation.Id);
+						var page = new NavbarSettings(pageNode);
+						<li class="mobile-overlay">
+							<a class="museo-sans-300" rel="canonical" href="@mainNavigation.Url">
+								@( @page.MobilePageName != "" ? @page.MobilePageName : @mainNavigation.Name ) 
+							</a>
+						</li>
+					}
+				</ul>
+				<div class="d-lg-none mobile-social-icons">
+						<a rel="canonical" href="@Settings.InstagramLink"
+						   class="social-icon icon-instagram d-block filter-shadow-smaller" target="_blank"
+						   style="background-image: url(@Settings.InstagramImage.Url)">
+
+						</a>
+						<a rel="canonical" href="@Settings.FacebookLink" target="_blank"
+						   class="social-icon icon-facebook d-block filter-shadow-smaller"
+						   style="background-image: url(@Settings.FacebookImage.Url)">
+						</a>
+						<a rel="canonical" href="@Settings.TwitterLink" target="_blank"
+						   class="social-icon icon-twitter d-block filter-shadow-smaller"
+						   style="background-image: url(@Settings.TwitterImage.Url)">
+						</a>
+				</div>
+			</nav>
+		</div>
+		<!-- mMbile Overlay -->
+		<!-- Desktop Overlay -->
+		<div class="collapse navbar-collapse hover-nav d-none d-lg-block" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto white-text museo-sans-500 desktop-links">
+
+				@foreach (var mainNavigation in @Settings.MainNavigation)
+				{
+					if (@seo.HideInMainNavigation == false)
+					{
+						if (@Model.Url != @mainNavigation.Url)
+						{
+							<li class="nav-item mr-5">
+								<a class="nav-link" hreflang="en-gb" rel="canonical" href="@mainNavigation.Url">@mainNavigation.Name</a>
+							</li>
+						}
+						else
+						{
+							<li class="nav-item @(@Model.Url == @mainNavigation.Url ? "active" : null) mr-5">
+								<a class="nav-link"  hreflang="en-gb" rel="canonical" href="@mainNavigation.Url">
+									@mainNavigation.Name
+									<span class="sr-only">(current)</span>
+								</a>
+							</li>
+						}
+					}
+				}
+			</ul>
+		</div>
+		<!-- / Desktop Overlay -->
+		<span class="target"></span>
+	</div>
+</nav>
+<!-- / Navbar -->

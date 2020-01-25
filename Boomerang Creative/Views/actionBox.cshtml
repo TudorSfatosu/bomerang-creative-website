@@ -1,0 +1,42 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@{
+	Layout = null;
+	var ActionNode = @Umbraco.Content(1402);
+	var actionBox = new ActionBox(ActionNode);
+	var SettingsNode = @Umbraco.Content(1473);
+	var Settings = new Settings(SettingsNode);
+}
+
+<!-- Action Box -->
+<section class="action-box orange1-bg text-white my-0 mt-md-4 box-shadow">
+	<div class="container text-center">
+		<p class="museo-sans-300 heading pb-3 pt-4 pt-lg-5">
+			@actionBox.Header
+		</p>
+		<hr class="mid-broken">
+		<a rel="canonical" href="@actionBox.BigTextLink.Url" class="white-text verveine filter-shadow-big h2 no-underline hover-strikethrough">
+			@actionBox.BigText
+		</a>
+		<hr class="mid-broken">
+		<p class="museo-sans-300 heading py-3">
+			@actionBox.Footer
+		</p>
+
+		<div class="social-icons-container d-none d-xl-block">
+			<a rel="canonical" href="@Settings.InstagramLink"
+			   class="social-icon icon-instagram d-block filter-shadow-smaller" target="_blank"
+			   style="background-image: url(@Settings.InstagramImage.Url)">
+			</a>
+			<a rel="canonical" href="@Settings.FacebookLink" target="_blank"
+			   class="social-icon icon-facebook d-block filter-shadow-smaller"
+			   style="background-image: url(@Settings.FacebookImage.Url)">
+			</a>
+			<a rel="canonical" href="@Settings.TwitterLink" target="_blank"
+			   class="social-icon icon-twitter d-block filter-shadow-smaller"
+			   style="background-image: url(@Settings.TwitterImage.Url)">
+			</a>
+		</div>
+	</div>
+</section>
+<!-- / Action Box -->

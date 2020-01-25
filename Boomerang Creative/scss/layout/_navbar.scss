@@ -1,0 +1,434 @@
+/// <reference path="../abstracts/_mixin.scss"/>
+
+nav.navbar {
+	@include mq(xl) {
+		margin-top: 1em;
+	}
+
+	.portoflio-page & {
+		@include mq(xl) {
+			margin-top: 6em;
+		}
+	}
+
+	.navbar-brand {
+		margin-right: 0;
+	}
+
+	.navbar-toggler {
+		z-index: 99;
+		padding: 0.25rem 0.45rem;
+	}
+
+	z-index: 999;
+	border-bottom: 1px solid unquote('#dddddd61');
+
+	@include mq(lg) {
+		background: initial;
+		border-bottom: none;
+		box-shadow: none;
+
+		&.static-top {
+			position: absolute;
+		}
+	}
+
+	width: 100%;
+
+	.container-fluid {
+		@include mq(sm) {
+			padding: 0 1em;
+		}
+
+		@include mq(md) {
+			padding: 0 1em 0 2em;
+		}
+
+		@include mq(lg) {
+			padding: 0 4em;
+		}
+
+		@include mq(xl) {
+			padding: 0 6em;
+		}
+	}
+
+	.navbar-nav {
+		.active {
+			a.nav-link {
+				color: rgba(0, 0, 0, 1);
+				opacity: 1 !important;
+			}
+		}
+
+		a.nav-link {
+			color: rgba(0, 0, 0, 0.5);
+		}
+
+		a.nav-link:hover {
+			color: rgba(0, 0, 0, 0.8);
+		}
+	}
+
+	&.dark {
+		.navbar-nav {
+			.active {
+				a.nav-link {
+					color: rgba(255, 255, 255, 1);
+					opacity: 1 !important;
+					filter: drop-shadow(1px 1px 12px rgba(255, 255, 255, 0.75));
+					-webkit-filter: drop-shadow(1px 1px 12px rgba(255, 255, 255, 0.75));
+					-webkit-transition: all .4s ease-in-out;
+					-o-transition: all .4s ease-in-out;
+					transition: all .4s ease-in-out;
+				}
+			}
+
+			a.nav-link {
+				color: rgba(255, 255, 255, .8);
+			}
+
+			a.nav-link:hover {
+				color: rgba(255, 255, 255, 1);
+			}
+		}
+	}
+
+
+
+	.nav-link {
+		font-weight: 900;
+
+		@include mq(sm) {
+			font-size: 1.2em;
+		}
+
+		@include mq(lg) {
+			font-size: 1em;
+		}
+
+		@include mq(xl) {
+			font-size: 1.1em;
+		}
+	}
+
+	&.dark {
+		@include mq(lg) {
+		}
+	}
+
+	.mr-5, .mx-5 {
+		margin-right: 2rem !important;
+	}
+
+	@include mq(xl) {
+		.mr-5, .mx-5 {
+			margin-right: 3rem !important;
+		}
+	}
+
+	.emblem {
+		width: 2em;
+		height: 2em;
+		background-size: 2em;
+		display: block;
+		background-repeat: no-repeat;
+
+		@include mq(lg) {
+			width: 2.5em;
+			height: 2.5em;
+			background-size: 2.5em;
+		}
+
+		&.emblem-orange {
+			background-image: url('../assets/images/png/boomeang-emblem-orange-wire.png');
+		}
+
+		&.emblem-red {
+			background-image: url('../assets/images/png/boomeang-emblem-orange-wire.png');
+
+			@include mq(lg) {
+				background-image: url('../assets/images/png/boomeang-emblem-red-wire-large.png');
+			}
+		}
+
+		&.emblem-white {
+			background-image: url('../assets/images/png/boomeang-emblem-orange-wire.png');
+
+			@include mq(lg) {
+				background-image: url('../assets/images/png/boomeang-emblem-white-wire.png');
+			}
+		}
+
+		&.emblem-white-white {
+			background-image: url('../assets/images/png/boomeang-emblem-white-wire.png');
+
+		}
+
+		&.emblem-black {
+			background-image: url('../assets/images/png/boomerang-emblem-black-wire.png');
+		}
+
+		&.emblem-full {
+			background-image: url('../assets/images/png/boomeang-emblem-orange-wire.png');
+
+			@include mq(lg) {
+				background-image: url('../assets/images/png/boomerang-emblem-full.png');
+			}
+		}
+	}
+}
+
+// Fancy Menu Hover Effect With CSS & JavaScript
+// https://codepen.io/tutsplus/pen/XMPQGV
+.hover-nav {
+	ul {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		list-style-type: none;
+		padding: 0;
+	}
+
+	li:not(:last-child) {
+		margin-right: 20px;
+	}
+
+	a {
+		display: block;
+		color: black;
+		text-decoration: none;
+		padding: 7px 15px;
+	}
+}
+
+.target {
+	display: none;
+
+	@include mq(lg) {
+		display: block;
+		position: absolute;
+		border-bottom: 2px solid transparent;
+		z-index: -1;
+		transform: translateX(-60px);
+	}
+}
+
+.hover-nav a,
+.target {
+	transition: all .25s ease-in-out;
+}
+
+.emblem-hover {
+	@include mq(lg) {
+		-webkit-transition: -webkit-transform 1s cubic-bezier(.36, -1.29, .36, 1.29);
+		transition: transform 1s cubic-bezier(.36, -1.29, .36, 1.29);
+
+		&:hover {
+			-webkit-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+}
+
+//Fullscreen Overlay Styles & Effects
+// [Article on Codrops](http://tympanus.net/codrops/?p=18459)
+// [Demo](http://tympanus.net/Development/FullscreenOverlayStyles/)
+
+/* Overlay style */
+.overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: transparentize($orange1, 0.1);
+}
+
+/* Overlay closing cross */
+.overlay .overlay-close {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	right: 40px;
+	top: 17px;
+	overflow: hidden;
+	border: none;
+	background: url('../assets/images/png/cross.png') no-repeat center center;
+	text-indent: 200%;
+	color: transparent;
+	outline: none;
+	z-index: 100;
+}
+
+/* Menu style */
+.overlay nav {
+	text-align: center;
+	position: relative;
+	top: 47%;
+	height: 60%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.overlay ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+	display: inline-block;
+	height: 100%;
+	position: relative;
+}
+
+.overlay ul li {
+	display: block;
+	height: 18%;
+	/*height: calc(100% / 5);*/
+	min-height: 47px;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.overlay ul li a {
+	font-size: 42px;
+	font-weight: 300;
+	display: block;
+	color: #fff;
+	-webkit-transition: color 0.22s;
+	transition: color 0.22s;
+	text-transform: uppercase;
+}
+
+.overlay ul li a:hover,
+.overlay ul li a:focus {
+	color: #f0f0f0;
+}
+
+/* Effects */
+.overlay-door {
+	visibility: hidden;
+	width: 0;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	-webkit-transition: width 0.222s 0.1s, visibility 0s 0.25s;
+	transition: width 0.22s 0.1s, visibility 0s 0.25s;
+}
+
+.overlay-door.open {
+	visibility: visible;
+	width: 100%;
+	-webkit-transition: width 0.22s;
+	transition: width 0.22s;
+}
+
+.overlay-door nav {
+	position: absolute;
+	left: 50%;
+	width: 100%;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+}
+
+.overlay-door nav,
+.overlay-door .overlay-close {
+	opacity: 0;
+	-webkit-transition: opacity 0.1s 0.22s;
+	transition: opacity 0.1s 0.22s;
+}
+
+.overlay-door.open nav,
+.overlay-door.open .overlay-close {
+	opacity: 1;
+	-webkit-transition-delay: 0.25s;
+	transition-delay: 0.25s;
+}
+
+.overlay-door.close nav,
+.overlay-door.close .overlay-close {
+	-webkit-transition-delay: 0s;
+	transition-delay: 0s;
+}
+
+@media screen and (max-height: 30.5em) {
+	.overlay nav {
+		height: 70%;
+		font-size: 34px;
+	}
+
+	.overlay ul li {
+		min-height: 34px;
+	}
+}
+
+.hamburger {
+	&.hamburger--spin {
+		padding: 7px 0;
+
+		.hamburger-box {
+			width: 32px;
+			height: 14px;
+
+			.hamburger-inner {
+				&,
+				&:before,
+				&:after {
+					width: 32px;
+					height: 3px;
+				}
+			}
+		}
+	}
+}
+
+
+.white-burger {
+	.hamburger-inner {
+		background-color: #fff;
+	}
+
+	.navbar-light .navbar-toggler {
+		color: rgba(255,255,255,.5);
+		border-color: rgba(255,255,255,.1);
+	}
+
+	&.navbar {
+		border-bottom: none;
+	}
+
+	.hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner:after, .hamburger.is-active .hamburger-inner:before {
+		background-color: #fff;
+	}
+
+	.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before {
+		background-color: #fff;
+	}
+}
+
+.mobile-social-icons {
+	display: flex;
+	margin-top: 4em;
+	justify-content: center;
+	&:before {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+	a {
+		background-size: contain;
+		width: 2em;
+		height: 2em;
+		background-repeat: no-repeat;
+		margin: 0 1em;
+	}
+}
+
+
+.top-shadow {
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+11&0.37+0,0+12 */
+	background: -moz-linear-gradient(top, rgba(0,0,0,0.37) 0%, rgba(0,0,0,0.03) 11%, rgba(0,0,0,0) 12%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0.37) 0%,rgba(0,0,0,0.03) 11%,rgba(0,0,0,0) 12%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(0,0,0,0.37) 0%,rgba(0,0,0,0.03) 11%,rgba(0,0,0,0) 12%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}

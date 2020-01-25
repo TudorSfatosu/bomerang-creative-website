@@ -1,0 +1,50 @@
+[
+  {
+    "outputFileName": "js/vendor/aos.min.js",
+    "inputFiles": [
+      "js/vendor/aos.js"
+    ]
+  },
+  {
+    "outputFileName": "js/components/proximity/demo1.min.js",
+    "inputFiles": [
+      "js/components/proximity/demo1.js"
+    ]
+  },
+  {
+    "outputFileName": "js/components/proximity/nearby.min.js",
+    "inputFiles": [
+      "js/components/proximity/nearby.js"
+    ]
+  },
+  {
+    "outputFileName": "js/vendor/cc-1.0.min.js",
+    "inputFiles": [
+      "js/vendor/cc-1.0.js"
+    ]
+  },
+  {
+    "outputFileName": "js/main.min.js",
+    "inputFiles": [
+      "js/main.js"
+    ]
+  },
+  {
+    "outputFileName": "scss/vendor/hamburgers.min.css",
+    "inputFiles": [
+      "scss/vendor/hamburgers.css"
+    ]
+  },
+  {
+    "outputFileName": "js/vendor/jquery-3.3.1.min.js",
+    "inputFiles": [
+      "js/vendor/jquery-3.3.1.js"
+    ]
+  },
+  {
+    "outputFileName": "js/vendor/classie.min.js",
+    "inputFiles": [
+      "js/vendor/classie.js"
+    ]
+  }
+]

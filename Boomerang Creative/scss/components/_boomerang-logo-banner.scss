@@ -1,0 +1,117 @@
+.boomerang-logo-banner {
+	margin: auto;
+
+	.big-emblem {
+		width: 110%;
+		height: 100%;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.boomerang-text {
+		font-size: 7em;
+		-webkit-font-smoothing: antialiased;
+		-webkit-font-smoothing: subpixel-antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
+	.creative-text {
+		font-size: 4.5em;
+		margin-top: -0.75em;
+	}
+}
+
+.banner-text {
+	z-index: 1;
+	color: #fff;
+	font-family: museo-sans;
+	text-align: center;
+	top: 0;
+	right: 0;
+	left: 0;
+	position: absolute;
+
+	@include mq(lg) {
+		text-align: right;
+		top: 9em;
+		left: 11em;
+		right: inherit;
+	}
+
+	.line-height-1 {
+		line-height: 1em;
+	}
+
+	.line-height-2 {
+		line-height: 1.5em;
+	}
+
+	.banner-text--small {
+		font-size: 2em;
+		font-weight: 500;
+
+		@include mq(lg) {
+			font-size: 3em;
+		}
+	}
+
+	.banner-text--big {
+		font-weight: 900;
+		font-size: 3em;
+
+		@include mq(lg) {
+			font-size: 4em;
+		}
+	}
+}
+
+
+.banner-button {
+	-webkit-transform: translate3d(0,0,1px);
+	transform: translate3d(0,0,1px);
+	z-index: 901;
+	font-size: 1.5em;
+	font-family: museo-sans;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+	margin-top: 11em;
+	text-align: center;
+
+	@include mq(sm) {
+		margin-top: 12em;
+	}
+
+	@include mq(md) {
+		margin-top: 6em;
+	}
+
+	@include mq(lg) {
+		margin-top: 18em;
+	}
+
+	@include mq(xl) {
+		margin-top: 16em;
+	}
+
+	a {
+		color: white;
+	}
+
+	.plaque-icon {
+		width: 2em;
+		margin-left: .5em;
+	}
+
+	.left-of-plaque {
+		@include mq(md) {
+			position: absolute;
+			margin-left: -8.5em;
+		}
+
+		@include mq(lg) {
+			margin-left: -9.5em;
+		}
+	}
+}

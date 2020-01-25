@@ -1,0 +1,306 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ProjectPost>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+	Layout = "ProjectMaster.cshtml";
+	var siblings = @Model.Parent.Children();
+	var count = 0;
+	var skipCount = 0;
+	var frontLayerClass = @Model.FrontParallaxLayer != null ? "auto-size-fl" : "";
+	var linearGradientString = @Model.BackgroundColorRgbaString.Any() ? ", linear-gradient(to right, " + @Model.BackgroundColorRgbaString + " 0%, " + @Model.BackgroundColorRgbaString + " 100%)" : "";
+	var containCoverClass = @Model.BackgroundColorRgbaString.Any() ? "contain-cover" : "";
+	var bannerInLayersClass = @Model.BackParallaxLayer != null && @Model.FrontParallaxLayer != null ? "banner-in-layers three-layers" : "";
+	var bannerImage = @Model.BackParallaxLayer == null && @Model.FrontParallaxLayer == null ? "background-image:url(" + @Model.FullBannerImage.Url + ");" : "";
+	var mobileImage = @Model.MobileFullBannerImage != null ? @Model.MobileFullBannerImage.Url : @Model.FullBannerImage.Url;
+}
+
+@*Storing the number of the next current sibling*@
+
+@foreach (var item in siblings)
+{
+	count++;
+	if (item.Id == Model.Id)
+	{
+		skipCount = count;
+	}
+}
+
+@if (@Model.BackParallaxLayer != null && @Model.FrontParallaxLayer != null)
+{
+	<style>
+			.banner-in-layers {
+				background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0.25) 65%, rgba(0, 0, 0, 0.5) 100%), url(@mobileImage);
+			}
+
+			@@media (min-width: 992px) {
+				.banner-in-layers {
+					background-image: url(@Model.BackParallaxLayer.Url) @linearGradientString;
+				}
+			}
+			.auto-size-fl {
+				background-size: cover;
+			}
+			@@media (min-width: 992px) {
+				.auto-size-fl  {
+					background-size: cover;
+				}
+			}
+	</style>
+}
+
+
+
+<!-- Experimental banner for Lakeside -->
+@*<section class="@(Model.LakesideAnimation == true ? "d-xl-block" : "") d-none  container-fluid project-page-banner @Model.BannerTextColor-text" style="background: url('/assets/images/jpg/project/lakeisde-superbowl/layers/vintage-neon-wall-with-light-shades-background.jpg'); background-position-y: center; background-repeat: no-repeat; background-size: cover; background-position-x: right;">
+	@if (Model.LakesideAnimation == true)
+	{
+		<div class="neon-container">
+			<img class="big-text pink-glow" src="~/assets/images/jpg/project/lakeisde-superbowl/layers/lakeside.png" alt="Lakeside transparent logo" />
+			<img class="decoration blue-flicker-fast" src="~/assets/images/jpg/project/lakeisde-superbowl/layers/pin.png" alt="Transparent pin art used as a layer" />
+			<div class="small-text-container">
+				<img class="small-text-1 pink-flicker-slow" src="~/assets/images/jpg/project/lakeisde-superbowl/layers/super.png" alt="Super text - part of the Lakeside Superbowl Logo" />
+				<img class="small-text-2 pink-glow" src="~/assets/images/jpg/project/lakeisde-superbowl/layers/bowl.png" alt="Bowl text - part of the Lakeside Superbowl Logo"/>
+			</div>
+		</div>
+	}
+	@if (@Model.BackParallaxLayer != null && @Model.FrontParallaxLayer != null)
+	{
+		<div class="front-layer vpara03 paroller d-none d-lg-block suspended"
+			 style="background-image: url(@Model.FrontParallaxLayer.Url)">
+		</div>
+	}
+	<div class="row">
+		<div class="col-12">
+			<div class="logo d-md-none logo--@(@Model.MobileLogoSize != "" ? @Model.MobileLogoSize : "")"
+				 style="background-image: url(@Model.MobileLogo.Url)"></div>
+			<div class="tags">
+				<ul class="museo-sans-300">
+					@if (Model.PortfolioWorkCategory.Any())
+					{
+						var random = new Random();
+						var randomCategory = Model.PortfolioWorkCategory.OrderBy(order => random.Next()).ToList();
+
+						foreach (var cat in randomCategory)
+						{
+							<li>
+								@cat
+							</li>
+						}
+					}
+				</ul>
+			</div>
+			<h1 class="museo-sans-500 pt-5 pb-5">
+				@Model.BannerTitle
+			</h1>
+			<a rel="canonical" href="@Model.BannerButtonLink" target="_blank"
+			   class="btn @(@Model.BannerTextColor == "black" ? "btn-6" : "btn-5") museo-sans-500 py-3 px-4 no-underline filter-shadow-big">
+				View Live Site
+			</a>
+
+		</div>
+	</div>
+</section>*@
+<!-- / Experimental banner for Lakeside -->
+
+<!-- White text banner -->
+<section class="@(Model.LakesideAnimation == true ? "d-xl-none" : "") d-block  container-fluid project-page-banner @Model.BannerTextColor-text @bannerInLayersClass @frontLayerClass @containCoverClass" style="@bannerImage">
+	@if (@Model.BackParallaxLayer != null && @Model.FrontParallaxLayer != null)
+	{
+		<div class="front-layer vpara03 paroller d-none d-lg-block suspended"
+			 style="background-image: url(@Model.FrontParallaxLayer.Url)">
+		</div>
+	}
+	<div class="row">
+		<div class="col-12">
+			<div class="logo d-md-none logo--@(@Model.MobileLogoSize != "" ? @Model.MobileLogoSize : "")"
+				 style="background-image: url(@Model.MobileLogo.Url)"></div>
+			<div class="tags">
+				<ul class="museo-sans-300">
+					@if (Model.PortfolioWorkCategory.Any())
+					{
+						var random = new Random();
+						var randomCategory = Model.PortfolioWorkCategory.OrderBy(order => random.Next()).ToList();
+
+						foreach (var cat in randomCategory)
+						{
+							<li>
+								@cat
+							</li>
+						}
+					}
+				</ul>
+			</div>
+			<h1 class="museo-sans-500 pt-5 pb-5">
+				@Model.BannerTitle
+			</h1>
+			<a rel="canonical" href="@Model.BannerButtonLink" target="_blank"
+			   class="btn @(@Model.BannerTextColor == "black" ? "btn-6" : "btn-5") museo-sans-500 py-3 px-4 no-underline filter-shadow-big">
+				View Live Site
+			</a>
+
+		</div>
+	</div>
+</section>
+<!-- / White text banner -->
+<!-- Text Section -->
+<section class="container text-section portfolio-text-section p-5">
+	<div class="row">
+		<div class="col-12 museo-sans-300">
+			@Model.ProjectCopy
+			<p class="mt-5">
+				<a rel="canonical" href="@Model.BannerButtonLink" target="_blank"
+				   class="btn btn-2 museo-sans-500 py-3 px-4 no-underline filter-shadow-big orange1-border">
+					View Live Site
+				</a>
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- Project Images -->
+@if (Model.NestedGroupedImages.Any())
+{
+	<!-- / Text Section -->
+	<!-- For the css map see https://docs.google.com/spreadsheets/d/1r2Ek2syua_vi443VRIbZYUzQdb8EthJOQ2bwj1hsSfc/edit?usp=sharing -->
+	<!-- Project Page - Px Partnership -->
+	<div class="container-fluid p-0">
+		<div class="grid-container">
+
+			@foreach (var projects in @Model.NestedGroupedImages)
+			{
+				var project = new GroupedPortfolioImages(projects);
+
+				<div class="row @project.RowClasses">
+
+					@foreach (var groups in @project.GroupedImages)
+					{
+						if (groups.ContentType.Alias == "oneImageNested")
+						{
+							var group = new OneImageNested(groups);
+							<div class="col-12 img-col">
+								@if (group.MobileImage != null)
+								{
+									<img class="d-block d-lg-none" src="@group.MobileImage.Url" alt="@Path.GetFileNameWithoutExtension(group.MobileImage.Url).Replace("-", " ")">
+									<img class="d-none d-lg-block" src="@group.Image.Url" alt="@Path.GetFileNameWithoutExtension(group.Image.Url).Replace("-", " ")">
+								}
+								else if (group.MobileImage == null)
+								{
+									<img src="@group.Image.Url" alt="@Path.GetFileNameWithoutExtension(group.Image.Url).Replace("-", " ")">
+								}
+							</div>
+						}
+						if (groups.ContentType.Alias == "twoImagesNested")
+						{
+							var group = new TwoImagesNested(groups);
+							<div class="col-12 col-md-6 img-col">
+								@if (group.MobileImage != null)
+								{
+									<img class="d-block d-lg-none" src="@group.MobileImage.Url" alt="@Path.GetFileNameWithoutExtension(group.MobileImage.Url).Replace("-", " ")">
+									<img class="d-none d-lg-block" src="@group.Image.Url" alt="@Path.GetFileNameWithoutExtension(group.Image.Url).Replace("-", " ")">
+								}
+								else if (group.MobileImage == null)
+								{
+									<img src="@group.Image.Url" alt="@Path.GetFileNameWithoutExtension(group.Image.Url).Replace("-", " ")">
+								}
+							</div>
+							<div class="col-12 col-md-6 img-col">
+								@if (group.MobileImage2 != null)
+								{
+									<img class="d-block d-lg-none" src="@group.MobileImage2.Url" alt="@Path.GetFileNameWithoutExtension(group.MobileImage2.Url).Replace("-", " ")">
+									<img class="d-none d-lg-block" src="@group.Image2.Url" alt="@Path.GetFileNameWithoutExtension(group.Image2.Url).Replace("-", " ")">
+								}
+								else if (group.MobileImage2 == null)
+								{
+									<img src="@group.Image2.Url" alt="@Path.GetFileNameWithoutExtension(group.Image2.Url).Replace("-", " ")">
+								}
+							</div>
+						}
+						if (groups.ContentType.Alias == "threeImagesNested")
+						{
+							var group = new ThreeImagesNested(groups);
+							<div class="col-12 col-md-4 img-col">
+								@if (group.MobileImage != null)
+								{
+									<img class="d-block d-lg-none" src="@group.MobileImage.Url" alt="@Path.GetFileNameWithoutExtension(group.MobileImage.Url).Replace("-", " ")">
+									<img class="d-none d-lg-block" src="@group.Image.Url" alt="@Path.GetFileNameWithoutExtension(group.Image.Url).Replace("-", " ")">
+								}
+								else if (group.MobileImage == null)
+								{
+									<img src="@group.Image.Url" alt="@Path.GetFileNameWithoutExtension(group.Image.Url).Replace("-", " ")">
+								}
+							</div>
+							<div class="col-12 col-md-4 img-col">
+								@if (group.MobileImage2 != null)
+								{
+									<img class="d-block d-lg-none" src="@group.MobileImage2.Url" alt="@Path.GetFileNameWithoutExtension(group.MobileImage2.Url).Replace("-", " ")">
+									<img class="d-none d-lg-block" src="@group.Image2.Url" alt="@Path.GetFileNameWithoutExtension(group.Image2.Url).Replace("-", " ")">
+								}
+								else if (group.MobileImage == null)
+								{
+									<img src="@group.Image2.Url" alt="@Path.GetFileNameWithoutExtension(group.Image2.Url).Replace("-", " ")">
+								}
+							</div>
+							<div class="col-12 col-md-4 img-col">
+								@if (group.MobileImage3 != null)
+								{
+									<img class="d-block d-lg-none" src="@group.MobileImage3.Url" alt="@Path.GetFileNameWithoutExtension(group.MobileImage3.Url).Replace("-", " ")">
+									<img class="d-none d-lg-block" src="@group.Image3.Url" alt="@Path.GetFileNameWithoutExtension(group.Image3.Url).Replace("-", " ")">
+								}
+								else if (group.MobileImage == null)
+								{
+									<img src="@group.Image3.Url" alt="@Path.GetFileNameWithoutExtension(group.Image3.Url).Replace("-", " ")">
+								}
+							</div>
+
+						}
+						if (groups.ContentType.Alias == "masonry")
+						{
+							var group = new Masonry(groups);
+							<div class="@group.ImageClass img-col">
+								<img src="@group.Image.Url" alt="@Path.GetFileNameWithoutExtension(group.Image.Url).Replace("-", " ")">
+							</div>
+							<div class="@group.Image2Class img-col">
+								<img src="@group.Image2.Url" alt="@Path.GetFileNameWithoutExtension(group.Image2.Url).Replace("-", " ")">
+							</div>
+							<div class="@group.Image3Class img-col">
+								<img src="@group.Image3.Url" alt="@Path.GetFileNameWithoutExtension(group.Image3.Url).Replace("-", " ")">
+							</div>
+						}
+					}
+				</div>
+			}
+		</div>
+	</div>
+}
+<!-- / Project Images -->
+<!-- Dark Blue Grey Testimonial -->
+
+@if (Model.Testimonial != null && !String.IsNullOrEmpty(Model.Testimonial.ToString()))
+{
+	<section class="project-page-testimonial">
+		<div class="container p-0">
+			<div class="row ">
+				<div class="box-arrow box-arrow--@Model.TestimonialBoxColour col-12 museo-sans-300 text-center @Model.TestimonialBoxColour-bg @Model.TestimonialTextColour-text text">
+					@Model.Testimonial
+				</div>
+			</div>
+		</div>
+	</section>
+}
+
+
+<!-- / Dark Blue Grey Testimonial -->
+<!-- Next Project Box -->
+<section class="action-box next-project-box grey-bg text-white my-4 box-shadow">
+	<div class="container text-center">
+		<p class="museo-sans-300 heading py-3 h4">
+			Next Project
+		</p>
+		<a rel="canonical" href="@(skipCount == @count ? @siblings.Skip(-1).First().Url : @siblings.Skip(skipCount).First().Url)" class="white-text-hover museo-sans-700 h3 no-underline">
+			@(skipCount == @count ? @siblings.Skip(-1).First().Name : @siblings.Skip(skipCount).First().Name)
+		</a>
+	</div>
+</section>
+<!-- / Next Project Box -->
+
+@Html.Partial("ActionBox")

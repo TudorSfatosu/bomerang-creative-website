@@ -1,0 +1,106 @@
+﻿.logo-gallery {
+	.col-12,
+	.container {
+		padding-right: 0;
+		padding-left: 0;
+
+		@include mq(md) {
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+	}
+
+	h2 {
+		font-size: 1.5rem;
+
+		@include mq(md) {
+			font-size: 2rem;
+		}
+	}
+	.pb-5, .py-5 {
+		padding-bottom: 0 !important;
+		@include mq(md) {
+			padding-top: 3rem !important;
+		}
+	}
+}
+
+.grid-container {
+	display: grid;
+	&.pt-5,
+	&.py-5 {
+		padding-top: 0 !important;
+
+		@include mq(md) {
+			padding-top: 3rem !important;
+		}
+	}
+}
+.grid-container--fit {
+	align-items: center;
+	grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+	@include mq(md) {
+		grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+	}
+	@include mq(lg) {
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	}
+}
+
+.grid-element {
+	padding: 20px;
+	color: #fff;
+	padding: 1.75rem 6rem;
+	@include mq(sm) {
+		padding: 2em 4em;
+	}
+
+	@include mq(md) {
+		padding: 2em 1em;
+	}
+
+	@include mq(lg) {
+		padding: 2em 2em;
+	}
+
+	&.v-compressed {
+		padding: 1.5rem 9rem;
+		@include mq(sm) {
+			padding: 2em 7em;
+		}
+
+		@include mq(md) {
+			padding: 2em 3.75em;
+		}
+
+		@include mq(lg) {
+			padding: 2em 5.5em;
+		}
+
+		@include mq(xl) {
+			padding: 2em 6.5em;
+		}
+	}
+
+	&.h-compressed {
+		padding: 1.75rem 5rem;
+
+		@include mq(sm) {
+			padding: 2em 2em;
+		}
+
+		@include mq(md) {
+			padding: 2em 2em;
+		}
+
+		@include mq(lg) {
+			padding: 2em 5em;
+		}
+	}
+}
+
+.logo-gallery {
+	img {
+		width: 100%;
+	}
+}

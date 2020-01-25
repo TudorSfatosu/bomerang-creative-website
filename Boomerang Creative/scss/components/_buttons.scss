@@ -1,0 +1,329 @@
+//Creative Button Styles
+//=========
+//Some creative and modern button styles and effects for your inspiration.
+
+//[article on Codrops](http://tympanus.net/codrops/?p=15430)
+
+//[demo](http://tympanus.net/Development/CreativeButtons/)
+
+//[LICENSING & TERMS OF USE](http://tympanus.net/codrops/licensing/)
+
+/* General button style (reset) */
+.btn {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 0;
+  line-height: 1em;
+  filter: drop-shadow(0px 0px 0px #fff);
+  -webkit-filter: drop-shadow(0px 0px 0px #fff);
+}
+
+@include mq(lg) {
+  .btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+
+  .btn:hover:after {
+    width: 100%;
+  }
+}
+
+/* Button 1 */
+.btn-1 {
+  border: 2px solid $orange2;
+  color: $orange2 !important;
+  padding: 0.55em 1.25em;
+}
+
+
+@include mq(lg) {
+  .btn-1:after {
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $orange2;
+  }
+
+  .btn-1:hover {
+    color: $white !important;
+  }
+
+  @supports (-ms-ime-align:auto) {
+    .btn-2:hover {
+      color: darken($orange2, 35%) !important;
+      border: 2px solid darken($orange2, 25%);
+    }
+  }
+}
+
+/* Button 2 */
+
+.btn-2 {
+  color: $orange2 !important;
+  background: $white;
+}
+
+.btn-2a {
+  border: 2px solid $white;
+}
+
+.btn-2b {
+  border: 2px solid $orange2;
+}
+
+@include mq(lg) {
+  .btn-2:after {
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $orange2;
+  }
+
+  .btn-2:hover {
+    color: $white !important;
+  }
+
+  @supports (-ms-ime-align:auto) {
+    .btn-2:hover {
+      color: darken($orange2, 10%) !important;
+      border: 2px solid darken($orange2, 10%);
+    }
+  }
+}
+
+/* Button 3 */
+
+.btn-3 {
+  color: $orange-red !important;
+  background: $white;
+  border: 2px solid $white;
+}
+
+@include mq(lg) {
+  .btn-3:after {
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $orange-red;
+  }
+
+  .btn-3:hover {
+    color: $white !important;
+  }
+
+  @supports (-ms-ime-align:auto) {
+    .btn-3:hover {
+      color: darken($orange-red, 15%) !important;
+    }
+  }
+}
+
+/* Button 4 */
+
+.btn-4 {
+  color: $white !important;
+  border: 2px solid $white;
+}
+
+@include mq(lg) {
+  .btn-4:after {
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $orange-red;
+  }
+
+  .btn-4:hover {
+    color: $white !important;
+    border: 2px solid $orange-red;
+  }
+
+  @supports (-ms-ime-align:auto) {
+    .btn-4:hover {
+      color: darken($white, 35%) !important;
+      border: 2px solid darken($white, 25%);
+    }
+  }
+}
+
+/* Button 5 */
+
+.btn-5 {
+  color: $white !important;
+  border: 2px solid $white;
+}
+
+@include mq(lg) {
+  .btn-5:after {
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $white !important;
+  }
+  .btn-5:hover {
+    color: $black !important;
+    border: 2px solid $white;
+  }
+
+  @supports (-ms-ime-align:auto) {
+    .btn-5:hover {
+      color: darken($white, 45%) !important;
+      border: 2px solid darken($white, 35%);
+    }
+  }
+}
+
+.btn-6 {
+  color: $black !important;
+  border: 2px solid $black;
+}
+
+@include mq(lg) {
+  .btn-6:after {
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $black !important;
+  }
+
+  .btn-6:hover {
+    color: $white !important;
+    border: 2px solid $black;
+  }
+
+
+  @supports (-ms-ime-align:auto) {
+    .btn-6:hover {
+      color: lighten($black, 45%) !important;
+      border: 2px solid lighten($black, 35%);
+    }
+  }
+}
+
+
+.btn-7 {
+	color: $black !important;
+	border: 2px solid $black;
+}
+
+@include mq(lg) {
+	.btn-7:after {
+		width: 0;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: $black !important;
+	}
+
+	.btn-7:hover {
+		color: $white !important;
+		border: 2px solid $black;
+	}
+
+
+	@supports (-ms-ime-align:auto) {
+		.btn-7:hover {
+			color: lighten($black, 45%) !important;
+			border: 2px solid lighten($black, 35%);
+		}
+	}
+}
+
+.tooltip-icon {
+	color: #000;
+}
+
+.tooltip.show {
+	opacity: 0.825;
+}
+
+$circle-w: 55px;
+$circle-bg: #EF771D;
+$arrow-bg: #fff;
+$body-bg: #fff;
+$bezier: cubic-bezier(0.770, 0.000, 0.175, 1.000);
+$bezier-bounce: cubic-bezier(.87,-.41,.19,1.44);
+$anim-timing: 6s;
+
+
+.scroll-link {
+	position: sticky;
+	top: 90%;
+	z-index: 1;
+	display: block;
+	margin-left: 85%;
+}
+.scroll-arrow {
+	text-align: center;
+	width: $circle-w;
+	height: $circle-w;
+	filter: url("#goo");
+	z-index: 1;
+	.circle {
+		background: $circle-bg;
+		border-radius: 50%;
+		display: inline-block;
+		height: $circle-w;
+		width: $circle-w;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		transform-origin: 0%;
+
+		&.circle-top {
+			height: $circle-w / 3;
+			width: $circle-w / 2.4;
+			animation: blob-1-anim $anim-timing $bezier infinite;
+			z-index: 0;
+			top: 0;
+		}
+
+		&.circle-bottom {
+			height: $circle-w / 3;
+			width: $circle-w / 2.4;
+			animation: blob-2-anim $anim-timing $bezier infinite;
+			z-index: 9;
+			bottom: 0px;
+		}
+	}
+
+
+	.st-arrow {
+		fill: $arrow-bg;
+		animation: scrolly $anim-timing $bezier forwards infinite;
+		perspective: 9000px;
+		transform: translateZ(0);
+		transform-origin: bottom;
+	}
+
+	.svg {
+		z-index: 9;
+		position: relative;
+	}
+}

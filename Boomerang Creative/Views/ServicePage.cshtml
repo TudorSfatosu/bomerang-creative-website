@@ -1,0 +1,75 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.ServicePage>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+	Layout = "Master.cshtml";
+}
+
+<!-- Graphic Design -->
+<!-- Orange Service Page Banner -->
+<section class="service-page-banner @Model.BannerColor-bg text-center box-shadow">
+	<div class="fold-arrow fold-arrow--@Model.BannerColor">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="white-text verveine">
+						@Model.BannerTitle
+					</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- / Orange Service Page Banner -->
+
+<!-- White Fold under the Service Banner -->
+<section class="service-page-fold mb-3 py-3 mb-lg-5 py-lg-5">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-12 offset-md-1 col-md-10 pt-3 pt-md-0">
+				<h2 class="museo-sans-500 text-center m-auto p-5">
+					@Model.H2
+				</h2>
+				<div class="museo-sans-500">
+					@Model.ServicePageText
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- / White Fold under the Service Banner -->
+<!-- // Graphic Design -->
+
+@if (Model.ListOfServices.Any())
+{
+		<!-- Full list of services box -->
+		<section class="full-services-list-box container px-5 pb-1 pt-3">
+			<div class="row">
+				<div class="col-12 p-3">
+					<h5>Our full list of services:</h5>
+				</div>
+			</div>
+			<div class="row pt-4">
+				@foreach (var service in Model.ListOfServices)
+				{
+					<div class="col-12 col-md-4 pb-5">
+						<h4 class="museo-sans-700">@service.ListName</h4>
+						<ul class="museo-sans-500">
+							@foreach (var services in @service.Services)
+							{
+							<li>
+								@services.ServiceName
+							</li>
+							}
+						</ul>
+					</div>
+				}
+			</div>
+		</section>
+		<!-- / Full list of services box -->
+}
+
+
+@Html.Partial("ServicesSections")
+
+@Html.Partial("ActionBox")

@@ -1,0 +1,159 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.Work>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using Umbraco.Core.PropertyEditors;
+@using Umbraco.Core.Services;
+
+@{
+	Layout = "Master.cshtml";
+	string ImagePath = @Model.BannerImage.Src + @Model.BannerImage.GetCropUrl("FullXSmall") + "&quality=80";
+	string ImageWidth = "";
+}
+
+@{
+	// get blog categories
+	IDataTypeService dataTypeService = Services.DataTypeService;
+	IDataType dataType = dataTypeService.GetDataType(1601);
+	ValueListConfiguration dataTypeConfig = (ValueListConfiguration)dataType.Configuration;
+}
+
+@section Scripts {
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#hCategory').val("All Projects");
+
+
+			$(".category-btn").click(function (event) {
+				event.preventDefault();
+
+				var dataCategory = $(this).attr('data-category');
+				$(this).toggleClass('category-active');
+				$('.category-active').not(this).removeClass('category-active');
+				$('#hCategory').val(dataCategory);
+				$('.dropdown-toggle').html(dataCategory);
+
+				ProjectFilter(dataCategory);
+			});
+
+
+			function ProjectFilter(category) {
+
+				$.ajax({
+					type: "POST",
+					async: true,
+					url: "/Umbraco/Api/Work/FilterProjects",
+					dataType: 'json',
+					contentType: 'application/json; charset=utf-8',
+					data: JSON.stringify({ WorkCategory: category }),
+					beforeSend: function () {
+						$("#Loader").show();
+					},
+					complete: function () {
+						$("#Loader").hide();
+					},
+					success: function (html) {
+						//console.log(html);
+						$('.project-list-container').hide();
+						$(".project-list-container").html(html);
+						$('.project-list-container').fadeIn();
+					},
+					error: function (__x, __h, __m) {
+						console.log('ajax returned error', __m, __x, __h);
+					}
+				})
+			}
+
+
+		});
+	</script>
+}
+
+<style>
+	.simple-banner {
+		background-image: linear-gradient(to right, rgba(220, 220, 220, 1) 0%, rgba(220, 220, 220, 0.3) 50%, rgba(220, 220, 220, 0.3) 100%), url(@ImagePath);
+	}
+</style>
+
+@foreach (var image in @Model.BannerImage.Crops.OrderBy(x => x.Width))
+{
+	ImagePath = @Model.BannerImage.Src + @Model.BannerImage.GetCropUrl(image.Alias) + "&quality=80";
+	ImageWidth = image.Width.ToString() + "px";
+
+	<style>
+		@@media (min-width:  @ImageWidth) {
+			.simple-banner {
+				background-image: linear-gradient(to right, rgba(220, 220, 220, 1) 0%, rgba(220, 220, 220, 0.3) 50%, rgba(220, 220, 220, 0.3) 100%), url(@ImagePath);
+			}
+		}
+	</style>
+}
+
+<!-- Simple Banner for the Projects Page -->
+<section class="simple-banner-container  pb-5">
+	<div class="container-fluid simple-banner simple-banner--full-width simple-banner--full-height text-center">
+		<div class="museo-sans-300 first-line move-left move-down">
+			@Model.PreHeader
+		</div>
+		<h1 class="verveine white-text fill-text-effect" data-text="creative">@Model.BannerHeader</h1>
+		<div class="second-line">
+			<span class="museo-sans-300">@Model.PostHeader</span>
+			<div class="dropdown work-category">
+				<button class="btn dropdown-toggle orange3-border-bottom" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					All Projects
+				</button>
+				@Html.Hidden("hCategory")
+				@if (dataTypeConfig.Items != null)
+				{
+					<div class="dropdown-menu projects-dropwdown-list" aria-labelledby="dropdownMenuButton">
+						<ul>
+							<li>
+								<a rel="canonical" href="#" class="category-btn category-active" data-category="All Projects">All Projects</a>
+							</li>
+							@foreach (var workCat in dataTypeConfig.Items)
+							{
+								<li>
+									<a rel="canonical" href="#" class="category-btn" data-category="@workCat.Value">@workCat.Value</a>
+								</li>
+							}
+						</ul>
+					</div>
+				}
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Projects Gallery -->
+<div class="container-fluid p-5 projects-gallery-page-container move-up">
+	<div class="grid-container projects-gallery-page px-5">
+		<div class="project-list-wrap">
+			<div id="Loader" class="loader">
+				<div class="loader-wrap d-flex justify-content-center align-items-start">
+					<div class="loading-content">
+						<img src="~/assets/images/svg/loading.svg" class="loader-img" alt="loading svg" />
+						<span>Please Wait...</span>
+					</div>
+				</div>
+			</div>
+			<div class="row project-list-container">
+				@Html.Action("Index", "WorkList")
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- / Projects Gallery -->
+
+@Html.Partial("ActionBox")
+
+
+@if (@Model.ExtraWordCount != null && !String.IsNullOrEmpty(@Model.ExtraWordCount.ToString()))
+{
+	<section>
+		<div class="row p-5">
+			<div class="col-8 text-center museo-sans-300 m-auto">
+				@Model.ExtraWordCount
+			</div>
+		</div>
+	</section>
+}

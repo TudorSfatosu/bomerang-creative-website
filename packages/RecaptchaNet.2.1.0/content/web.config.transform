@@ -1,0 +1,7 @@
+﻿<configuration>
+  <appSettings>
+    <add key="recaptchaPublicKey" value=""/>
+    <add key="recaptchaPrivateKey" value=""/>
+    <add key="recaptchaApiVersion" value="1"/>
+  </appSettings>
+</configuration>

@@ -1,0 +1,229 @@
+.project-page-banner {
+	min-height: 32em;
+	padding-top: 6em;
+	background-position: top;
+	background-size: cover;
+	background-repeat: no-repeat;
+	@include mq(sm) {
+		padding-top: 5em;
+		min-height: 30em;
+		background-position: right;
+	}
+
+	@include mq(md) {
+		padding-top: 5em;
+		min-height: 27em;
+		background-position: center;
+	}
+
+	@include mq(lg) {
+		padding-top: 9em;
+		min-height: 35em;
+	}
+
+	@include mq(xl) {
+		padding-top: 34em;
+		min-height: 60em;
+		margin-top: -5em;
+	}
+
+	.row {
+		padding-left: 1em;
+
+		@include mq(lg) {
+			padding-left: 4em;
+		}
+
+		@include mq(xl) {
+			padding-left: 7em;
+		}
+	}
+
+	&.banner-in-layers {
+		@include mq(lg) {
+			background-position: right;
+
+			&.two-layers {
+				background-size: cover;
+			}
+
+			&.three-layers {
+				background-size: contain, cover;
+
+				@include mq(sm) {
+					background-size: cover, contain;
+				}
+
+				&.contain-cover {
+					@include mq(sm) {
+						background-size: contain, cover;
+					}
+				}
+			}
+		}
+	}
+
+	.col-12 {
+		padding: 0;
+
+		@include mq(md) {
+			padding: 0 2em;
+		}
+
+		@include mq(lg) {
+			padding: 0;
+		}
+	}
+
+	.logo {
+		background-size: contain;
+		width: 13em;
+
+		@include mq(md) {
+			width: 15em;
+		}
+
+		@include mq(lg) {
+			width: 19em;
+		}
+
+		@include mq(xl) {
+			width: 21em;
+		}
+
+		height: 6em;
+		background-repeat: no-repeat;
+
+		&.logo--tall {
+			height: 8em;
+			margin-bottom: 1em;
+			margin-top: -3em;
+		}
+
+		&.logo--medium {
+			height: 6em;
+			margin-bottom: 2em;
+			margin-top: -3em;
+		}
+
+		&.logo--small {
+			height: 4em;
+			margin-bottom: 2em;
+			margin-top: -2em;
+		}
+	}
+
+	h1 {
+		font-size: 1.1em;
+		padding-top: 1em !important;
+
+		@include mq(sm) {
+			font-size: 1.75em;
+			padding-top: 1em !important;
+		}
+
+		@include mq(md) {
+			font-size: 1.85em;
+		}
+
+		@include mq(lg) {
+			font-size: 2em;
+		}
+
+		@include mq(xl) {
+			font-size: 2.5em;
+		}
+	}
+
+	.tags {
+		ul {
+			li {
+				margin-top: 0.15em;
+				margin-bottom: 0.15em;
+			}
+
+			@include mq(xl) {
+				display: flex;
+
+				li {
+					margin-right: 9px;
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+
+				li:not(:last-child):after {
+					content: '-';
+					margin-left: 6px;
+				}
+			}
+		}
+	}
+
+	a {
+		border: 2px solid;
+		padding: 0.5em 1em;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	ul {
+		font-size: 1em;
+
+		@include mq(sm) {
+			font-size: 1.1em;
+		}
+
+		@include mq(md) {
+			font-size: 1.15em;
+		}
+
+		@include mq(lg) {
+			font-size: 1.2em;
+		}
+
+		@include mq(xl) {
+			font-size: 1.25em;
+		}
+	}
+
+	a {
+		font-size: 1em;
+
+		@include mq(sm) {
+			font-size: 1.1em;
+		}
+
+		@include mq(md) {
+			font-size: 0.9em;
+		}
+
+		@include mq(lg) {
+			font-size: 1.2em;
+		}
+
+		@include mq(xl) {
+			font-size: 1.25em;
+		}
+	}
+}
+
+.front-layer {
+	width: 100%;
+
+	@include mq(lg) {
+		height: 32em;
+	}
+
+	@include mq(xl) {
+		height: 100%;
+	}
+
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-position: right;
+}

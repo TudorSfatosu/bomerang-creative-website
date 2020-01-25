@@ -1,0 +1,150 @@
+.text-section {
+	padding: 3em 4em 0 4em;
+
+	@include mq(sm) {
+		padding: 3em 4em 11em 4em;
+	}
+
+	@include mq(md) {
+		padding: 3em 4em 6em 4em;
+	}
+
+	@include mq(lg) {
+		padding: 3em 4em 9em 4em;
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	@include mq(xl) {
+		padding: 3em 2em 3em 7em;
+	}
+
+	&.portfolio-text-section {
+		padding: initial;
+		text-align: center;
+		font-size: 1.15em;
+		margin-top: 0;
+
+		@include mq(md) {
+			margin-top: 1em;
+			font-size: 1.25em;
+		}
+
+		@include mq(lg) {
+			margin-top: 2em;
+			margin-bottom: 2em;
+		}
+
+		.row {
+			height: initial;
+		}
+	}
+
+	&.text-section--normal {
+		padding: 4em 1em 0 1em;
+		@include mq(sm) {
+			padding: 4em 1em 5em 1em;
+		}
+		@include mq(md) {
+			padding: 4em 1em;
+		}
+	}
+
+	.row {
+		height: auto;
+
+		@include mq(sm) {
+			height: 17em;
+		}
+
+		@include mq(md) {
+			height: 15em;
+		}
+
+		@include mq(lg) {
+			height: 17em;
+		}
+
+		@include mq(xl) {
+			height: 18em;
+		}
+	}
+
+	.boomerang-emblem {
+		background-repeat: no-repeat;
+		width: 8em;
+		height: 8em;
+		right: 0;
+		margin-right: 0;
+		margin-left: auto;
+		background-position-x: right;
+		background-size: contain;
+
+		@include mq(xl) {
+			width: 26em;
+		}
+	}
+
+	h3 {
+		width: 100%;
+
+		@include mq(md) {
+			width: 59%;
+		}
+	}
+
+	.big-text {
+		bottom: -126px;
+
+		@include mq(sm) {
+			bottom: -95px;
+		}
+
+		@include mq(lg) {
+			bottom: -25px;
+		}
+
+		@include mq(xl) {
+			bottom: -56px;
+		}
+
+		position: absolute;
+		margin: auto;
+		left: 0;
+		right: 0;
+		text-align: center;
+		z-index: -1;
+		font-size: 6em;
+
+		@include mq(sm) {
+			font-size: 9em;
+		}
+
+		@include mq(md) {
+			font-size: 12em;
+		}
+
+		@include mq(lg) {
+			font-size: 14em;
+		}
+
+		@include mq(xl) {
+			font-size: 18em;
+		}
+	}
+
+	.left-image {
+		z-index: -2;
+		background-size: cover;
+
+		@include mq(lg) {
+			height: 22em;
+		}
+
+		@include mq(xl) {
+			background-position: center;
+			height: 28em;
+		}
+	}
+}

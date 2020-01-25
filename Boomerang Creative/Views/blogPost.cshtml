@@ -1,0 +1,71 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.BlogPost>
+@using ContentModels = Umbraco.Web.PublishedModels;
+
+@{
+	Layout = "BlogPostMaster.cshtml";
+	var siblings = @Model.Parent.Children();
+	var count = 0;
+	var skipCount = 0;
+}
+
+@*Storing the number of the next current sibling*@
+
+@foreach (var item in siblings)
+{
+	count++;
+	if (item.Id == Model.Id)
+	{
+		skipCount = count;
+	}
+}
+
+<!-- Simple Banner for the Services Page -->
+<section class="simple-banner-container">
+	<div class="container-fluid full-width-banner"
+		 style="background-image: url(@Model.BlogImage.Src@Model.BlogImage.GetCropUrl("Blog Detail Image")); background-size: cover;">
+	</div>
+</section>
+<!-- / Simple Banner for the Services Page -->
+<!-- Intro section for Blog Post -->
+<section class="blog-post-intro container pb-2">
+	<div class="row text-center">
+		<div class="col-12">
+			<h1 class="black-text museo-sans-500 pt-lg-4">@Model.BlogTitle</h1>
+			<h5 class="lighert-grey-text museo-sans-300">@Model.BlogDate.ToString("dddd, d MMMM yyyy")</h5>
+		</div>
+	</div>
+</section>
+
+<!-- / Intro section for Blog Post -->
+<!-- Pink Grey Testimonial for Blog Post -->
+<section class="blog-post m-4 m-md-4 pt-3">
+	<div class="container p-0 px-md-3">
+		<div class="row">
+			<div class="p-4 pt-5 p-md-5 box-arrow box-arrow--pure-grey col-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8 museo-sans-300 pure-grey-bg black-text text text-left">
+				@Model.BlogText
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Disqus Section -->
+<section class="container py-4">
+	<div class="row">
+		<div id="disqus_thread" class="col-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8"></div>
+	</div>
+</section>
+<!-- / Disqus Section -->
+<!-- Next Project Box -->
+<section class="action-box next-project-box  mb-4 ">
+	<div class="container text-center lighter-grey-text">
+		<p class="museo-sans-300 heading py-3 h4">
+			Next Article
+		</p>
+		<a rel="canonical" href="@(skipCount == @count ? @siblings.Skip(-1).First().Url : @siblings.Skip(skipCount).First().Url)" class="orange-red-text-hover museo-sans-700 h3 no-underline orange-red-text">
+			@(skipCount == @count ? @siblings.Skip(-1).First().Name : @siblings.Skip(skipCount).First().Name)
+		</a>
+	</div>
+</section>
+<!-- / Next Project Box -->
+
+@Html.Partial("ActionBox")

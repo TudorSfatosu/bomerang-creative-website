@@ -1,0 +1,70 @@
+.project-page-testimonial {
+	font-size: 1.25em;
+	padding: 4em 9%;
+
+	@include mq(md) {
+		padding: 5em 10% 2em 10%;
+	}
+
+	@include mq(lg) {
+		font-size: 1.5em;
+		padding: 4em 15%;
+	}
+
+	@include mq(xl) {
+		padding: 5em 21%;
+	}
+
+	.text {
+		padding: 2em;
+
+		@include mq(sm) {
+			padding: 1em 2em;
+		}
+
+		@include mq(md) {
+			padding: 1.5em 3em;
+		}
+
+		@include mq(lg) {
+			padding: 2em 4em;
+		}
+
+		@include mq(xl) {
+			padding: 2em 5em;
+		}
+	}
+
+	.text {
+		text-align: center;
+	}
+
+	p {
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.box-arrow {
+	-webkit-filter: drop-shadow(6px 6px 2px unquote('#2222221c'));
+	filter: drop-shadow(6px 6px 2px unquote('#2222221c'));
+	@include mq(md) {
+		-webkit-filter: drop-shadow(6px 6px 2px unquote('#22222236'));
+		filter: drop-shadow(6px 6px 2px unquote('#22222236'));
+	}
+}
+
+.box-arrow:after {
+	content: "";
+	display: block;
+	border-width: 2.5em 2.5em 0;
+	border-style: solid;
+	margin-left: -2.5em;
+	position: absolute;
+	left: 50%;
+	border-top-color: transparent;
+	top: -2em;
+	bottom: auto;
+	border-top-width: 0;
+	border-bottom-width: 2em;
+}

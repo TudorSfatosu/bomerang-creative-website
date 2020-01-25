@@ -1,0 +1,48 @@
+// Breakpoints mixin
+/// <reference path="../_mixin.scss"/>
+
+@include colorSet(white);
+@include colorSet(black);
+@include colorSet(light-orange);
+@include colorSet(orange1);
+@include colorSet(orange2);
+@include colorSet(orange3);
+@include colorSet(orange5);
+@include colorSet(dark-orange);
+@include colorSet(washed-cherry);
+@include colorSet(red);
+@include colorSet(lightest-grey);
+@include colorSet(light-grey);
+@include colorSet(grey);
+@include colorSet(dark-blue-grey);
+@include colorSet(dark-blue2);
+@include colorSet(blue);
+@include colorSet(light-pink);
+@include colorSet(pink-grey);
+@include colorSet(green);
+@include colorSet(dark-blue);
+@include colorSet(dark-blue3);
+@include colorSet(orange4);
+@include colorSet(dark-orange2);
+@include colorSet(green2);
+@include colorSet(green3);
+@include colorSet(purple);
+@include colorSet(blue2);
+@include colorSet(orange-red);
+@include colorSet(pink);
+@include colorSet(dark-grey);
+@include colorSet(yellow);
+@include colorSet(pure-grey);
+@include colorSet(lighter-grey);
+@include colorSet(orange6);
+@include colorSet(washed-orange);
+@include colorSet(dd-blue);
+@include colorSet(copper);
+
+.pink-grey-bg--top-half {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#eceae6+2,eceae6+50&1+49,1+49,0+50 */
+  background: -moz-linear-gradient(top, rgba(236,234,230,1) 2%, rgba(236,234,230,1) 49%, rgba(236,234,230,0) 50%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(236,234,230,1) 2%,rgba(236,234,230,1) 49%,rgba(236,234,230,0) 50%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(236,234,230,1) 2%,rgba(236,234,230,1) 49%,rgba(236,234,230,0) 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eceae6', endColorstr='#00eceae6',GradientType=0 ); /* IE6-9 */
+}

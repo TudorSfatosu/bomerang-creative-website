@@ -1,0 +1,377 @@
+.grid-container {
+  .row {
+    margin: 0;
+  }
+  .main-text-cont .title {
+    background: none;
+    &:hover {
+      background: none !important;
+    }
+  }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  /* 1/12 */
+  .col-1 {
+    width: 8.25%;
+  }
+  /* 2/12 */
+  .col-2 {
+    width: 16.5%;
+  }
+  /* 3/12 */
+  .col-3 {
+    width: 24.75%;
+  }
+  /* 4/12 */
+  .col-4 {
+    width: 33%
+  }
+  /* 5/12 */
+  .col-5 {
+    width: 41.25%;
+  }
+  /* 6/12 */
+  .col-6 {
+    width: 49.5%;
+  }
+  /* 7/12 */
+  .col-7 {
+    width: 57.75%;
+  }
+  /* 8/12 */
+  .col-8 {
+    width: 66%;
+  }
+  /* 9/12 */
+  .col-9 {
+    width: 74.25%;
+  }
+  /* 10/12 */
+  .col-10 {
+    width: 82.5%;
+  }
+  /* 11/12 */
+  .col-11 {
+    width: 90.75%;
+  }
+  /* 12/12 */
+  .col-12 {
+    width: 99%;
+  }
+  /* viewport <= 1000px */
+  @media screen and (max-width: 1000px) {
+    * {
+      font-size: 1em;
+    }
+  }
+  /* viewport <= 630px */
+  @media screen and (max-width: 630px) {
+    .row div {
+      padding: 1.5%;
+    }
+  }
+  /* viewport <= 500px */
+  @media screen and (max-width: 500px) {
+    * {
+      font-size: 0.9em;
+    }
+  }
+
+  .img-col {
+    background: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    img {
+      width: 100%;
+      height: 100%;
+      //object-fit: contain;
+      object-position: center;
+    }
+  }
+  .masonry {
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .full-width-row {
+    padding: 2em 0;
+    &.compressed {
+      padding: 3% 10%;
+    }
+  }
+
+  .two-on-a-row--pad-for-right {
+    & :nth-child(2n) {
+      img {
+        padding: 5em 8em 5em 5em;
+        @include mq(md) {
+          padding: 5em 2em 5em 5em;
+        }
+        @include mq(lg) {
+          padding: 5em 5em 5em 7em;
+        }
+      }
+    }
+  }
+
+  .two-on-a-row + .two-on-a-row {
+      margin-bottom: 0;
+      @include mq(md) {
+        margin-bottom: 2em;
+      }
+      @include mq(lg) {
+        margin-bottom: 0;
+      }
+  }
+
+  .two-on-a-row {
+    img {
+      object-fit: contain;
+    }
+    &.first-row {
+      padding-top: 2em;
+      @include mq(md) {
+        padding-top: 3em;
+      }
+      @include mq(xl) {
+        padding-top: 4em;
+      }
+    }
+    &.last-row {
+      padding-bottom: 2em;
+      @include mq(md) {
+        padding-bottom: 3em;
+      }
+      @include mq(xl) {
+        padding-bottom: 4em;
+      }
+    }
+    padding: 0 2em;
+    & :nth-child(2n+1) {
+      img {
+        padding: 1em 0;
+        @include mq(md) {
+          padding: 1em 1em 1em 2em;
+        }
+        @include mq(lg) {
+          padding: 1em 1em 1em 5em;
+        }
+        @include mq(xl) {
+          padding: 2em 2em 2em 9em;
+        }
+      }
+    }
+    & :nth-child(2n) {
+      img {
+        padding: 3em 0;
+        @include mq(md) {
+          padding: 1em 2em 1em 1em;
+        }
+        @include mq(lg) {
+          padding: 1em 5em 1em 1em;
+        }
+        @include mq(xl) {
+          padding: 2em 9em 2em 2em;
+        }
+      }
+    }
+
+    &.two-on-a-row--compressed {
+      & :nth-child(2n+1) {
+        img {
+          padding: 0 1em;
+        }
+        @include mq(md) {
+          img {
+            padding: 0 2em 0 7em;
+          }
+        }
+        @include mq(lg) {
+          img {
+            padding: 0 3em 0 14em;
+          }
+        }
+        @include mq(xl) {
+          img {
+            padding: 0 4em 0 20em;
+          }
+        }
+      }
+      & :nth-child(2n) {
+        img {
+          padding: 0 1em;
+        }
+        @include mq(md) {
+          img {
+            padding: 0 7em 0 2em;
+          }
+        }
+        @include mq(lg) {
+          img {
+            padding: 0 14em 0 3em;
+          }
+        }
+        @include mq(xl) {
+          img {
+            padding: 0 20em 0 4em;
+          }
+        }
+      }
+    }
+
+    &.two-on-a-row--compressed-square {
+      & :nth-child(2n+1) {
+        img {
+          padding: 1em 1em;
+        }
+        @include mq(md) {
+          img {
+            padding: 1em 1em 1em 7em;
+          }
+        }
+        @include mq(lg) {
+          img {
+            padding: 1em 1em 1em 14em;
+          }
+        }
+        @include mq(xl) {
+          img {
+            padding: 1em 1em 1em 20em;
+          }
+        }
+      }
+      & :nth-child(2n) {
+        img {
+          padding: 1em 1em;
+        }
+        @include mq(md) {
+          img {
+            padding: 1em 7em 1em 1em;
+          }
+        }
+        @include mq(lg) {
+          img {
+            padding: 1em 14em 1em 1em;
+          }
+        }
+        @include mq(xl) {
+          img {
+            padding: 1em 20em 1em 1em;
+          }
+        }
+      }
+    }
+
+    &.two-on-a-row--relaxed {
+      object-fit: unset;
+      & :nth-child(2n+1) {
+        img {
+          padding: 2em 1em 1em 1em;
+        }
+        @include mq(md) {
+          img {
+            padding: 3em 2em 3em 3em;
+          }
+        }
+        @include mq(lg) {
+          img {
+            padding: 4em 2em 4em 7em;
+          }
+        }
+        @include mq(xl) {
+          img {
+            padding: 6em 2em 6em 10em;
+          }
+        }
+      }
+      & :nth-child(2n) {
+        img {
+          padding: 1em 1em 2em 1em;
+        }
+        @include mq(md) {
+          img {
+            padding: 3em 3em 3em 2em;
+          }
+        }
+        @include mq(lg) {
+          img {
+            padding: 4em 7em 4em 2em;
+          }
+        }
+        @include mq(xl) {
+          img {
+            padding: 6em 10em 6em 2em;
+          }
+        }
+      }
+    }
+
+    &.two-on-a-row--top {
+      img {
+        object-position: top;
+      }
+    }
+    &.two-on-a-row--with-bg {
+      height: 48em;
+      @include mq(sm) {
+        height: 58em;
+      }
+      @include mq(md) {
+        height: 20em;
+      }
+      @include mq(lg) {
+        height: 23em;
+      }
+      @include mq(xl) {
+        height: 37em;
+      }
+    }
+  }
+  .three-on-a-row {
+    img {
+      padding: 1em 2em;
+      @include mq(sm) {
+        padding: 2em;
+      }
+      @include mq(md) {
+        padding: 2em 1em;
+      }
+      @include mq(lg) {
+        padding: 2em 1.5em;
+      }
+      @include mq(xl) {
+        padding: 5em 2em;
+      }
+    }
+  }
+  .full-width-with-bg {
+    img {
+      width: 90%;
+      margin: 0 5%;
+      padding: 2em 0 1em 0;
+      @include mq(sm) {
+        width: 80%;
+        margin: 0 10%;
+        padding: 3em 0 0 0;
+      }
+      @include mq(xl) {
+        padding: 5em 0 4em 0;
+      }
+    }
+    &.squeezed {
+      img {
+        width: 80%;
+        margin: 0 10%;
+        padding: 2em 0 3em 0;
+        @include mq(md) {
+          width: 60%;
+          margin: 0 20%;
+          padding: 2em 0 3em 0;
+        }
+      }
+    }
+  }
+}

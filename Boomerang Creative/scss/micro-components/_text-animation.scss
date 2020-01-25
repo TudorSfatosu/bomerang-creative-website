@@ -1,0 +1,1124 @@
+// Fill Text Effect On Hover - CSS3
+/* From https://codepen.io/sumanengbd/pen/gRjEYM by Suman Ali*/
+@include mq(xl) {
+	.fill-text-effect {
+		left: 50%;
+		position: absolute;
+		transform: translate(-50%, -50%);
+
+		&:before {
+			top: 0;
+			left: 0;
+			width: 0;
+			color: $orange2;
+			overflow: hidden;
+			position: absolute;
+			content: attr(data-text);
+			transition: all 1.2s;
+		}
+
+		&:hover {
+
+			&:before {
+				width: 100%;
+			}
+		}
+	}
+
+	.simple-banner-container {
+		.fill-text-effect {
+			top: 1.1em;
+		}
+
+		div.first-line {
+			margin-bottom: 5em !important;
+		}
+
+		div.second-line {
+			margin-bottom: 4em !important;
+		}
+	}
+}
+
+// Colorful Rainbow Text Animation
+//From https://codepen.io/joashp/pen/dYXNwj
+
+.color-text-flow,
+.color-text-flow-hover:hover {
+	/*
+   * Elements settings
+   */
+}
+
+.color-text-flow span,
+.color-text-flow-hover:hover span {
+	-webkit-animation-name: color-text-flow-keys;
+	animation-name: color-text-flow-keys;
+	-webkit-animation-duration: 20s;
+	animation-duration: 20s;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes color-text-flow-keys {
+	0% {
+		color: $yellow;
+	}
+
+	5% {
+		color: $orange1;
+	}
+
+	10% {
+		color: $orange2;
+	}
+
+	15.0% {
+		color: $orange3;
+	}
+
+	20% {
+		color: $orange4;
+	}
+
+	25% {
+		color: $orange5;
+	}
+
+	30.0% {
+		color: $dark-orange;
+	}
+
+	35% {
+		color: $dark-orange2;
+	}
+
+	40% {
+		color: $orange-red;
+	}
+
+	45% {
+		color: $orange-red;
+	}
+
+	50% {
+		color: $orange1;
+	}
+
+	55.0% {
+		color: $orange2;
+	}
+
+	60.0% {
+		color: $orange3;
+	}
+
+	65% {
+		color: $orange4;
+	}
+
+	70% {
+		color: $dark-orange;
+	}
+
+	75% {
+		color: $dark-orange2;
+	}
+
+	80% {
+		color: $orange-red;
+	}
+
+	85.0% {
+		color: $orange-red;
+	}
+
+	90% {
+		color: $dark-orange2;
+	}
+
+	95% {
+		color: $dark-orange;
+	}
+
+	100% {
+		color: $orange4;
+	}
+}
+
+@keyframes color-text-flow-keys {
+	0% {
+		color: $yellow;
+	}
+
+	5% {
+		color: $orange1;
+	}
+
+	10% {
+		color: $orange2;
+	}
+
+	15.0% {
+		color: $orange3;
+	}
+
+	20% {
+		color: $orange4;
+	}
+
+	25% {
+		color: $orange5;
+	}
+
+	30.0% {
+		color: $dark-orange;
+	}
+
+	35% {
+		color: $dark-orange2;
+	}
+
+	40% {
+		color: $orange-red;
+	}
+
+	45% {
+		color: $orange-red;
+	}
+
+	50% {
+		color: $orange1;
+	}
+
+	55.0% {
+		color: $orange2;
+	}
+
+	60.0% {
+		color: $orange3;
+	}
+
+	65% {
+		color: $orange4;
+	}
+
+	70% {
+		color: $dark-orange;
+	}
+
+	75% {
+		color: $dark-orange2;
+	}
+
+	80% {
+		color: $orange-red;
+	}
+
+	85.0% {
+		color: $orange-red;
+	}
+
+	90% {
+		color: $dark-orange2;
+	}
+
+	95% {
+		color: $dark-orange;
+	}
+
+	100% {
+		color: $orange4;
+	}
+}
+
+.color-text-flow span:nth-of-type(1),
+.color-text-flow-hover:hover span:nth-of-type(1) {
+	-webkit-animation-delay: -19.8s;
+	animation-delay: -19.8s;
+}
+
+.color-text-flow span:nth-of-type(2),
+.color-text-flow-hover:hover span:nth-of-type(2) {
+	-webkit-animation-delay: -19.6s;
+	animation-delay: -19.6s;
+}
+
+.color-text-flow span:nth-of-type(3),
+.color-text-flow-hover:hover span:nth-of-type(3) {
+	-webkit-animation-delay: -19.4s;
+	animation-delay: -19.4s;
+}
+
+.color-text-flow span:nth-of-type(4),
+.color-text-flow-hover:hover span:nth-of-type(4) {
+	-webkit-animation-delay: -19.2s;
+	animation-delay: -19.2s;
+}
+
+.color-text-flow span:nth-of-type(5),
+.color-text-flow-hover:hover span:nth-of-type(5) {
+	-webkit-animation-delay: -19s;
+	animation-delay: -19s;
+}
+
+.color-text-flow span:nth-of-type(6),
+.color-text-flow-hover:hover span:nth-of-type(6) {
+	-webkit-animation-delay: -18.8s;
+	animation-delay: -18.8s;
+}
+
+.color-text-flow span:nth-of-type(7),
+.color-text-flow-hover:hover span:nth-of-type(7) {
+	-webkit-animation-delay: -18.6s;
+	animation-delay: -18.6s;
+}
+
+.color-text-flow span:nth-of-type(8),
+.color-text-flow-hover:hover span:nth-of-type(8) {
+	-webkit-animation-delay: -18.4s;
+	animation-delay: -18.4s;
+}
+
+.color-text-flow span:nth-of-type(9),
+.color-text-flow-hover:hover span:nth-of-type(9) {
+	-webkit-animation-delay: -18.2s;
+	animation-delay: -18.2s;
+}
+
+.color-text-flow span:nth-of-type(10),
+.color-text-flow-hover:hover span:nth-of-type(10) {
+	-webkit-animation-delay: -18s;
+	animation-delay: -18s;
+}
+
+.color-text-flow span:nth-of-type(11),
+.color-text-flow-hover:hover span:nth-of-type(11) {
+	-webkit-animation-delay: -17.8s;
+	animation-delay: -17.8s;
+}
+
+.color-text-flow span:nth-of-type(12),
+.color-text-flow-hover:hover span:nth-of-type(12) {
+	-webkit-animation-delay: -17.6s;
+	animation-delay: -17.6s;
+}
+
+.color-text-flow span:nth-of-type(13),
+.color-text-flow-hover:hover span:nth-of-type(13) {
+	-webkit-animation-delay: -17.4s;
+	animation-delay: -17.4s;
+}
+
+.color-text-flow span:nth-of-type(14),
+.color-text-flow-hover:hover span:nth-of-type(14) {
+	-webkit-animation-delay: -17.2s;
+	animation-delay: -17.2s;
+}
+
+.color-text-flow span:nth-of-type(15),
+.color-text-flow-hover:hover span:nth-of-type(15) {
+	-webkit-animation-delay: -17s;
+	animation-delay: -17s;
+}
+
+.color-text-flow span:nth-of-type(16),
+.color-text-flow-hover:hover span:nth-of-type(16) {
+	-webkit-animation-delay: -16.8s;
+	animation-delay: -16.8s;
+}
+
+.color-text-flow span:nth-of-type(17),
+.color-text-flow-hover:hover span:nth-of-type(17) {
+	-webkit-animation-delay: -16.6s;
+	animation-delay: -16.6s;
+}
+
+.color-text-flow span:nth-of-type(18),
+.color-text-flow-hover:hover span:nth-of-type(18) {
+	-webkit-animation-delay: -16.4s;
+	animation-delay: -16.4s;
+}
+
+.color-text-flow span:nth-of-type(19),
+.color-text-flow-hover:hover span:nth-of-type(19) {
+	-webkit-animation-delay: -16.2s;
+	animation-delay: -16.2s;
+}
+
+.color-text-flow span:nth-of-type(20),
+.color-text-flow-hover:hover span:nth-of-type(20) {
+	-webkit-animation-delay: -16s;
+	animation-delay: -16s;
+}
+
+.color-text-flow span:nth-of-type(21),
+.color-text-flow-hover:hover span:nth-of-type(21) {
+	-webkit-animation-delay: -15.8s;
+	animation-delay: -15.8s;
+}
+
+.color-text-flow span:nth-of-type(22),
+.color-text-flow-hover:hover span:nth-of-type(22) {
+	-webkit-animation-delay: -15.6s;
+	animation-delay: -15.6s;
+}
+
+.color-text-flow span:nth-of-type(23),
+.color-text-flow-hover:hover span:nth-of-type(23) {
+	-webkit-animation-delay: -15.4s;
+	animation-delay: -15.4s;
+}
+
+.color-text-flow span:nth-of-type(24),
+.color-text-flow-hover:hover span:nth-of-type(24) {
+	-webkit-animation-delay: -15.2s;
+	animation-delay: -15.2s;
+}
+
+.color-text-flow span:nth-of-type(25),
+.color-text-flow-hover:hover span:nth-of-type(25) {
+	-webkit-animation-delay: -15s;
+	animation-delay: -15s;
+}
+
+.color-text-flow span:nth-of-type(26),
+.color-text-flow-hover:hover span:nth-of-type(26) {
+	-webkit-animation-delay: -14.8s;
+	animation-delay: -14.8s;
+}
+
+.color-text-flow span:nth-of-type(27),
+.color-text-flow-hover:hover span:nth-of-type(27) {
+	-webkit-animation-delay: -14.6s;
+	animation-delay: -14.6s;
+}
+
+.color-text-flow span:nth-of-type(28),
+.color-text-flow-hover:hover span:nth-of-type(28) {
+	-webkit-animation-delay: -14.4s;
+	animation-delay: -14.4s;
+}
+
+.color-text-flow span:nth-of-type(29),
+.color-text-flow-hover:hover span:nth-of-type(29) {
+	-webkit-animation-delay: -14.2s;
+	animation-delay: -14.2s;
+}
+
+.color-text-flow span:nth-of-type(30),
+.color-text-flow-hover:hover span:nth-of-type(30) {
+	-webkit-animation-delay: -14s;
+	animation-delay: -14s;
+}
+
+.color-text-flow span:nth-of-type(31),
+.color-text-flow-hover:hover span:nth-of-type(31) {
+	-webkit-animation-delay: -13.8s;
+	animation-delay: -13.8s;
+}
+
+.color-text-flow span:nth-of-type(32),
+.color-text-flow-hover:hover span:nth-of-type(32) {
+	-webkit-animation-delay: -13.6s;
+	animation-delay: -13.6s;
+}
+
+.color-text-flow span:nth-of-type(33),
+.color-text-flow-hover:hover span:nth-of-type(33) {
+	-webkit-animation-delay: -13.4s;
+	animation-delay: -13.4s;
+}
+
+.color-text-flow span:nth-of-type(34),
+.color-text-flow-hover:hover span:nth-of-type(34) {
+	-webkit-animation-delay: -13.2s;
+	animation-delay: -13.2s;
+}
+
+.color-text-flow span:nth-of-type(35),
+.color-text-flow-hover:hover span:nth-of-type(35) {
+	-webkit-animation-delay: -13s;
+	animation-delay: -13s;
+}
+
+.color-text-flow span:nth-of-type(36),
+.color-text-flow-hover:hover span:nth-of-type(36) {
+	-webkit-animation-delay: -12.8s;
+	animation-delay: -12.8s;
+}
+
+.color-text-flow span:nth-of-type(37),
+.color-text-flow-hover:hover span:nth-of-type(37) {
+	-webkit-animation-delay: -12.6s;
+	animation-delay: -12.6s;
+}
+
+.color-text-flow span:nth-of-type(38),
+.color-text-flow-hover:hover span:nth-of-type(38) {
+	-webkit-animation-delay: -12.4s;
+	animation-delay: -12.4s;
+}
+
+.color-text-flow span:nth-of-type(39),
+.color-text-flow-hover:hover span:nth-of-type(39) {
+	-webkit-animation-delay: -12.2s;
+	animation-delay: -12.2s;
+}
+
+.color-text-flow span:nth-of-type(40),
+.color-text-flow-hover:hover span:nth-of-type(40) {
+	-webkit-animation-delay: -12s;
+	animation-delay: -12s;
+}
+
+.color-text-flow span:nth-of-type(41),
+.color-text-flow-hover:hover span:nth-of-type(41) {
+	-webkit-animation-delay: -11.8s;
+	animation-delay: -11.8s;
+}
+
+.color-text-flow span:nth-of-type(42),
+.color-text-flow-hover:hover span:nth-of-type(42) {
+	-webkit-animation-delay: -11.6s;
+	animation-delay: -11.6s;
+}
+
+.color-text-flow span:nth-of-type(43),
+.color-text-flow-hover:hover span:nth-of-type(43) {
+	-webkit-animation-delay: -11.4s;
+	animation-delay: -11.4s;
+}
+
+.color-text-flow span:nth-of-type(44),
+.color-text-flow-hover:hover span:nth-of-type(44) {
+	-webkit-animation-delay: -11.2s;
+	animation-delay: -11.2s;
+}
+
+.color-text-flow span:nth-of-type(45),
+.color-text-flow-hover:hover span:nth-of-type(45) {
+	-webkit-animation-delay: -11s;
+	animation-delay: -11s;
+}
+
+.color-text-flow span:nth-of-type(46),
+.color-text-flow-hover:hover span:nth-of-type(46) {
+	-webkit-animation-delay: -10.8s;
+	animation-delay: -10.8s;
+}
+
+.color-text-flow span:nth-of-type(47),
+.color-text-flow-hover:hover span:nth-of-type(47) {
+	-webkit-animation-delay: -10.6s;
+	animation-delay: -10.6s;
+}
+
+.color-text-flow span:nth-of-type(48),
+.color-text-flow-hover:hover span:nth-of-type(48) {
+	-webkit-animation-delay: -10.4s;
+	animation-delay: -10.4s;
+}
+
+.color-text-flow span:nth-of-type(49),
+.color-text-flow-hover:hover span:nth-of-type(49) {
+	-webkit-animation-delay: -10.2s;
+	animation-delay: -10.2s;
+}
+
+.color-text-flow span:nth-of-type(50),
+.color-text-flow-hover:hover span:nth-of-type(50) {
+	-webkit-animation-delay: -10s;
+	animation-delay: -10s;
+}
+
+.color-text-flow span:nth-of-type(51),
+.color-text-flow-hover:hover span:nth-of-type(51) {
+	-webkit-animation-delay: -9.8s;
+	animation-delay: -9.8s;
+}
+
+.color-text-flow span:nth-of-type(52),
+.color-text-flow-hover:hover span:nth-of-type(52) {
+	-webkit-animation-delay: -9.6s;
+	animation-delay: -9.6s;
+}
+
+.color-text-flow span:nth-of-type(53),
+.color-text-flow-hover:hover span:nth-of-type(53) {
+	-webkit-animation-delay: -9.4s;
+	animation-delay: -9.4s;
+}
+
+.color-text-flow span:nth-of-type(54),
+.color-text-flow-hover:hover span:nth-of-type(54) {
+	-webkit-animation-delay: -9.2s;
+	animation-delay: -9.2s;
+}
+
+.color-text-flow span:nth-of-type(55),
+.color-text-flow-hover:hover span:nth-of-type(55) {
+	-webkit-animation-delay: -9s;
+	animation-delay: -9s;
+}
+
+.color-text-flow span:nth-of-type(56),
+.color-text-flow-hover:hover span:nth-of-type(56) {
+	-webkit-animation-delay: -8.8s;
+	animation-delay: -8.8s;
+}
+
+.color-text-flow span:nth-of-type(57),
+.color-text-flow-hover:hover span:nth-of-type(57) {
+	-webkit-animation-delay: -8.6s;
+	animation-delay: -8.6s;
+}
+
+.color-text-flow span:nth-of-type(58),
+.color-text-flow-hover:hover span:nth-of-type(58) {
+	-webkit-animation-delay: -8.4s;
+	animation-delay: -8.4s;
+}
+
+.color-text-flow span:nth-of-type(59),
+.color-text-flow-hover:hover span:nth-of-type(59) {
+	-webkit-animation-delay: -8.2s;
+	animation-delay: -8.2s;
+}
+
+.color-text-flow span:nth-of-type(60),
+.color-text-flow-hover:hover span:nth-of-type(60) {
+	-webkit-animation-delay: -8s;
+	animation-delay: -8s;
+}
+
+.color-text-flow span:nth-of-type(61),
+.color-text-flow-hover:hover span:nth-of-type(61) {
+	-webkit-animation-delay: -7.8s;
+	animation-delay: -7.8s;
+}
+
+.color-text-flow span:nth-of-type(62),
+.color-text-flow-hover:hover span:nth-of-type(62) {
+	-webkit-animation-delay: -7.6s;
+	animation-delay: -7.6s;
+}
+
+.color-text-flow span:nth-of-type(63),
+.color-text-flow-hover:hover span:nth-of-type(63) {
+	-webkit-animation-delay: -7.4s;
+	animation-delay: -7.4s;
+}
+
+.color-text-flow span:nth-of-type(64),
+.color-text-flow-hover:hover span:nth-of-type(64) {
+	-webkit-animation-delay: -7.2s;
+	animation-delay: -7.2s;
+}
+
+.color-text-flow span:nth-of-type(65),
+.color-text-flow-hover:hover span:nth-of-type(65) {
+	-webkit-animation-delay: -7s;
+	animation-delay: -7s;
+}
+
+.color-text-flow span:nth-of-type(66),
+.color-text-flow-hover:hover span:nth-of-type(66) {
+	-webkit-animation-delay: -6.8s;
+	animation-delay: -6.8s;
+}
+
+.color-text-flow span:nth-of-type(67),
+.color-text-flow-hover:hover span:nth-of-type(67) {
+	-webkit-animation-delay: -6.6s;
+	animation-delay: -6.6s;
+}
+
+.color-text-flow span:nth-of-type(68),
+.color-text-flow-hover:hover span:nth-of-type(68) {
+	-webkit-animation-delay: -6.4s;
+	animation-delay: -6.4s;
+}
+
+.color-text-flow span:nth-of-type(69),
+.color-text-flow-hover:hover span:nth-of-type(69) {
+	-webkit-animation-delay: -6.2s;
+	animation-delay: -6.2s;
+}
+
+.color-text-flow span:nth-of-type(70),
+.color-text-flow-hover:hover span:nth-of-type(70) {
+	-webkit-animation-delay: -6s;
+	animation-delay: -6s;
+}
+
+.color-text-flow span:nth-of-type(71),
+.color-text-flow-hover:hover span:nth-of-type(71) {
+	-webkit-animation-delay: -5.8s;
+	animation-delay: -5.8s;
+}
+
+.color-text-flow span:nth-of-type(72),
+.color-text-flow-hover:hover span:nth-of-type(72) {
+	-webkit-animation-delay: -5.6s;
+	animation-delay: -5.6s;
+}
+
+.color-text-flow span:nth-of-type(73),
+.color-text-flow-hover:hover span:nth-of-type(73) {
+	-webkit-animation-delay: -5.4s;
+	animation-delay: -5.4s;
+}
+
+.color-text-flow span:nth-of-type(74),
+.color-text-flow-hover:hover span:nth-of-type(74) {
+	-webkit-animation-delay: -5.2s;
+	animation-delay: -5.2s;
+}
+
+.color-text-flow span:nth-of-type(75),
+.color-text-flow-hover:hover span:nth-of-type(75) {
+	-webkit-animation-delay: -5s;
+	animation-delay: -5s;
+}
+
+.color-text-flow span:nth-of-type(76),
+.color-text-flow-hover:hover span:nth-of-type(76) {
+	-webkit-animation-delay: -4.8s;
+	animation-delay: -4.8s;
+}
+
+.color-text-flow span:nth-of-type(77),
+.color-text-flow-hover:hover span:nth-of-type(77) {
+	-webkit-animation-delay: -4.6s;
+	animation-delay: -4.6s;
+}
+
+.color-text-flow span:nth-of-type(78),
+.color-text-flow-hover:hover span:nth-of-type(78) {
+	-webkit-animation-delay: -4.4s;
+	animation-delay: -4.4s;
+}
+
+.color-text-flow span:nth-of-type(79),
+.color-text-flow-hover:hover span:nth-of-type(79) {
+	-webkit-animation-delay: -4.2s;
+	animation-delay: -4.2s;
+}
+
+.color-text-flow span:nth-of-type(80),
+.color-text-flow-hover:hover span:nth-of-type(80) {
+	-webkit-animation-delay: -4s;
+	animation-delay: -4s;
+}
+
+.color-text-flow span:nth-of-type(81),
+.color-text-flow-hover:hover span:nth-of-type(81) {
+	-webkit-animation-delay: -3.8s;
+	animation-delay: -3.8s;
+}
+
+.color-text-flow span:nth-of-type(82),
+.color-text-flow-hover:hover span:nth-of-type(82) {
+	-webkit-animation-delay: -3.6s;
+	animation-delay: -3.6s;
+}
+
+.color-text-flow span:nth-of-type(83),
+.color-text-flow-hover:hover span:nth-of-type(83) {
+	-webkit-animation-delay: -3.4s;
+	animation-delay: -3.4s;
+}
+
+.color-text-flow span:nth-of-type(84),
+.color-text-flow-hover:hover span:nth-of-type(84) {
+	-webkit-animation-delay: -3.2s;
+	animation-delay: -3.2s;
+}
+
+.color-text-flow span:nth-of-type(85),
+.color-text-flow-hover:hover span:nth-of-type(85) {
+	-webkit-animation-delay: -3s;
+	animation-delay: -3s;
+}
+
+.color-text-flow span:nth-of-type(86),
+.color-text-flow-hover:hover span:nth-of-type(86) {
+	-webkit-animation-delay: -2.8s;
+	animation-delay: -2.8s;
+}
+
+.color-text-flow span:nth-of-type(87),
+.color-text-flow-hover:hover span:nth-of-type(87) {
+	-webkit-animation-delay: -2.6s;
+	animation-delay: -2.6s;
+}
+
+.color-text-flow span:nth-of-type(88),
+.color-text-flow-hover:hover span:nth-of-type(88) {
+	-webkit-animation-delay: -2.4s;
+	animation-delay: -2.4s;
+}
+
+.color-text-flow span:nth-of-type(89),
+.color-text-flow-hover:hover span:nth-of-type(89) {
+	-webkit-animation-delay: -2.2s;
+	animation-delay: -2.2s;
+}
+
+.color-text-flow span:nth-of-type(90),
+.color-text-flow-hover:hover span:nth-of-type(90) {
+	-webkit-animation-delay: -2s;
+	animation-delay: -2s;
+}
+
+.color-text-flow span:nth-of-type(91),
+.color-text-flow-hover:hover span:nth-of-type(91) {
+	-webkit-animation-delay: -1.8s;
+	animation-delay: -1.8s;
+}
+
+.color-text-flow span:nth-of-type(92),
+.color-text-flow-hover:hover span:nth-of-type(92) {
+	-webkit-animation-delay: -1.6s;
+	animation-delay: -1.6s;
+}
+
+.color-text-flow span:nth-of-type(93),
+.color-text-flow-hover:hover span:nth-of-type(93) {
+	-webkit-animation-delay: -1.4s;
+	animation-delay: -1.4s;
+}
+
+.color-text-flow span:nth-of-type(94),
+.color-text-flow-hover:hover span:nth-of-type(94) {
+	-webkit-animation-delay: -1.2s;
+	animation-delay: -1.2s;
+}
+
+.color-text-flow span:nth-of-type(95),
+.color-text-flow-hover:hover span:nth-of-type(95) {
+	-webkit-animation-delay: -1s;
+	animation-delay: -1s;
+}
+
+.color-text-flow span:nth-of-type(96),
+.color-text-flow-hover:hover span:nth-of-type(96) {
+	-webkit-animation-delay: -0.8s;
+	animation-delay: -0.8s;
+}
+
+.color-text-flow span:nth-of-type(97),
+.color-text-flow-hover:hover span:nth-of-type(97) {
+	-webkit-animation-delay: -0.6s;
+	animation-delay: -0.6s;
+}
+
+.color-text-flow span:nth-of-type(98),
+.color-text-flow-hover:hover span:nth-of-type(98) {
+	-webkit-animation-delay: -0.4s;
+	animation-delay: -0.4s;
+}
+
+.color-text-flow span:nth-of-type(99),
+.color-text-flow-hover:hover span:nth-of-type(99) {
+	-webkit-animation-delay: -0.2s;
+	animation-delay: -0.2s;
+}
+
+.color-text-flow span:nth-of-type(100),
+.color-text-flow-hover:hover span:nth-of-type(100) {
+	-webkit-animation-delay: 0s;
+	animation-delay: 0s;
+}
+
+//How to Create (Animated) Text Fills with various techniques including SVG masks, gradients and box-shadows
+//[Article on Codrops](http://tympanus.net/codrops/?p=23145)
+//[Demo](http://tympanus.net/Tutorials/AnimatedTextFills)
+
+.text--transparent {
+	fill: transparent;
+}
+
+.anim-shape {
+	-webkit-transform-origin: 0x 150px;
+	transform-origin: 0x 150px;
+	-webkit-transform: scale(0, 1) translate(0, 0);
+	transform: scale(0, 1) translate(0, 0);
+	-webkit-animation: moving-panel 3s infinite alternate;
+	animation: moving-panel 3s infinite alternate;
+}
+
+.colortext .anim-shape:nth-child(1) {
+	fill: #fff;
+}
+
+.colortext .anim-shape:nth-child(2) {
+	fill: #FBCA05;
+}
+
+.colortext .anim-shape:nth-child(3) {
+	fill: #F39D3A;
+}
+
+.colortext .anim-shape:nth-child(4) {
+	fill: #F39710;
+}
+
+.colortext .anim-shape:nth-child(5) {
+	fill: #F4A23E;
+}
+
+.anim-shape--shadow {
+	fill: #000;
+	fill-opacity: 0.2;
+}
+
+@-webkit-keyframes moving-panel {
+	100% {
+		-webkit-transform: scale(1, 1) translate(20px, 0);
+		transform: scale(1, 1) translate(20px, 0);
+	}
+}
+
+@keyframes moving-panel {
+	100% {
+		-webkit-transform: scale(1, 1) translate(20px, 0);
+		transform: scale(1, 1) translate(20px, 0);
+	}
+}
+
+.text-fill-content {
+	position: absolute;
+	z-index: 99999;
+	width: 100%;
+	top: 10em;
+
+	svg {
+		width: 65%;
+		margin: 0 auto 50px;
+		display: block;
+		text-transform: uppercase;
+
+		text {
+			font-size: 22em;
+			text-transform: lowercase;
+		}
+	}
+}
+
+.fade-in-mouse-move {
+	opacity: 1;
+}
+
+@include mq(md) {
+	.fade-in-mouse-move {
+		opacity: 0.2;
+	}
+}
+
+// strikethrough hover animation from https://codepen.io/clarewhatever/pen/JXOQxK
+
+.hover-strikethrough {
+	&:hover {
+		color: $white !important;
+	}
+}
+
+@include mq(md) {
+
+	.hover-strikethrough {
+		text-decoration: none;
+		position: relative;
+
+		&::before,
+		&::after {
+			content: '';
+			background: white;
+			position: absolute;
+			top: 78%;
+			height: 7px;
+			width: 0;
+		}
+
+		&::before {
+			left: 0;
+		}
+
+		&::after {
+			right: 0;
+			transition: width 500ms ease;
+		}
+
+		&:hover {
+			color: $white !important;
+
+			&::before {
+				width: 100%;
+				transition: width 500ms ease;
+			}
+
+			&::after {
+				width: 100%;
+				background: transparent;
+				transition: 0;
+			}
+		}
+	}
+}
+
+
+.neon-container {
+	position: absolute;
+	top: 4em;
+	right: 7%;
+	.big-text {
+		width: 53em;
+	}
+
+	.decoration {
+		width: 14em;
+		margin-left: -12.5em;
+		margin-top: 4em;
+	}
+
+	.small-text-container {
+		position: absolute;
+		right: 14.5em;
+		top: 15.5em;
+
+		img {
+			margin-right: -6.5em;
+		}
+
+		.small-text-1 {
+			height: 8.25em;
+		}
+
+		.small-text-2 {
+			height: 7.25em;
+		}
+	}
+}
+
+
+.glow {
+	-webkit-filter: drop-shadow(12px 12px 7px rgba(249, 45, 45, 0.76));
+	-webkit-transition: -webkit-filter 500ms linear;
+	/* filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5)); */
+}
+
+// Neon text animation
+.neon {
+}
+
+@each $color-name, $color-code in $neon-collection {
+	.neon-#{$color-name} {
+		color: $color-code;
+		text-shadow: 1px 0px 4px lighten($color-code, 20%), 2px 0px 4px lighten($color-code, 20%), 3px 0px 4px lighten($color-code, 20%), 2px 0px 3px $color-code, 2px 3px 15px $color-code, 2px 0px 15px, 5px 0px 125px, 20px 0vw 200px $color-code,40px 0vw 200px $color-code;
+	}
+}
+
+@keyframes flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+		//text-shadow: none;
+		opacity: .99;
+	}
+
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+	}
+}
+
+
+@keyframes pink-flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+		//text-shadow: none;
+		opacity: .99;
+		filter: drop-shadow(8px 2px 65px rgb(171, 62, 131));
+		-webkit-filter: drop-shadow(8px 2px 65px rgb(171, 62, 131));
+	}
+
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+		filter: drop-shadow(0px 0px 0px rgba(171, 62, 131, 0));
+		-webkit-filter: drop-shadow(0px 0px 0px rgba(171, 62, 131, 0));
+	}
+}
+
+@keyframes blue-flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+		//text-shadow: none;
+		opacity: .99;
+		filter: drop-shadow(2px 2px 27px #66a0ce);
+		-webkit-filter: drop-shadow(2px 2px 27px #66a0ce);
+	}
+
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+		filter: drop-shadow(0px 0px 0px unquote('#66a0ce00'));
+		-webkit-filter: drop-shadow(0px 0px 0px unquote('#66a0ce00'));
+	}
+}
+
+// Neon image animation
+@each $color-name, $color-code in $neon-collection {
+	.slow-neon-#{$color-name}-image-flicker {
+		-webkit-animation: #{$color-name}-flicker-filter 3s infinite;
+	}
+
+	.fast-neon-#{$color-name}-image-flicker {
+		-webkit-animation: #{$color-name}-flicker-filter 1s infinite;
+	}
+}
+
+@each $color-name, $color-code in $neon-collection {
+	@keyframes #{$color-name}-flicker-filter {
+		0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+			-webkit-filter: drop-shadow(2px 2px 7px rgba($color-code, 0.76));
+		}
+
+		20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+			-webkit-filter: drop-shadow(2px 2px 1px rgba($color-code, 0.76));
+		}
+	}
+}
+
+.pink-glow {
+	filter: drop-shadow(8px 2px 35px rgba(171, 62, 131, 0.57));
+	-webkit-filter: drop-shadow(8px 2px 35px rgba(171, 62, 131, 0.57));
+}
+
+.blue-glow {
+	filter: drop-shadow(2px 2px 27px #66a0ce);
+	-webkit-filter: drop-shadow(2px 2px 27px #66a0ce);
+}
+
+
+.flicker-slow {
+	animation: flicker 3s linear infinite;
+}
+
+.flicker-fast {
+	animation: flicker 1s linear infinite;
+}
+
+.pink-flicker-slow {
+	animation: pink-flicker 3s linear infinite;
+}
+
+.pink-flicker-fast {
+	animation: pink-flicker 1s linear infinite;
+}
+
+.blue-flicker-slow {
+	animation: blue-flicker 3s linear infinite;
+}
+
+.blue-flicker-fast {
+	animation: blue-flicker 1s linear infinite;
+}
